@@ -1,6 +1,15 @@
-.overlap {
+img {
   z-index: 1;
+  float: bottom;
+  align-self: flex-end;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  /* background: #F5F5F5 url('./img/dracula-castles.png') no-repeat bottom right; */
+
 }
+
+
 
 .grid {
   display: grid;
