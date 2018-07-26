@@ -12,9 +12,10 @@ class App extends Component {
       <div className="App">
 
       <div className="grid">
-      <div className="item-1">
+      <div className="item item-1">
       <h1>My favourite places in Romania</h1>
       </div>
+
       <MapContainer />
       </div>
 
@@ -33,3 +34,9 @@ class App extends Component {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyB801YN2M2Gi-1YS0BFpSuiMzwgBka2KC4'
 })(App)
+
+
+// <div class="item item-1">1</div>
+// <div class="item item-2">2</div>
+// <div class="item item-3">3</div>
+// <div class="item item-4">4</div>

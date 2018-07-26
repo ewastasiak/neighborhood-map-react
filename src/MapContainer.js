@@ -17,7 +17,7 @@ export class MapContainer extends Component {
     return (
 
       <Map
-      className="item-2"
+      className="item item-2"
         google={this.props.google}
         initialCenter={{
           lat: 45.798327,
@@ -32,7 +32,7 @@ export class MapContainer extends Component {
 
         </InfoWindow>
       </Map>
-      
+
     );
   }
 }
