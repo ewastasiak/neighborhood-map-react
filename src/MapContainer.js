@@ -12,17 +12,24 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 // </div>
 // }
 
-export class MapContainer extends React.Component {
-    render() {
-      return (
-      <div>
-  <Map />
-  </div>
-);
+export class MapContainer extends Component {
+  render() {
+    return (
+      <Map google={this.props.google} zoom={14}>
+
+        <Marker onClick={this.onMarkerClick}
+                name={'Current location'} />
+
+        <InfoWindow onClose={this.onInfoWindowClose}>
+
+        </InfoWindow>
+      </Map>
+    );
   }
-
 }
-
+// <div>
+//   <h1>{this.state.selectedPlace.name}</h1>
+// </div>
 export default GoogleApiWrapper({
 
   // apiKey: 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo'
