@@ -11,12 +11,15 @@ class App extends Component {
     return (
       <div className="App">
 
-      <div>
+      <div className="grid">
+      <div className="item-1">
       <h1>My favourite places in Romania</h1>
+      </div>
+      <MapContainer />
       </div>
 
 
-      <MapContainer />
+
       <SearchList />
 
       <Info />
