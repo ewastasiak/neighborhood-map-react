@@ -27,7 +27,7 @@ export class MapContainer extends Component {
 
         <Marker onClick={this.onMarkerClick}
                 name={'Current location'} />
-<img src={ require('./img/dracula-castles.png') } />
+<img className="pb" src={ require('./img/dracula-castles.png') } />
         <InfoWindow onClose={this.onInfoWindowClose}>
 
         </InfoWindow>
