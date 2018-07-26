@@ -10,6 +10,24 @@
 }
 
 
+/* Override Google Map Styles */
+.gm-err-container {
+  background-color: black;
+}
+.gm-err-content {
+
+}
+.gm-err-title {
+  color: orange;
+}
+
+.gm-err-message {
+  color: orange;
+}
+
+.gm-err-icon {
+
+}
 
 .grid {
   display: grid;
