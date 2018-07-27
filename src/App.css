@@ -1,6 +1,6 @@
 h1 {
   font-family: 'Carrois Gothic SC', sans-serif;
-  color: #f80;
+  color: #e93;
   font-size: 2em;
 }
 
@@ -83,7 +83,7 @@ h1 {
 
 
 .App {
-  background-color: grey;
+  background-color: #e93;
   /* height: 100vh; */
 }
 
