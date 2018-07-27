@@ -12,7 +12,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 // </div>
 // }
 
-// Map styling: https://snazzymaps.com/style/30/cobalt
+// Map style: https://snazzymaps.com/style/30/cobalt
 export class MapContainer extends Component {
   render() {
     return (
@@ -21,10 +21,15 @@ export class MapContainer extends Component {
       className="item item-2"
         google={this.props.google}
         initialCenter={{
-          lat: 45.798327,
-          lng: 24.125583
+          lat: 45.7983,
+          lng: 23.1255
           }}
-        zoom={14}
+        zoom={8.5}
+
+
+
+
+
         styles={[
     {
         "featureType": "all",
@@ -48,7 +53,11 @@ export class MapContainer extends Component {
         ]
     }
 ]
+
+
+
 }
+
 
 
 
@@ -60,9 +69,62 @@ export class MapContainer extends Component {
 
         >
 
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
+        <Marker
+            title={'Bran Castle'}
+            name={'Bran Castle'}
+            position={{lat: 45.5149, lng: 25.3672}} />
+
+            <Marker
+                title={'Peles Castle'}
+                name={'Peles Castle'}
+                position={{lat: 45.3600, lng: 25.5426}} />
+
+                <Marker
+                    title={'Corvin Castle'}
+                    name={'Corvin Castle'}
+                    position={{lat: 45.7493, lng: 22.8883}} />
+
+                    <Marker
+                        title={'Râșnov Citadel'}
+                        name={'Râșnov Citadel'}
+                        position={{lat: 45.5906, lng: 25.4694}} />
+
+                            <Marker
+                                title={'Fagaras Citadel'}
+                                name={'Fagaras Citadel'}
+                                position={{lat: 45.8453, lng: 24.9738}} />
+
+                                <Marker
+                                    title={'The Citadel Alba-Carolina'}
+                                    name={'The Citadel Alba-Carolina'}
+                                    position={{lat: 46.0686, lng: 23.5717}} />
+
+                                    <Marker
+                                        title={'Rupea Fortress'}
+                                        name={'Rupea Fortress'}
+                                        position={{lat: 46.0378, lng: 25.2129}} />
+
+                                        <Marker
+                                            title={'Sighișoara Citadel'}
+                                            name={'Sighișoara Citadel'}
+                                            position={{lat: 46.2198, lng: 24.7920}} />
+
+                                            <Marker
+                                                title={'Deva Fortress'}
+                                                name={'Deva Fortress'}
+                                                position={{lat: 45.8887, lng: 22.8970}} />
+
+                                                <Marker
+                                                    title={'Poenari Castle'}
+                                                    name={'Poenari Castle'}
+                                                    position={{lat: 45.3536, lng: 24.6351}} />
+
+
+
 <img className="pb" src={ require('./img/dracula-castles.png') } />
+
+
+
         <InfoWindow onClose={this.onInfoWindowClose}>
 
         </InfoWindow>
@@ -79,3 +141,7 @@ export default GoogleApiWrapper({
   apiKey: 'AIzaSyB801YN2M2Gi-1YS0BFpSuiMzwgBka2KC4'
 
 })(MapContainer)
+
+//
+// <Marker onClick={this.onMarkerClick}
+//         name={'Current location'} />
