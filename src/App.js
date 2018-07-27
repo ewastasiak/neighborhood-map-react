@@ -16,12 +16,12 @@ class App extends Component {
       <h1>Famous Transylvanian Castles</h1>
 
       </div>
+<div class="item item-2"><SearchList /></div>
 
-      <MapContainer />
       </div>
 
+<MapContainer />
 
-      <SearchList />
 
       <Info />
 

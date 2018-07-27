@@ -5,7 +5,7 @@ h1 {
 }
 
 .pb {
-  z-index: 0;
+  z-index: 1;
   float: bottom;
   align-self: flex-start;
   position: absolute;
@@ -49,9 +49,9 @@ h1 {
   grid-template-columns: 250px auto;
   /* grid-template-columns: 2fr 1fr; */
   grid-gap: 5px;
-  grid-template-areas:
+  /* grid-template-areas:
     "first first"
-    "second second";
+    "second second"; */
 }
 
 .item {
@@ -64,7 +64,7 @@ h1 {
 }
 
 .item-1 {
-  grid-area: first;
+  /* grid-area: first; */
   /*
   grid-area: first;
 
@@ -75,7 +75,7 @@ h1 {
 
 .item-2 {
   display: flex;
-  grid-area: second;
+  /* grid-area: second; */
 }
 
 
