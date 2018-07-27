@@ -6,6 +6,10 @@ import SearchList from './SearchList.js'
 import './App.css';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+state = {
+    castles: []
+  }
+
 class App extends Component {
   render() {
     return (
