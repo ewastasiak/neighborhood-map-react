@@ -17,10 +17,10 @@ class App extends Component {
 
       </div>
 <div class="item item-2"><SearchList /></div>
-
+<MapContainer />
       </div>
 
-<MapContainer />
+
 
 
       <Info />
