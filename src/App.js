@@ -13,8 +13,8 @@ class App extends Component {
 
       <div className="grid">
       <div className="item item-1">
-      <h1>My favourite places in Romania</h1>
-      
+      <h1>Famous Transylvania Castles</h1>
+
       </div>
 
       <MapContainer />
