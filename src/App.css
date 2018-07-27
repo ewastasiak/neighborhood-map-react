@@ -1,3 +1,8 @@
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  color: grey;
+}
+
 .pb {
   z-index: 1;
   float: bottom;
@@ -5,6 +10,7 @@
   position: absolute;
   right: 0px;
   bottom: 0px;
+
   /* background: #F5F5F5 url('./img/dracula-castles.png') no-repeat bottom right; */
 
 }
@@ -19,6 +25,7 @@
 }
 .gm-err-title {
   color: orange;
+
 }
 
 .gm-err-message {

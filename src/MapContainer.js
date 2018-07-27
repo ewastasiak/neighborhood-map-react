@@ -12,6 +12,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 // </div>
 // }
 
+// Map styling: https://snazzymaps.com/style/30/cobalt
 export class MapContainer extends Component {
   render() {
     return (
@@ -23,7 +24,41 @@ export class MapContainer extends Component {
           lat: 45.798327,
           lng: 24.125583
           }}
-        zoom={14}>
+        zoom={14}
+        styles={[
+    {
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [
+            {
+                "invert_lightness": true
+            },
+            {
+                "saturation": 10
+            },
+            {
+                "lightness": 30
+            },
+            {
+                "gamma": 0.5
+            },
+            {
+                "hue": "#435158"
+            }
+        ]
+    }
+]
+}
+
+
+
+
+
+
+
+
+
+        >
 
         <Marker onClick={this.onMarkerClick}
                 name={'Current location'} />
