@@ -1,14 +1,15 @@
 h1 {
-  font-family: 'Libre Baskerville', serif;
-  color: grey;
+  font-family: 'Carrois Gothic SC', sans-serif;
+  color: #f80;
+  font-size: 2em;
 }
 
 .pb {
-  z-index: 1;
+  z-index: 0;
   float: bottom;
-  align-self: flex-end;
+  align-self: flex-start;
   position: absolute;
-  right: 0px;
+  left: 0px;
   bottom: 0px;
 
   /* background: #F5F5F5 url('./img/dracula-castles.png') no-repeat bottom right; */
@@ -17,6 +18,12 @@ h1 {
 
 
 /* Override Google Map Styles */
+
+.gmnoprint{
+  font-size: 1em;
+}
+
+
 .gm-err-container {
   background-color: black;
 }
@@ -41,7 +48,7 @@ h1 {
   min-width: 200px;
   grid-template-columns: 250px auto;
   /* grid-template-columns: 2fr 1fr; */
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-template-areas:
     "first first"
     "second second";
