@@ -1,0 +1,11 @@
+{
+  "castles": [{
+    "id": 1,
+    "name": "name1"
+    "alt": "alt1"
+    "latlng": {
+      "lat": 5.5149,
+      "lng": 25.3672
+    }
+    }]
+}
