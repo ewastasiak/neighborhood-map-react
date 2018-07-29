@@ -11,13 +11,19 @@
   position: relative;
 } */
 
-
-
+.gm-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+}
 
 .gm-err-container {
   display: flex;
   background-color: black;
-  width: auto;
+  justify-content: center;
+  align-items: flex-start;
+  /* width: auto; */
 }
 .gm-err-content {
   /* display: flex; */
@@ -25,16 +31,19 @@
 
 }
 .gm-err-title {
+  font-size: 1.5em;
   color: #e93;
 
 }
 
 .gm-err-message {
   color: #ace;
+  font-size: 1em;
+
 }
 
 .gm-err-icon {
-
+margin: 190px 0 0;
 }
 
 /* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
