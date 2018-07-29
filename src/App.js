@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import MapContainer from './MapContainer.js'
 import Info from './Info.js'
 import SearchList from './SearchList.js'
+import Footer from './Footer.js'
 import './App.css';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
@@ -20,6 +21,7 @@ class App extends Component {
       </div>
 <div class="item item-2"><SearchList /></div>
 <MapContainer />
+<Footer />
       </div>
 
 

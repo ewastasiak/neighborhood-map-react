@@ -1,11 +1,88 @@
-h1 {
-  /* font-family: 'Carrois Gothic SC', sans-serif; */
-  font-family: 'Creepster', cursive;
+/*---------------------------------------------------------*/
+/* ------------ OVERRIDE GOOGLE MAP STYLES --------------- */
+
+.gm-err-container {
+  display: flex;
+  background-color: black;
+  width: auto;
+}
+.gm-err-content {
+  /* display: flex; */
+  /* width: auto; */
+
+}
+.gm-err-title {
   color: #e93;
-  font-size: 2.7em;
+
 }
 
+.gm-err-message {
+  color: #ace;
+}
+
+.gm-err-icon {
+
+}
+
+/* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
+/*-----------------------------------------------------------*/
+
+
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.App {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* #root,
+.App {
+  height: 100%;
+  width: 100%;
+} */
+
+
+
+html, body, main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+/* end boilerplate from portfolio */
+
+
+
+
+
 .pb {
+  display: flex;
   z-index: 1;
   float: bottom;
   align-self: flex-start;
@@ -18,79 +95,94 @@ h1 {
 }
 
 
-/* Override Google Map Styles */
-
-.gmnoprint{
-  font-size: 1em;
-}
 
 
-.gm-err-container {
-  background-color: black;
-}
-.gm-err-content {
+/* .grid {
+  display: grid;
 
-}
-.gm-err-title {
-  color: orange;
+  width: 20%;
+  grid-template-columns: 250px auto;
+  grid-template-columns: 250px 100px auto;
+  grid-gap: 5px;
+  grid-template-areas:
+    "first first"
+    "second second";
 
-}
+} */
 
-.gm-err-message {
-  color: orange;
-}
-
-.gm-err-icon {
-
-}
 
 .grid {
   display: grid;
-  min-width: 200px;
-  /* grid-template-columns: 250px auto; */
-  grid-template-columns: 250px 100px auto;
-  grid-gap: 5px;
-  /* grid-template-areas:
+  max-width: 100%;
+   grid-template-columns: 300px minmax(100px, 80%);
+   /* grid-template-columns: 300px auto; */
+ grid-template-rows: 90px minmax(100%, 1fr) 90px;
+  grid-gap: 10px;
+
+  grid-template-areas:
     "first first"
-    "second second"; */
+    "second third"
+    "second third"
+    "fourth fourth"
 }
 
+
 .item {
+
   display: grid;
   grid-auto-flow: column;
   background-color: #111;
   color: #ace;
   /* display: flex; */
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
 
+  display: flex;
+  justify-content: center;
 }
 
+
 .item-1 {
-
-
-  /* grid-area: first; */
-  /*
+  display: flex;
+  /* background-color: #ace; */
   grid-area: first;
-
-  justify-content: flex-end;
-
-  z-index: 1; */
 }
 
 .item-2 {
   display: flex;
-  /* height: 50%;
-  width: 50%; */
-  /* grid-area: second; */
+  grid-area: second;
+  background-color: #0087AB;
 }
+
+
+.item-3 {
+  display: flex;
+  grid-area: third;
+  /* background-color: red; */
+  position: relative;
+}
+
+.item-4 {
+  display: flex;
+  /* background-color: grey; */
+  grid-area: fourth;
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+}
+
+
+
 
 
 
 
 
 .App {
-  background-color: #e93;
+  /* background-color: #ace; */
+  /* #7CB490; */
+  /* #e93; */
   /* height: 100vh; */
 }
 
@@ -118,3 +210,104 @@ h1 {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 } */
+
+
+
+/*-----------------------------------------------------------*/
+/* ---------------------RESPONSIVE-------------------------- */
+
+@media screen and (max-width: 350px) {
+
+  h1 {
+    font-size: 0.8em;
+    letter-spacing: 2px;
+  }
+
+  .grid {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+
+  .pb {
+    display: none;
+  }
+
+}
+
+/*-----------------------------------------------------------*/
+
+@media screen and (min-width: 351px) and (max-width: 600px) {
+
+  h1 {
+    font-size: 1em;
+    letter-spacing: 2px;
+  }
+
+  .pb {
+    display: none;
+  }
+
+  .grid {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+
+  .item-1 {
+    height: 10%;
+  }
+
+  .item-2 {
+    height: 85%;
+  }
+
+  .item-3 {
+    height: 85%;
+  }
+
+  .item-4 {
+    height: 5%;
+  }
+
+}
+
+/*-----------------------------------------------------------*/
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+
+  h1 {
+    font-size: 2em;
+    letter-spacing: 2px;
+  }
+
+  .pb {
+    display: visible;
+  }
+
+  .grid {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  }
+
+  .item-1 {
+    height: 10%;
+  }
+
+  .item-2 {
+    height: 85%;
+  }
+
+  .item-3 {
+    height: 85%;
+  }
+
+  .item-4 {
+    height: 3%;
+  }
+  
+}
+
+/* --------------------END RESPONSIVE----------------------- */
+/*-----------------------------------------------------------*/
