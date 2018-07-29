@@ -5,11 +5,11 @@ class SearchList extends Component{
 
 render() {
   return (
-    <div className="item item-1">
+    <div>
 
 
 
-<p>test</p>
+<h1>test</h1>
 
 
 

@@ -16,9 +16,9 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 export class MapContainer extends Component {
   render() {
     return (
-
+      
       <Map
-      className="item item-3"
+
         google={this.props.google}
         initialCenter={{
           lat: 45.7983,

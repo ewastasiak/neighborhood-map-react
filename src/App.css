@@ -1,5 +1,16 @@
 /*---------------------------------------------------------*/
 /* ------------ OVERRIDE GOOGLE MAP STYLES --------------- */
+/* .gm {
+
+  position: relative;
+}
+
+.gm-style {
+  display: inline-block;
+
+  position: relative;
+} */
+
 
 .gm-err-container {
   display: flex;
@@ -116,7 +127,7 @@ html, body, main {
   max-width: 100%;
    grid-template-columns: 300px minmax(100px, 80%);
    /* grid-template-columns: 300px auto; */
- grid-template-rows: 90px minmax(100%, 1fr) 90px;
+ grid-template-rows: 90px minmax(700px, 1fr) 90px;
   grid-gap: 10px;
 
   grid-template-areas:
@@ -146,12 +157,14 @@ html, body, main {
   display: flex;
   /* background-color: #ace; */
   grid-area: first;
+
 }
 
 .item-2 {
   display: flex;
   grid-area: second;
   background-color: #0087AB;
+  height: auto;
 }
 
 
@@ -160,11 +173,14 @@ html, body, main {
   grid-area: third;
   /* background-color: red; */
   position: relative;
+  height: auto;
+  justify-content: left;
+  align-items: stretch;
 }
 
 .item-4 {
   display: flex;
-  /* background-color: grey; */
+  background-color: black;
   grid-area: fourth;
   position: fixed;
   width: 100%;
@@ -306,7 +322,7 @@ html, body, main {
   .item-4 {
     height: 3%;
   }
-  
+
 }
 
 /* --------------------END RESPONSIVE----------------------- */

@@ -20,14 +20,15 @@ class App extends Component {
 
       </div>
 <div class="item item-2"><SearchList /></div>
-<MapContainer />
+<div className="item item-3"><MapContainer /></div>
 <Footer />
       </div>
 
 
 
 
-      <Info />
+  {  //  <Info />
+  }
 
 
       </div>
