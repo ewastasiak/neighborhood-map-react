@@ -14,8 +14,9 @@ render() {
 
 
 
-
+<img className="pb" src={ require('./img/dracula-castles.png') } />
     </div>
+
   );
 
 }

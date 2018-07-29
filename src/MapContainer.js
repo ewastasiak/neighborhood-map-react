@@ -16,7 +16,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 export class MapContainer extends Component {
   render() {
     return (
-      
+
       <Map
 
         google={this.props.google}
@@ -121,7 +121,7 @@ export class MapContainer extends Component {
 
 
 
-<img className="pb" src={ require('./img/dracula-castles.png') } />
+
 
 
 
