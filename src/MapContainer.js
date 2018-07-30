@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Map from './Map.js'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
+import MapStyling from './data/MapStyling.json';
 //Map.js
 
 
@@ -14,9 +14,10 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 // Map style: https://snazzymaps.com/style/30/cobalt
 export class MapContainer extends Component {
+
+
   render() {
     return (
-
       <Map
 
         google={this.props.google}
@@ -30,29 +31,7 @@ export class MapContainer extends Component {
 
 
 
-        styles={[
-    {
-        "featureType": "all",
-        "elementType": "all",
-        "stylers": [
-            {
-                "invert_lightness": true
-            },
-            {
-                "saturation": 10
-            },
-            {
-                "lightness": 30
-            },
-            {
-                "gamma": 0.5
-            },
-            {
-                "hue": "#435158"
-            }
-        ]
-    }
-]
+        styles={ require('./data/MapStyling.json')
 
 
 
