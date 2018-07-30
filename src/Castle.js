@@ -7,15 +7,16 @@ class Castle extends Component{
 
 
 render() {
-
-  const castle = React.createElement(
-  'li',
-  {className: 'castle-li-el'},
-  // `${this.castle.id}`
-  'I am a castle'
-  );
-
-return castle;
+    return (
+        <ul>
+        {
+          Castles.map(function(castle){
+            return <li>{castle.id} - {castle.name}</li>;
+          })
+        }
+        </ul>
+    );
+  }
 }
-}
+
 export default Castle;
