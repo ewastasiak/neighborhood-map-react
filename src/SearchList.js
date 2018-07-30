@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import App from './App.css';
-import MarkerList from './MarkerList.js'
+// import MarkerList from './MarkerList.js'
+// import Castles from './castles.json';
+import Castle from './Castle.js';
+
+
+
 class SearchList extends Component{
+
+
+
+
 
 render() {
   return (
@@ -9,8 +18,15 @@ render() {
 
 
 
-<h1>test</h1>
-<MarkerList />
+<h1>Pierniczone zamki</h1>
+<ol className="castles-list">
+                {
+
+                      <Castle />
+
+                }
+                </ol>
+
 
 
 
