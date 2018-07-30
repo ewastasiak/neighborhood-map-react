@@ -70,7 +70,9 @@ margin: 190px 0 0;
 
 
 
-
+ul {
+  list-style-type: none;
+}
 
 
 
@@ -142,7 +144,7 @@ html, body, main {
   grid-gap: 10px;
 
   grid-template-areas:
-    "first first"
+    "second first"
     "second third"
     "second third"
     "fourth third"
@@ -166,6 +168,7 @@ html, body, main {
 
 .item-1 {
   display: flex;
+
   /* background-color: #ace; */
   grid-area: first;
 
@@ -176,7 +179,18 @@ html, body, main {
   grid-area: second;
   background-color: #0087AB;
   height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+
 }
+
+/*
+.castles-list {
+  align-self: flex-start;
+
+} */
+
+
 
 
 .item-3 {
@@ -201,7 +215,6 @@ html, body, main {
   padding: 10px;
   z-index: 999;
 }
-
 
 
 
