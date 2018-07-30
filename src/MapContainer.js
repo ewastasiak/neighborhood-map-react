@@ -12,41 +12,27 @@ import MapStyling from './data/MapStyling.json';
 // </div>
 // }
 
+
+// https://itnext.io/google-maps-react-makes-adding-google-maps-api-to-a-react-app-a-breeze-effb7b89e54
 // Map style: https://snazzymaps.com/style/30/cobalt
-export class MapContainer extends Component {
+class MapContainer extends Component {
+
+
 
 
   render() {
     return (
       <Map
-
         google={this.props.google}
         initialCenter={{
           lat: 45.7983,
           lng: 24.0255
           }}
         zoom={8}
-
-
-
-
-
-        styles={ require('./data/MapStyling.json')
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
+        styles={require('./data/MapStyling.json')}
         >
+
+
 
         <Marker
             title={'Bran Castle'}

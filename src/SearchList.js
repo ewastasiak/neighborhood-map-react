@@ -14,12 +14,9 @@ class SearchList extends Component{
 
 render() {
   return (
-    <div>
+    <div className="castles-list">
 
-
-
-<h1>Pierniczone zamki</h1>
-<ol className="castles-list">
+<ol>
                 {
 
                       <Castle />

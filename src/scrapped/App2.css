@@ -1,0 +1,273 @@
+/*---------------------------------------------------------*/
+/* ------------ OVERRIDE GOOGLE MAP STYLES --------------- */
+/* .gm {
+
+  position: relative;
+}
+
+.gm-style {
+  display: inline-block;
+
+  position: relative;
+} */
+
+.gm-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+}
+
+.gm-err-container {
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: flex-start;
+  /* width: auto; */
+}
+.gm-err-content {
+  /* display: flex; */
+  /* width: auto; */
+
+}
+.gm-err-title {
+  font-size: 1.5em;
+  color: #e93;
+
+}
+
+.gm-err-message {
+  color: #ace;
+  font-size: 1em;
+
+}
+
+.gm-err-icon {
+margin: 190px 0 0;
+}
+
+/* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
+/*-----------------------------------------------------------*/
+
+
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.App {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+ul {
+  list-style-type: none;
+}
+
+
+
+
+/* #root,
+.App {
+  height: 100%;
+  width: 100%;
+} */
+
+
+
+html, body, main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+/* end boilerplate from portfolio */
+
+
+
+
+
+.pb {
+  display: flex;
+  z-index: 1;
+  float: bottom;
+  align-self: flex-start;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  /* background: #F5F5F5 url('./img/dracula-castles.png') no-repeat bottom right; */
+
+}
+
+
+
+
+/* .grid {
+  display: grid;
+
+  width: 20%;
+  grid-template-columns: 250px auto;
+  grid-template-columns: 250px 100px auto;
+  grid-gap: 5px;
+  grid-template-areas:
+    "first first"
+    "second second";
+
+} */
+
+
+.grid {
+  display: grid;
+  max-width: 100%;
+   grid-template-columns: 300px minmax(100px, auto);
+   /* grid-template-columns: 300px auto; */
+ grid-template-rows: 1fr minmax(700px, auto) 1fr;
+  grid-gap: 10px;
+
+  grid-template-areas:
+    "second first"
+    "second third"
+    "second third"
+    "fourth third";
+}
+
+
+.item {
+
+  /* display: grid; */
+  grid-auto-flow: column;
+  background-color: #111;
+  color: #ace;
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: center;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+.item-1 {
+  display: flex;
+
+  /* background-color: #ace; */
+  grid-area: first;
+
+}
+
+.item-2 {
+  display: flex;
+  grid-area: second;
+  background-color: #0087AB;
+  height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+/*
+.castles-list {
+  align-self: flex-start;
+
+} */
+
+
+
+
+.item-3 {
+  display: flex;
+  grid-area: third;
+  /* background-color: red; */
+  position: relative;
+  height: auto;
+  justify-content: left;
+  align-items: stretch;
+}
+
+.item-4 {
+  display: flex;
+  background-color: black;
+  grid-area: fourth;
+  /* position: fixed; */
+  /* width: 100%; */
+  /* height: 30px; */
+  /* bottom: 0; */
+  /* margin: 10px; */
+  padding: 10px;
+  z-index: 999;
+}
+
+
+
+
+
+
+
+.App {
+  /* background-color: #ace; */
+  /* #7CB490; */
+  /* #e93; */
+  /* height: 100vh; */
+}
+
+/* .App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */
+
+
+
+/*-----------------------------------------------------------*/
+/* ---------------------RESPONSIVE-------------------------- */
+
+@media screen and (max-width: 350px) {
+
+
+}
+
+/*-----------------------------------------------------------*/
+
+@media screen and (min-width: 351px) and (max-width: 600px) {
+
+}
+/* --------------------END RESPONSIVE----------------------- */
+/*-----------------------------------------------------------*/
