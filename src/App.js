@@ -10,10 +10,16 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 
 class App extends Component {
+
+  state = {
+    list: []
+    // filteredlist: []
+  }
+
   render() {
+    console.log(this.state.list);
     return (
       <div className="App">
-
       <div className="grid">
       <div className="item item-1">
       <h1>Famous Transylvanian Castles</h1>
