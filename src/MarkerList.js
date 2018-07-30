@@ -1,17 +1,49 @@
-//child of the <Map />
 import React, { Component } from 'react';
 // import Map from './Map.js'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import App from './App.css';
+
+class MarkerList extends Component{
 
 
-<Marker
-    title={'The marker`s title will appear as a tooltip.'}
-    name={'Bran Castle'}
-    position={{lat: 45.5149, lng: 25.3672}} />
+render() {
+  return (
+    <li className="list-item">
+    1
+    </li>
+  );
+
+}
+}
+export default MarkerList;
 
 
 
-export default Marker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// <Marker
+//     title={'The marker`s title will appear as a tooltip.'}
+//     name={'Bran Castle'}
+//     position={{lat: 45.5149, lng: 25.3672}} />
+//
+//
+//
+// export default Marker;
 
   // <Marker
   //   name={'Dolores park'}

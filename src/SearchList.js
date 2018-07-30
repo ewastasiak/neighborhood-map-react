@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import App from './App.css';
-
+import MarkerList from './MarkerList.js'
 class SearchList extends Component{
 
 render() {
@@ -10,7 +10,7 @@ render() {
 
 
 <h1>test</h1>
-
+<MarkerList />
 
 
 
