@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import Map from './Map.js'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import MapStyling from './data/MapStyling.json';
+// import App from './App.js'
+// import DetailsWindow from './DetailsWindow.js';
 //Map.js
 
 
@@ -35,6 +37,18 @@ class MapContainer extends Component {
         activeMarker: marker,
         showingInfoWindow: true
       });
+
+      // TODO: There are two ways how to control a position of the <InfoWindow /> component.
+      // You can use a position prop or
+      // connect the <InfoWindow /> component
+      // directly to an existing <Marker /> component by using a marker prop.
+
+      // onInfoWindowClose = (props, position) =>
+      //   this.setState({
+      //     selectedPlace: props,
+      //     position: position,
+      //     showingInfoWindow: false
+      //   });
 
     onMapClicked = (props) => {
       if (this.state.showingInfoWindow) {
@@ -92,20 +106,8 @@ class MapContainer extends Component {
 //         </InfoWindow>
 //       </Map>
 
-// TODO: Działa https://www.npmjs.com/package/google-maps-react/v/2.0.2
-// <Map google={this.props.google}
-//           onClick={this.onMapClicked}>
-//         <Marker onClick={this.onMarkerClick}
-//                 name={'Current location'} />
-//
-//         <InfoWindow
-//           marker={this.state.activeMarker}
-//           visible={this.state.showingInfoWindow}>
-//             <div>
-//               <h1>{this.state.selectedPlace.name}</h1>
-//             </div>
-//         </InfoWindow>
-//       </Map>
+//  Działa https://www.npmjs.com/package/google-maps-react/v/2.0.2
+
 
 
       <Map
@@ -129,7 +131,8 @@ class MapContainer extends Component {
             title={'Bran Castle'}
             name={'Bran Castle'}
             position={{lat: 45.5149, lng: 25.3672}} />
-            <InfoWindow
+            <InfoWindow onClose={this.onInfoWindowClose}
+            position={{lat: 45.5149, lng: 25.3672}}
                       marker={this.state.activeMarker}
                       visible={this.state.showingInfoWindow}>
                         <div>

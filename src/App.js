@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import MapContainer from './MapContainer.js'
-import Info from './Info.js'
 import SearchList from './SearchList.js'
 import Footer from './Footer.js'
 import './App.css';
