@@ -12,8 +12,14 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 class App extends Component {
 
   state = {
-    list: []
-    // filteredlist: []
+
+    list: [],
+
+    // showingInfoWindow: false,
+    // activeMarker: {},
+    // selectedPlace: {},
+    // jest w mapcontainer
+
   }
 
   render() {

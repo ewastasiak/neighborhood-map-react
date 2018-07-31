@@ -46,6 +46,13 @@
 margin: 190px 0 0;
 }
 
+/* try marker animation */
+.markerLayer {
+  animation: pulse .5s infinite alternate;
+ -webkit-animation: pulse .5s infinite alternate;
+ transform-origin: center;
+ -webkit-transform-origin: center;
+}
 /* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
 /*-----------------------------------------------------------*/
 
