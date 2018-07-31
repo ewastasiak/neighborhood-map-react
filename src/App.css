@@ -150,6 +150,12 @@ html, body, main {
     "second third"
     "second third"
     "fourth third";
+
+    /* grid-template-areas:
+      "second first"
+      "third third"
+      "third third"
+      "fourth third"; */
 }
 
 
