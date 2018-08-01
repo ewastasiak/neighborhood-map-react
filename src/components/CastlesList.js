@@ -29,7 +29,7 @@ class CastlesList extends Component{
           <ul>
           {
             Castles.map(castle => {
-              return <li>{castle.name}</li>;
+              return <li key={castle.place_id}>{castle.name}</li>;
             })
           }
           </ul>
