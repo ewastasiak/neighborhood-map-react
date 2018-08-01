@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
 import MapContainer from './MapContainer.js'
 import SearchList from './SearchList.js'
+
+import Castles from './data/castles.json';
+import CastlesApi from './CastlesApi.js';
+import Castle from './Castle.js';
+
+
 import Footer from './Footer.js'
-import './App.css';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+// import './App.css';
 
 
 
@@ -12,7 +20,7 @@ class App extends Component {
 
   state = {
 
-    list: [],
+    listOfCastles: [],
 
     // showingInfoWindow: false,
     // activeMarker: {},
@@ -20,6 +28,38 @@ class App extends Component {
     // jest w mapcontainer
 
   }
+
+getAllCastles() {
+
+alert(
+    Castles.map(function(castle){
+      return <li>{castle.id} - {castle.name}</li>;
+    })
+);
+
+}
+
+
+  componentDidMount() {
+
+    this.getAllCastles();
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   render() {
     console.log(this.state.list);
@@ -50,9 +90,3 @@ class App extends Component {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyB801YN2M2Gi-1YS0BFpSuiMzwgBka2KC4'
 })(App)
-
-
-// <div class="item item-1">1</div>
-// <div class="item item-2">2</div>
-// <div class="item item-3">3</div>
-// <div class="item item-4">4</div>
