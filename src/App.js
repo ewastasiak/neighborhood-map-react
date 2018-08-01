@@ -64,7 +64,13 @@ class App extends Component {
 
 
   render() {
+
     console.log(this.state.listOfCastles);
+    console.log(this.state.listOfCastles.latlng);
+    //TODO: how to get those langs and ids
+
+
+
     return (
       <div className="App">
       <div className="grid">
@@ -80,12 +86,13 @@ class App extends Component {
 
 
 
-  {  //  <Info />
-  }
+
 
 
       </div>
     );
+
+    console.log(`Yo this is another array with ${this.state.listOfCastles.length} castles`);
   }
 }
 
