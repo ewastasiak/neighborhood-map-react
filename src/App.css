@@ -47,6 +47,16 @@
 margin: 190px 0 0;
 }
 
+
+/* .gm-style-iw {
+  background-color: black;
+
+} */
+/*
+.gm-style-pbc {
+  background-color: transparent;
+} */
+
 /* try marker animation */
 .markerLayer {
   animation: pulse .5s infinite alternate;
