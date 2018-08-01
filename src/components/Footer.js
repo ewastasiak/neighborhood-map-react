@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Map from './Map.js'
-import App from './App.css';
+import App from '../App.css';
 
 class Footer extends Component{
 

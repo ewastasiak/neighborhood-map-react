@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import App from './App.css';
+import App from '../App.css';
 // import MarkerList from './MarkerList.js'
 // import Castles from './castles.json';
-import Castle from './Castle.js';
+import CastlesList from './CastlesList.js';
 
 
 
@@ -19,7 +19,7 @@ render() {
 <ol>
                 {
 
-                      <Castle />
+                      <CastlesList />
 
                 }
                 </ol>
@@ -27,7 +27,7 @@ render() {
 
 
 
-<img className="pb" src={ require('./img/dracula-castles.png') } />
+<img className="pb" src={ require('../img/dracula-castles.png') } />
     </div>
 
   );

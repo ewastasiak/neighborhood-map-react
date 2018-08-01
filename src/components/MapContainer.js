@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Map from './Map.js'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import MapStyling from './data/MapStyling.json';
+import MapStyling from '../data/MapStyling.json';
 // import App from './App.js'
 // import DetailsWindow from './DetailsWindow.js';
 //Map.js
@@ -31,12 +31,14 @@ class MapContainer extends Component {
       selectedPlace: {},
     };
 
-    onMarkerClick = (props, marker, e) =>
+    onMarkerClick = (props, marker, e, position) =>
       this.setState({
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true
-      });
+        // position: castle.latlng
+      }
+    );
 
       // TODO: There are two ways how to control a position of the <InfoWindow /> component.
       // You can use a position prop or
@@ -117,7 +119,7 @@ class MapContainer extends Component {
           lng: 24.0255
           }}
         zoom={8}
-        styles={require('./data/MapStyling.json')}
+        styles={require('../data/MapStyling.json')}
         >
 
 
@@ -145,7 +147,7 @@ class MapContainer extends Component {
                 title={'Peles Castle'}
                 name={'Peles Castle'}
                 position={{lat: 45.3600, lng: 25.5426}} />
-                
+
 
                 <Marker onClick={this.onMarkerClick}
                     title={'Corvin Castle'}

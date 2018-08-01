@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-import MapContainer from './MapContainer.js'
-import SearchList from './SearchList.js'
 
-import Castles from './data/castles.json';
-import CastlesApi from './CastlesApi.js';
-import Castle from './Castle.js';
+import MapContainer from './components/MapContainer.js'
+import SearchList from './components/SearchList.js'
+import Footer from './components/Footer.js'
 
 
-import Footer from './Footer.js'
+// import Castles from './data/castles.json';
+// import CastlesApi from './CastlesApi.js';
+// import Castle from './components/Castle.js';
+
+
+
 // import './App.css';
 
 
@@ -34,19 +37,19 @@ class App extends Component {
 
   }
 
-    getAllCastles() {
-
-    alert(
-        Castles.map(function(castle){
-          return <li>{castle.place_id} - {castle.name}</li>;
-        })
-    );
-
-    }
-
-  componentDidMount() {
-    this.getAllCastles();
-  }
+  //   getAllCastles() {
+  //
+  //   alert(
+  //       Castles.map(function(castle){
+  //         return <li>{castle.place_id} - {castle.name}</li>;
+  //       })
+  //   );
+  //
+  //   }
+  //
+  // componentDidMount() {
+  //   this.getAllCastles();
+  // }
 
   whenMarkerIsClicked = (event, index) => {
     this.setState ({ activeMarkerIndex: index })
