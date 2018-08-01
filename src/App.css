@@ -193,7 +193,7 @@ html, body, main {
 .item-2 {
   display: flex;
   grid-area: second;
-  background-color: #0087AB;
+  background-color: #002D2D;
   height: auto;
   justify-content: flex-start;
   align-items: flex-start;
