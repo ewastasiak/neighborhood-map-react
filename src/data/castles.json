@@ -4,7 +4,7 @@
 
   {
 
-    "id": 1,
+    "place_id" : "ChIJMd4VpOVHs0ARf6sh2ZInks8",
     "name": "Bran Castle",
     "latlng": {
     "lat": 45.5149,
@@ -16,7 +16,7 @@
 
   {
 
-    "id": 2,
+    "place_id" : "ChIJbVXg0uwWs0ARrdXzlKVjbpo",
     "name": "Peles Castle",
     "latlng": {
       "lat": 45.3600,
@@ -28,7 +28,7 @@
 
   {
 
-    "id": 3,
+    "place_id" : "ChIJy3Qq_I6KTkcRFuk1uuh67Cw",
     "name": "Corvin Castle",
     "latlng": {
       "lat": 45.7493,
@@ -40,7 +40,7 @@
 
   {
 
-    "id": 4,
+    "place_id" : "ChIJLWaPAaVFs0AReosfX0btjBA",
     "name": "Râșnov Citadel",
     "latlng": {
       "lat": 45.5906,
@@ -52,7 +52,7 @@
 
   {
 
-    "id": 5,
+    "place_id" : "ChIJHVeRz3mhTEcR37KkzDHLlys",
     "name": "Fagaras Citadel",
     "latlng": {
       "lat": 45.8453,
@@ -64,7 +64,7 @@
 
   {
 
-    "id": 6,
+    "place_id" : "ChIJVQz-Jd6nTkcRucse8-yHz5Y",
     "name": "The Citadel Alba-Carolina",
     "latlng": {
       "lat": 46.0686,
@@ -76,7 +76,7 @@
 
   {
 
-    "id": 7,
+    "place_id" : "ChIJTy3cY6dES0cRuCvwLxF7st4",
     "name": "Rupea Fortress",
     "latlng": {
       "lat": 46.0378,
@@ -88,7 +88,7 @@
 
   {
 
-    "id": 8,
+    "place_id" : "ChIJ0ZFEJMZ1S0cR-cElgdeyFwk",
     "name": "Sighișoara Citadel",
     "latlng": {
       "lat": 46.2198,
@@ -100,7 +100,7 @@
 
   {
 
-    "id": 9,
+    "place_id" : "ChIJo9goQIfyTkcR6neEKX16Sys",
     "name": "Deva Fortress",
     "latlng": {
       "lat": 45.8887,
@@ -112,7 +112,7 @@
 
   {
 
-    "id": 10,
+    "place_id" : "ChIJV787r4HYTEcRPoajq7wUS5s",
     "name": "Poenari Castle",
     "latlng": {
       "lat": 45.3536,

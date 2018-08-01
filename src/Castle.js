@@ -11,7 +11,7 @@ render() {
         <ul>
         {
           Castles.map(function(castle){
-            return <li>{castle.id} - {castle.name}</li>;
+            return <li>{castle.place_id} - {castle.name}</li>;
           })
         }
         </ul>

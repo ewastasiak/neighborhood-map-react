@@ -19,8 +19,13 @@ import Footer from './Footer.js'
 class App extends Component {
 
   state = {
-
+    // center: {
+    //   lat: 45.7983,
+    //   lng: 24.0255
+    // },
+    //   zoom: 8,
     listOfCastles: [],
+    // activeMarker: 0,
 
     // showingInfoWindow: false,
     // activeMarker: {},
@@ -29,22 +34,22 @@ class App extends Component {
 
   }
 
-getAllCastles() {
+    getAllCastles() {
 
-alert(
-    Castles.map(function(castle){
-      return <li>{castle.id} - {castle.name}</li>;
-    })
-);
+    alert(
+        Castles.map(function(castle){
+          return <li>{castle.place_id} - {castle.name}</li>;
+        })
+    );
 
-}
-
+    }
 
   componentDidMount() {
-
     this.getAllCastles();
+  }
 
-
+  whenMarkerIsClicked = (event, index) => {
+    this.setState ({ activeMarkerIndex: index })
   }
 
 
@@ -62,7 +67,7 @@ alert(
 
 
   render() {
-    console.log(this.state.list);
+    console.log(this.state.listOfCastles);
     return (
       <div className="App">
       <div className="grid">

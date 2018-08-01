@@ -133,7 +133,7 @@ class MapContainer extends Component {
             position={{lat: 45.5149, lng: 25.3672}} />
             <InfoWindow onClose={this.onInfoWindowClose}
             position={{lat: 45.5149, lng: 25.3672}}
-                      marker={this.state.activeMarker}
+                      marker={this.state.activeMarkerIndex}
                       visible={this.state.showingInfoWindow}>
                         <div>
                           <h2>{this.state.selectedPlace.name}</h2>
@@ -145,13 +145,7 @@ class MapContainer extends Component {
                 title={'Peles Castle'}
                 name={'Peles Castle'}
                 position={{lat: 45.3600, lng: 25.5426}} />
-                <InfoWindow
-                          marker={this.state.activeMarker}
-                          visible={this.state.showingInfoWindow}>
-                            <div>
-                              <h2>{this.state.selectedPlace.name}</h2>
-                            </div>
-                        </InfoWindow>
+                
 
                 <Marker onClick={this.onMarkerClick}
                     title={'Corvin Castle'}
