@@ -71,7 +71,7 @@ class MapContainer extends Component {
 
 
 
-
+// animation = google.map.animations.BOUNCE
 
 
 
@@ -138,12 +138,12 @@ class MapContainer extends Component {
 
 
         <Marker onClick={this.onMarkerClick}
-        animation={1}
+        animation={4}
             title={'Bran Castle'}
             name={'Bran Castle'}
             position={{lat: 45.5149, lng: 25.3672}} />
             <InfoWindow onClose={this.onInfoWindowClose}
-            position={{lat: 45.5149, lng: 25.3672}}
+            position={{lat: 45.7149, lng: 25.3672}}
             wiki = {this.state.wikiEntry}
 
                       marker={this.state.activeMarkerIndex}
