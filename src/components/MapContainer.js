@@ -5,7 +5,7 @@ import MapStyling from '../data/MapStyling.json';
 // import App from './App.js'
 // import DetailsWindow from './DetailsWindow.js';
 //Map.js
-
+import CastlesList from './CastlesList.js'
 
 // class MapContainer extends React.Component {}
 //   render() {
@@ -26,18 +26,26 @@ class MapContainer extends Component {
 
 
   state = {
-      showingInfoWindow: false,
+      showingInfoWindow: true,
       activeMarker: {},
-      selectedPlace: {},
+      selectedPlace: {}
     };
 
     onMarkerClick = (props, marker, e, position) =>
       this.setState({
+
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true
         // position: castle.latlng
       }
+
+// this.getWiki(castle.name)
+
+
+
+
+
     );
 
       // TODO: There are two ways how to control a position of the <InfoWindow /> component.
@@ -45,10 +53,10 @@ class MapContainer extends Component {
       // connect the <InfoWindow /> component
       // directly to an existing <Marker /> component by using a marker prop.
 
-      // onInfoWindowClose = (props, position) =>
+      // onInfoWindowClose = () =>
       //   this.setState({
-      //     selectedPlace: props,
-      //     position: position,
+      //     selectedPlace: {},
+      //     activeMarker: null,
       //     showingInfoWindow: false
       //   });
 
@@ -130,11 +138,14 @@ class MapContainer extends Component {
 
 
         <Marker onClick={this.onMarkerClick}
+        animation={1}
             title={'Bran Castle'}
             name={'Bran Castle'}
             position={{lat: 45.5149, lng: 25.3672}} />
             <InfoWindow onClose={this.onInfoWindowClose}
             position={{lat: 45.5149, lng: 25.3672}}
+            wiki = {this.state.wikiEntry}
+
                       marker={this.state.activeMarkerIndex}
                       visible={this.state.showingInfoWindow}>
                         <div>
