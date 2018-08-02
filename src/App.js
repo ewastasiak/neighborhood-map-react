@@ -41,9 +41,9 @@ class App extends Component {
 
         <div className="grid">
 
-          <div className="item item-1">
+          <header className="item item-1">
             <h1>Famous Transylvanian Castles</h1>
-          </div>
+          </header>
           <div className="item item-2"><SearchList /></div>
           <div className="item item-3"><MapContainer /></div>
           <Footer />
