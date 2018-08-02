@@ -1,58 +1,72 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import MapContainer from './MapContainer.js'
-import SearchList from './SearchList.js'
-import Footer from './Footer.js'
-import './App.css';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import MapContainer from './components/MapContainer.js'
+import SearchList from './components/SearchList.js'
+import Castles from './data/castles.json';
+import Footer from './components/Footer.js'
 
 
 
 class App extends Component {
 
+
   state = {
-
-    list: [],
-
-    // showingInfoWindow: false,
-    // activeMarker: {},
-    // selectedPlace: {},
-    // jest w mapcontainer
-
+    listOfCastles: Castles,
+    wikiEntry: []
   }
 
+//TODO:add all the state management
+
+//Render the page with all components in grid
   render() {
-    console.log(this.state.list);
+
+//Temporary
+    console.log(  `Yo this is an array with ${this.state.listOfCastles.length} castles`);
+    console.log(
+      Castles.map(castle => {
+        return <li key={castle.place_id}>{castle.name}</li>;
+      })
+
+    );
+
+
     return (
       <div className="App">
-      <div className="grid">
-      <div className="item item-1">
-      <h1>Famous Transylvanian Castles</h1>
 
-      </div>
-<div class="item item-2"><SearchList /></div>
-<div className="item item-3"><MapContainer /></div>
-<Footer />
-      </div>
+        <div className="grid">
 
 
 
+          <header className="item item-1">
+            <h1>Famous Transylvanian Castles</h1>
+          </header>
 
-  {  //  <Info />
-  }
 
+          <div className="item item-2">
+            <SearchList
+
+             />
+          </div>
+
+
+          <div className="item item-3">
+            <MapContainer
+
+            />
+          </div>
+
+
+          <Footer />
+
+
+
+        </div>
 
       </div>
     );
+
+
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyB801YN2M2Gi-1YS0BFpSuiMzwgBka2KC4'
-})(App)
-
-
-// <div class="item item-1">1</div>
-// <div class="item item-2">2</div>
-// <div class="item item-3">3</div>
-// <div class="item item-4">4</div>
+export default App
