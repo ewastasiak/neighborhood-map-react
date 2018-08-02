@@ -203,7 +203,8 @@ html, body, main {
 .item-2 {
   display: flex;
   grid-area: second;
-  background-color: #002D2D;
+  /* background-color: #002D2D; */
+  background-color: #094460;
   height: auto;
   justify-content: flex-start;
   align-items: flex-start;
