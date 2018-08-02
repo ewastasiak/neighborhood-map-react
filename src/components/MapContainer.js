@@ -1,38 +1,13 @@
 import React, { Component } from 'react';
-// import Map from './Map.js'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import MapStyling from '../data/MapStyling.json';
 import Castles from '../data/castles.json';
-// import App from './App.js'
-// import DetailsWindow from './DetailsWindow.js';
-//Map.js
-// import CastlesList from './CastlesList.js'
 
-// class MapContainer extends React.Component {}
-//   render() {
-//     <div>
-// <Map />
-// </div>
-// }
-
-
+//  Działa https://www.npmjs.com/package/google-maps-react/v/2.0.2
 // https://itnext.io/google-maps-react-makes-adding-google-maps-api-to-a-react-app-a-breeze-effb7b89e54
 // Map style: https://snazzymaps.com/style/30/cobalt
+
 class MapContainer extends Component {
-
-
-
-  // var image = {
-  //    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-  //    // This marker is 20 pixels wide by 32 pixels high.
-  //    size: new google.maps.Size(20, 32),
-  //    // The origin for this image is (0, 0).
-  //    origin: new google.maps.Point(0, 0),
-  //    // The anchor for this image is the base of the flagpole at (0, 32).
-  //    anchor: new google.maps.Point(0, 32)
-  //  };
-
-
 
   state = {
       showingInfoWindow: true,
@@ -48,13 +23,7 @@ class MapContainer extends Component {
         showingInfoWindow: true
         // position: castle.latlng ????
       }
-
 // this.getWiki(castle.name)
-
-
-
-
-
     );
 
       // TODO: There are two ways how to control a position of the <InfoWindow /> component.
@@ -80,55 +49,8 @@ class MapContainer extends Component {
       }
     };
 
-
-
-// animation = google.map.animations.BOUNCE
-
-
-
-
-
-
   render() {
     return (
-
-//       var markerIcon = {
-//           url: './img/kappa.png',
-//           //state your size parameters in terms of pixels
-//           size: new google.maps.Size(70, 60),
-//           scaledSize: new google.maps.Size(70, 60),
-//           origin: new google.maps.Point(0,0)
-//       }
-//
-//       var markerPerSe = new google.maps.Marker({
-//           position:latLng,
-//           map: map,
-//           // set the icon as catIcon declared above
-//           icon: markerIcon,
-//           // must use optimized false for CSS
-//           optimized: false
-//       });
-//
-//       var myoverlay = new google.maps.OverlayView();
-//     myoverlay.draw = function () {
-//         this.getPanes().markerLayer.className='markerLayer';
-//     };
-// myoverlay.setMap(map);
-
-// <Map google={this.props.google} zoom={14}>
-//
-//         <Marker onClick={this.onMarkerClick}
-//                 name={'Current location'} />
-//
-//         <InfoWindow onClose={this.onInfoWindowClose}>
-//             <div>
-//               <h1>{this.state.selectedPlace.name}</h1>
-//             </div>
-//         </InfoWindow>
-//       </Map>
-
-//  Działa https://www.npmjs.com/package/google-maps-react/v/2.0.2
-
 
 
       <Map
@@ -140,12 +62,6 @@ class MapContainer extends Component {
         zoom={8}
         styles={require('../data/MapStyling.json')}
         >
-
-
-
-
-
-
 
 
         <Marker onClick={this.onMarkerClick}
@@ -214,28 +130,14 @@ class MapContainer extends Component {
                                                     name={'Poenari Castle'}
                                                     position={{lat: 45.3536, lng: 24.6351}} />
 
-
-
-
-
-
-
-
       </Map>
 
     );
   }
+
+
 }
-// <InfoWindow onClose={this.onInfoWindowClose}>
-//
-// </InfoWindow>
 
-
-
-
-// <div>
-//   <h1>{this.state.selectedPlace.name}</h1>
-// </div>
 export default GoogleApiWrapper({
 
   apiKey: 'AIzaSyB801YN2M2Gi-1YS0BFpSuiMzwgBka2KC4'

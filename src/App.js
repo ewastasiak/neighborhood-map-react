@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-// import Castles from './data/castles.json';
-
 import MapContainer from './components/MapContainer.js'
 import SearchList from './components/SearchList.js'
-import Footer from './components/Footer.js'
-// import CastlesList from './components/CastlesList.js'
 import Castles from './data/castles.json';
+import Footer from './components/Footer.js'
 
 
 
@@ -20,13 +15,12 @@ class App extends Component {
     wikiEntry: []
   }
 
-
+//TODO:add all the state management
 
 //Render the page with all components in grid
   render() {
 
-
-    //Temporary
+//Temporary
     console.log(  `Yo this is an array with ${this.state.listOfCastles.length} castles`);
     console.log(
       Castles.map(castle => {
@@ -41,12 +35,30 @@ class App extends Component {
 
         <div className="grid">
 
+
+
           <header className="item item-1">
             <h1>Famous Transylvanian Castles</h1>
           </header>
-          <div className="item item-2"><SearchList /></div>
-          <div className="item item-3"><MapContainer /></div>
+
+
+          <div className="item item-2">
+            <SearchList
+
+             />
+          </div>
+
+
+          <div className="item item-3">
+            <MapContainer
+
+            />
+          </div>
+
+
           <Footer />
+
+
 
         </div>
 
@@ -57,66 +69,4 @@ class App extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyB801YN2M2Gi-1YS0BFpSuiMzwgBka2KC4'
-})(App)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // <ul>
-  // {Castles.keys(castle).map(i => (
-  //   <li key={i}>{i}:{castle[i].name}</li>
-  // ))}
-  // </ul>
-  //
-  // <input
-  //       type="text"
-  //       placeholder="Search a castle"
-  //     />
-
-
-
-
-  //
-  //   getAllCastles() {
-  //
-  //   alert(
-  //
-  //         <li>{CastlesList.place_id} - {CastlesList.name}</li>;
-  //
-  //   );
-  //
-  //   }
-  //
-  // componentDidMount() {
-  //   this.getAllCastles();
-  // }
-  //
-  // whenMarkerIsClicked = (event, index) => {
-  //   this.setState ({ activeMarkerIndex: index })
-  // }
+export default App

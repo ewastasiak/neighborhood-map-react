@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import App from '../App.css';
-// import MarkerList from './MarkerList.js'
 import Castles from '../data/castles.json';
-// import CastlesList from './CastlesList.js';
-
 
 
 class SearchList extends Component{
@@ -17,7 +14,6 @@ render() {
     <div className="castles-list">
 
 
-
                 <ul>
                 {
                   Castles.map(castle => {
@@ -28,6 +24,7 @@ render() {
                 <input
                       type="text"
                       placeholder="Search a castle"
+                      
                     />
 
 
