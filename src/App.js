@@ -12,10 +12,32 @@ class App extends Component {
 
   state = {
     listOfCastles: Castles,
-    wikiEntry: []
+    activeMarker: {},
+    selectedPlace: {},
+    showingInfoWindow: false,
+
+
+    wikiEntry: [],
   }
 
-//TODO:add all the state management
+
+//Get the castles from ./data/castles.json
+// Probably not necessary
+// getAllCastles() {
+// const initialCastles = Castles;
+//
+// alert(
+//
+//       <li>{Castles.place_id} - {Castles.name}</li>
+
+// );
+// }
+
+componentDidMount() {
+  //Don't need this.
+// this.getAllCastles();
+}
+
 
 //Render the page with all components in grid
   render() {
