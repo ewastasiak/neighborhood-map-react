@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import App from '../App.css';
 // import MarkerList from './MarkerList.js'
-import Castles from '../data/castles.json';
-// import CastlesList from './CastlesList.js';
+// import Castles from './castles.json';
+import CastlesList from './CastlesList.js';
 
 
 
@@ -16,19 +16,15 @@ render() {
   return (
     <div className="castles-list">
 
-
-
-                <ul>
+<ol>
                 {
-                  Castles.map(castle => {
-                    return <li key={castle.place_id}>{castle.name}</li>;
-                  })
+
+                      <CastlesList />
+
                 }
-                </ul>
-                <input
-                      type="text"
-                      placeholder="Search a castle"
-                    />
+                </ol>
+
+
 
 
 <img className="pb" src={ require('../img/dracula-castles.png') } />

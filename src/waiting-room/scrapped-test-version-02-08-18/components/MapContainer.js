@@ -6,7 +6,7 @@ import Castles from '../data/castles.json';
 // import App from './App.js'
 // import DetailsWindow from './DetailsWindow.js';
 //Map.js
-// import CastlesList from './CastlesList.js'
+import CastlesList from './CastlesList.js'
 
 // class MapContainer extends React.Component {}
 //   render() {
@@ -74,7 +74,7 @@ class MapContainer extends Component {
         this.setState({
           showingInfoWindow: false,
           activeMarker: null,
-          // locationsArray: castle.latlng
+          locationsArray: castle.latlng
           // position: this.state.castle.latlng
         })
       }
@@ -153,11 +153,11 @@ class MapContainer extends Component {
 
         icon={require('../img/pointer.png')}
 
-            title={'Bran Castle'}
-            name={'Bran Castle'}
+            title={castle.name}
+            name={castle.name}
             position={{lat: 45.5149, lng: 25.3672}} />
             <InfoWindow onClose={this.onInfoWindowClose}
-            position={{lat: 45.7149, lng: 25.3672}}
+            position={this.props.latlng}
             wiki = {this.state.wikiEntry}
 
                       marker={this.state.activeMarkerIndex}
