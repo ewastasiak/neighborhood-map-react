@@ -9,11 +9,11 @@ import Castles from '../data/castles.json';
 
 class MapContainer extends Component {
 
-  state = {
-      // showingInfoWindow: true,
-      // activeMarker: {},
-      // selectedPlace: {}
-    };
+  // state = {
+  //     // showingInfoWindow: true,
+  //     // activeMarker: {},
+  //     // selectedPlace: {}
+  //   };
 
     // onMarkerClick = (props, marker, e, position) =>
     //       this.setState({
@@ -22,21 +22,6 @@ class MapContainer extends Component {
     //         activeMarker: marker,
     //         showingInfoWindow: true
     //       } );
-
-      // TODO: There are two ways how to control a position of the <InfoWindow /> component.
-      // You can use a position prop or
-      // connect the <InfoWindow /> component
-      // directly to an existing <Marker /> component by using a marker prop.
-
-      // onInfoWindowClose = () =>
-      //   this.setState({
-      //     selectedPlace: {},
-      //     activeMarker: null,
-      //     showingInfoWindow: false
-      //   });
-
-
-//INFOWINDOW
 
     // onMapClicked = (props) => {
     //   if (this.state.showingInfoWindow) {
@@ -49,6 +34,11 @@ class MapContainer extends Component {
     //   }
     // };
 
+
+
+
+
+
   render() {
     return (
 
@@ -57,31 +47,45 @@ class MapContainer extends Component {
 
       <Map
         google={this.props.google}
+        onMapClicked={this.onMapClicked}
         initialCenter={{lat: 45.5149, lng: 24.3672}}
         zoom={8}
         styles={require('../data/MapStyling.json')}
         >
 
+
+{// Create markers from JSON locations
+}
         {Castles.map(castle =>
 
                   <Marker
+                    onClick={this.props.onMarkerClick}
                     key={castle.place_id}
                     position={castle.latlng}
                     title={castle.name}
                     animation={4}
                     icon={require('../img/pointer.png')}
-                  >  <InfoWindow onClose={this.onInfoWindowClose}
-                    position={castle.infoPosition}
-
-                              marker={this.state.activeMarkerIndex}
-                              visible={this.showingInfoWindow}>
-                                <div>
-                                  <h2>{this.state.selectedPlace}</h2>
-                                </div>
-                            </InfoWindow></Marker>
+                    />
 
 
                 )}
+
+
+
+          <InfoWindow onClose={this.onInfoWindowClose}
+
+                      marker={this.props.activeMarker}
+
+                      visible={this.props.showingInfoWindow}
+          >
+                      <div>
+                    {
+                        <h2>{this.props.title}</h2>
+                      }
+                        <p>test</p>
+                      </div>
+          </InfoWindow>
+
 
 
 
