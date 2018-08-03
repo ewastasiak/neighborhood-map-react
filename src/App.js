@@ -61,6 +61,7 @@ closeInfoWindow
 
 
 
+
 onMarkerClick = (props, marker, e) =>
       this.setState({
         // listOfCastles: Castles,
@@ -76,8 +77,7 @@ onMarkerClick = (props, marker, e) =>
           this.setState({
             showingInfoWindow: false,
             activeMarker: null,
-            // locationsArray: castle.latlng
-            // position: this.state.castle.latlng
+
           })
         }
       };
@@ -106,7 +106,7 @@ componentDidMount() {
   render() {
 
 
-    console.log(  `This is an array with ${this.state.listOfCastles.length} castles`);
+    console.log(  `This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
     console.log(
       Castles.map(castle => {
         return <li key={castle.place_id}>{castle.name}</li>;
@@ -140,7 +140,7 @@ componentDidMount() {
           <div className="item item-3">
             <MapContainer
               listOfCastles={this.state.listOfCastles}
-
+              selectedPlace={this.state.selectedPlace}
 
               query={this.state.query}
               search={this.state.results}
