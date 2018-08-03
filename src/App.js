@@ -12,16 +12,59 @@ class App extends Component {
 
   state = {
     listOfCastles: Castles,
-    wikiEntry: []
+    activeMarker: {},
+    selectedPlace: {},
+    showingInfoWindow: true,
+    // wikiEntry: [],
+
   }
 
-//TODO:add all the state management
+
+filterCastles = (query) => {
+  // filtering the array map/filter
+}
+
+getWiki
+
+openInfoWindow
+
+closeInfoWindow
+
+
+onMarkerClick = (props, marker, e, position) =>
+      this.setState({
+
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+
+      } );
+
+
+      onMapClicked = (props) => {
+        if (this.state.showingInfoWindow) {
+          this.setState({
+            showingInfoWindow: false,
+            activeMarker: null,
+            // locationsArray: castle.latlng
+            // position: this.state.castle.latlng
+          })
+        }
+      };
+
+
+
+componentDidMount() {
+// update the locations here
+
+}
+
 
 //Render the page with all components in grid
   render() {
 
-//Temporary
-    console.log(  `Yo this is an array with ${this.state.listOfCastles.length} castles`);
+
+    console.log(  `This is an array with ${this.state.listOfCastles.length} castles`);
     console.log(
       Castles.map(castle => {
         return <li key={castle.place_id}>{castle.name}</li>;
@@ -51,7 +94,13 @@ class App extends Component {
 
           <div className="item item-3">
             <MapContainer
+              onMarkerClick={this.onMarkerClick}
+              onMapClicked={this.onMapClicked}
 
+              selectedPlace={this.state.selectedPlace}
+              listOfCastles={this.state.listOfCastles}
+              activeMarker={this.state.activeMarker}
+              showingInfoWindow={this.state.showingInfoWindow}
             />
           </div>
 
@@ -70,3 +119,9 @@ class App extends Component {
 }
 
 export default App
+
+
+// activeMarker: {this.state.activeMarker}
+// selectedPlace: {this.state.selectedPlace}
+// showingInfoWindow: {this.state.showingInfoWindow}
+// wikiEntry: {this.state.wikiEntry}
