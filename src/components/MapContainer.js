@@ -38,6 +38,9 @@ class MapContainer extends Component {
         styles={require('../data/MapStyling.json')}
         >
 
+
+{// Create markers from JSON locations
+}
         {Castles.map(castle =>
 
                   <Marker
@@ -49,16 +52,22 @@ class MapContainer extends Component {
                     icon={require('../img/pointer.png')}
                     />
 
+
                 )}
 
-        {Castles.map(castle =>
 
-                <InfoWindow onClose={this.onInfoWindowClose}>
-                            <div>
-                              <h1>{castle.name}</h1>
-                            </div>
-                        </InfoWindow>
-)}
+
+          <InfoWindow onClose={this.onInfoWindowClose}
+
+marker={this.state.activeMarkerIndex}
+visible={this.state.showingInfoWindow}>
+          >
+                      <div>
+                        <h2>{this.state.selectedPlace}</h2>
+                      </div>
+                  </InfoWindow>
+
+
 
 
       </Map>

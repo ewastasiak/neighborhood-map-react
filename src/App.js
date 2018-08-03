@@ -108,6 +108,7 @@ componentDidMount() {
             <MapContainer
               onMarkerClick={this.onMarkerClick}
               onMapClicked={this.onMapClicked}
+              onInfoWindowClose={this.onInfoWindowClose}
 
               selectedPlace={this.state.selectedPlace}
               listOfCastles={this.state.listOfCastles}
