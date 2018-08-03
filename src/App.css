@@ -1,4 +1,6 @@
-
+.infoWindow {
+  background-color: orange;
+}
 /*---------------------------------------------------------*/
 /* ------------ OVERRIDE GOOGLE MAP STYLES --------------- */
 /* .gm {
@@ -48,10 +50,10 @@ margin: 190px 0 0;
 }
 
 
-/* .gm-style-iw {
-  background-color: black;
+.gm-style-iw {
+  color: #080808;
 
-} */
+}
 /*
 .gm-style-pbc {
   background-color: transparent;
