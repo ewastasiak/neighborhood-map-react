@@ -9,6 +9,10 @@
     "latlng": {
     "lat": 45.5149,
     "lng": 25.3672
+  },
+    "infoPosition": {
+    "lat": 45.7149,
+    "lng": 25.3672
     }
 
   },
@@ -20,6 +24,10 @@
     "name": "Peles Castle",
     "latlng": {
       "lat": 45.3600,
+      "lng": 25.5426
+    },
+    "infoPosition": {
+      "lat": 45.5600,
       "lng": 25.5426
     }
 
@@ -33,6 +41,10 @@
     "latlng": {
       "lat": 45.7493,
       "lng": 22.8883
+    },
+    "infoPosition": {
+      "lat": 45.9493,
+      "lng": 22.8883
     }
 
   },
@@ -44,6 +56,10 @@
     "name": "Râșnov Citadel",
     "latlng": {
       "lat": 45.5906,
+      "lng": 25.4694
+    },
+    "latlng": {
+      "lat": 45.7906,
       "lng": 25.4694
     }
 
@@ -57,6 +73,10 @@
     "latlng": {
       "lat": 45.8453,
       "lng": 24.9738
+    },
+    "infoPosition": {
+      "lat": 45.9953,
+      "lng": 24.9738
     }
 
   },
@@ -68,6 +88,10 @@
     "name": "The Citadel Alba-Carolina",
     "latlng": {
       "lat": 46.0686,
+      "lng": 23.5717
+    },
+    "infoPosition": {
+      "lat": 46.2686,
       "lng": 23.5717
     }
 
@@ -81,6 +105,10 @@
     "latlng": {
       "lat": 46.0378,
       "lng": 25.2129
+    },
+    "infoPosition": {
+      "lat": 46.2378,
+      "lng": 25.2129
     }
 
   },
@@ -92,6 +120,10 @@
     "name": "Sighișoara Citadel",
     "latlng": {
       "lat": 46.2198,
+      "lng": 24.7920
+    },
+    "infoPosition": {
+      "lat": 46.4198,
       "lng": 24.7920
     }
 
@@ -105,6 +137,10 @@
     "latlng": {
       "lat": 45.8887,
       "lng": 22.8970
+    },
+    "infoPosition": {
+      "lat": 45.9887,
+      "lng": 22.8970
     }
 
   },
@@ -116,6 +152,10 @@
     "name": "Poenari Castle",
     "latlng": {
       "lat": 45.3536,
+      "lng": 24.6351
+    },
+    "infoPosition": {
+      "lat": 45.5536,
       "lng": 24.6351
     }
 
