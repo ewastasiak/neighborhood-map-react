@@ -14,7 +14,7 @@ class App extends Component {
     listOfCastles: Castles,
     activeMarker: {},
     selectedPlace: {},
-    showingInfoWindow: true,
+    showingInfoWindow: false,
     // wikiEntry: [],
 
   }
@@ -31,9 +31,9 @@ openInfoWindow
 closeInfoWindow
 
 
-onMarkerClick = (props, marker, e, position) =>
+onMarkerClick = (props, marker, e) =>
       this.setState({
-
+        // listOfCastles: Castles,
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true
@@ -57,12 +57,12 @@ onMarkerClick = (props, marker, e, position) =>
       // connect the <InfoWindow /> component
       // directly to an existing <Marker /> component by using a marker prop.
 
-      onInfoWindowClose = () =>
-        this.setState({
-          selectedPlace: {},
-          activeMarker: null,
-          showingInfoWindow: false
-        });
+      // onInfoWindowClose = () =>
+      //   this.setState({
+      //     selectedPlace: {},
+      //     activeMarker: null,
+      //     showingInfoWindow: false
+      //   });
 
 
 

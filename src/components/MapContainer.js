@@ -59,7 +59,8 @@ class MapContainer extends Component {
 
           <InfoWindow onClose={this.onInfoWindowClose}
 
-marker={this.state.activeMarkerIndex}
+marker={this.state.activeMarker}
+position={{lat: 45.5149, lng: 24.3672}}
 visible={this.state.showingInfoWindow}>
           >
                       <div>
