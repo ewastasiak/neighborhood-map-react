@@ -63,7 +63,7 @@ class MapContainer extends Component {
                     key={castle.place_id}
                     position={castle.latlng}
                     title={castle.name}
-                    animation={1}
+                    animation={4}
                     icon={require('../img/pointer.png')}
                     />
 
