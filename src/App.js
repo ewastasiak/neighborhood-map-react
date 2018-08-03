@@ -4,7 +4,7 @@ import MapContainer from './components/MapContainer.js'
 import SearchList from './components/SearchList.js'
 import Castles from './data/castles.json';
 import Footer from './components/Footer.js'
-
+import escapeRegExp from 'escape-string-regexp'
 
 
 class App extends Component {
@@ -67,10 +67,20 @@ onMarkerClick = (props, marker, e) =>
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true,
+        animation: '4'
         // animation: google.maps.Animation.BOUNCE
-
       } );
 
+      onMapClicked = (props) => {
+        if (this.state.showingInfoWindow) {
+          this.setState({
+            showingInfoWindow: false,
+            activeMarker: null,
+            // locationsArray: castle.latlng
+            // position: this.state.castle.latlng
+          })
+        }
+      };
 
       // TODO: There are two ways how to control a position of the <InfoWindow /> component.
       // You can use a position prop or
@@ -120,16 +130,20 @@ componentDidMount() {
           <div className="item item-2">
             <SearchList
               listOfCastles={this.state.listOfCastles}
+
               query={this.state.query}
-              onSearch={ this.filterCastles }
+              search={ this.state.results }
              />
           </div>
 
 
           <div className="item item-3">
             <MapContainer
+              listOfCastles={this.state.listOfCastles}
+
+
               query={this.state.query}
-              onSearch={this.filterCastles}
+              search={this.state.results}
 
 
               onMarkerClick={this.onMarkerClick}
@@ -137,7 +151,6 @@ componentDidMount() {
               onInfoWindowClose={this.onInfoWindowClose}
               animation={this.state.animation}
               selectedPlace={this.state.selectedPlace}
-              listOfCastles={this.state.listOfCastles}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
             />

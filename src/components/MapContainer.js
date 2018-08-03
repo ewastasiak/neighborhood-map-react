@@ -9,11 +9,11 @@ import Castles from '../data/castles.json';
 
 class MapContainer extends Component {
 
-  state = {
-      // showingInfoWindow: true,
-      // activeMarker: {},
-      // selectedPlace: {}
-    };
+  // state = {
+  //     // showingInfoWindow: true,
+  //     // activeMarker: {},
+  //     // selectedPlace: {}
+  //   };
 
     // onMarkerClick = (props, marker, e, position) =>
     //       this.setState({
@@ -23,16 +23,16 @@ class MapContainer extends Component {
     //         showingInfoWindow: true
     //       } );
 
-    onMapClicked = (props) => {
-      if (this.state.showingInfoWindow) {
-        this.setState({
-          showingInfoWindow: false,
-          activeMarker: null,
-          // locationsArray: castle.latlng
-          // position: this.state.castle.latlng
-        })
-      }
-    };
+    // onMapClicked = (props) => {
+    //   if (this.state.showingInfoWindow) {
+    //     this.setState({
+    //       showingInfoWindow: false,
+    //       activeMarker: null,
+    //       // locationsArray: castle.latlng
+    //       // position: this.state.castle.latlng
+    //     })
+    //   }
+    // };
 
 
 
@@ -74,12 +74,12 @@ class MapContainer extends Component {
 
           <InfoWindow onClose={this.onInfoWindowClose}
 
-marker={this.state.activeMarkerIndex}
+marker={this.activeMarker}
 
-visible={this.state.showingInfoWindow}>
+visible={this.showingInfoWindow}>
           >
                       <div>
-                        <h2>{this.state.selectedPlace.name}</h2>
+                        <h2>{this.listOfCastles}</h2>
                         <p>test</p>
                       </div>
                   </InfoWindow>

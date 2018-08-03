@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import App from '../App.css';
 import Castles from '../data/castles.json';
 
-// 
+//
 // queryHandler = (query) => {
 //   this.setState({ query: query })
 //   this.props.filterLocations(query)
@@ -52,7 +52,7 @@ render() {
                 <input
                       type="text"
                       placeholder="Search a castle"
-                      value={this.state.query}
+                      
                        onChange={(event) => this.updateSearch(event.target.value)}
                     />
 
