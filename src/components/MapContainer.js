@@ -76,7 +76,7 @@ class MapContainer extends Component {
 
                       marker={this.props.activeMarker}
 
-                      visible={this.showingInfoWindow}
+                      visible={this.props.showingInfoWindow}
           >
                       <div>
                     {
