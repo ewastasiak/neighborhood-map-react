@@ -52,6 +52,18 @@ onMarkerClick = (props, marker, e, position) =>
         }
       };
 
+      // TODO: There are two ways how to control a position of the <InfoWindow /> component.
+      // You can use a position prop or
+      // connect the <InfoWindow /> component
+      // directly to an existing <Marker /> component by using a marker prop.
+
+      onInfoWindowClose = () =>
+        this.setState({
+          selectedPlace: {},
+          activeMarker: null,
+          showingInfoWindow: false
+        });
+
 
 
 componentDidMount() {

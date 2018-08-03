@@ -23,31 +23,7 @@ class MapContainer extends Component {
     //         showingInfoWindow: true
     //       } );
 
-      // TODO: There are two ways how to control a position of the <InfoWindow /> component.
-      // You can use a position prop or
-      // connect the <InfoWindow /> component
-      // directly to an existing <Marker /> component by using a marker prop.
 
-      // onInfoWindowClose = () =>
-      //   this.setState({
-      //     selectedPlace: {},
-      //     activeMarker: null,
-      //     showingInfoWindow: false
-      //   });
-
-
-//INFOWINDOW
-
-    // onMapClicked = (props) => {
-    //   if (this.state.showingInfoWindow) {
-    //     this.setState({
-    //       showingInfoWindow: false,
-    //       activeMarker: null,
-    //       // locationsArray: castle.latlng
-    //       // position: this.state.castle.latlng
-    //     })
-    //   }
-    // };
 
   render() {
     return (
@@ -65,24 +41,24 @@ class MapContainer extends Component {
         {Castles.map(castle =>
 
                   <Marker
+                    onClick={this.onMarkerClick}
                     key={castle.place_id}
                     position={castle.latlng}
                     title={castle.name}
                     animation={4}
                     icon={require('../img/pointer.png')}
-                  >  <InfoWindow onClose={this.onInfoWindowClose}
-                    position={castle.infoPosition}
-
-                              marker={this.state.activeMarkerIndex}
-                              visible={this.showingInfoWindow}>
-                                <div>
-                                  <h2>{this.state.selectedPlace}</h2>
-                                </div>
-                            </InfoWindow></Marker>
-
+                    />
 
                 )}
 
+        {Castles.map(castle =>
+
+                <InfoWindow onClose={this.onInfoWindowClose}>
+                            <div>
+                              <h1>{castle.name}</h1>
+                            </div>
+                        </InfoWindow>
+)}
 
 
       </Map>
