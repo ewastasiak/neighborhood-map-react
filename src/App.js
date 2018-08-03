@@ -15,6 +15,17 @@ class App extends Component {
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
+
+//Query/results will be used
+// both by searchlist and MapContainer markers
+
+    query: '',
+    results: Castles
+
+
+    // animation: Marker.animation
+    // animation: google.maps.Animation.DROP
+
     // wikiEntry: [],
 
   }
@@ -22,7 +33,24 @@ class App extends Component {
 
 filterCastles = (query) => {
   // filtering the array map/filter
+  // this.setState({
+  //    query: query
+  //  })
+  //  this.updateSearch(query);
 }
+
+// updateResults = (query) => {
+//
+//     if (query) {
+//       BooksAPI.search(query).then((results) => {
+//         //error handling ternary for search
+//         results.error ? this.setState({ results: [] }) : this.setState({ results: results })
+//       })
+//     } else {
+//       this.setState({ results: [] });
+//     }
+//   }
+
 
 getWiki
 
@@ -31,26 +59,18 @@ openInfoWindow
 closeInfoWindow
 
 
+
+
 onMarkerClick = (props, marker, e) =>
       this.setState({
         // listOfCastles: Castles,
         selectedPlace: props,
         activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: true,
+        // animation: google.maps.Animation.BOUNCE
 
       } );
 
-
-      onMapClicked = (props) => {
-        if (this.state.showingInfoWindow) {
-          this.setState({
-            showingInfoWindow: false,
-            activeMarker: null,
-            // locationsArray: castle.latlng
-            // position: this.state.castle.latlng
-          })
-        }
-      };
 
       // TODO: There are two ways how to control a position of the <InfoWindow /> component.
       // You can use a position prop or
@@ -68,7 +88,7 @@ onMarkerClick = (props, marker, e) =>
 
 componentDidMount() {
 // update the locations here
-
+// this.setState({ castles: listOfCastles})
 }
 
 
@@ -99,17 +119,23 @@ componentDidMount() {
 
           <div className="item item-2">
             <SearchList
-
+              listOfCastles={this.state.listOfCastles}
+              query={this.state.query}
+              onSearch={ this.filterCastles }
              />
           </div>
 
 
           <div className="item item-3">
             <MapContainer
+              query={this.state.query}
+              onSearch={this.filterCastles}
+
+
               onMarkerClick={this.onMarkerClick}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
-
+              animation={this.state.animation}
               selectedPlace={this.state.selectedPlace}
               listOfCastles={this.state.listOfCastles}
               activeMarker={this.state.activeMarker}

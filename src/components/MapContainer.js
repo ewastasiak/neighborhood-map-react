@@ -23,6 +23,20 @@ class MapContainer extends Component {
     //         showingInfoWindow: true
     //       } );
 
+    onMapClicked = (props) => {
+      if (this.state.showingInfoWindow) {
+        this.setState({
+          showingInfoWindow: false,
+          activeMarker: null,
+          // locationsArray: castle.latlng
+          // position: this.state.castle.latlng
+        })
+      }
+    };
+
+
+
+
 
 
   render() {
@@ -33,6 +47,7 @@ class MapContainer extends Component {
 
       <Map
         google={this.props.google}
+        onMapClicked={this.onMapClicked}
         initialCenter={{lat: 45.5149, lng: 24.3672}}
         zoom={8}
         styles={require('../data/MapStyling.json')}
@@ -44,7 +59,7 @@ class MapContainer extends Component {
         {Castles.map(castle =>
 
                   <Marker
-                    onClick={this.onMarkerClick}
+                    onClick={this.props.onMarkerClick}
                     key={castle.place_id}
                     position={castle.latlng}
                     title={castle.name}
@@ -59,12 +74,13 @@ class MapContainer extends Component {
 
           <InfoWindow onClose={this.onInfoWindowClose}
 
-marker={this.state.activeMarker}
-position={{lat: 45.5149, lng: 24.3672}}
+marker={this.state.activeMarkerIndex}
+
 visible={this.state.showingInfoWindow}>
           >
                       <div>
-                        <h2>{this.state.selectedPlace}</h2>
+                        <h2>{this.state.selectedPlace.name}</h2>
+                        <p>test</p>
                       </div>
                   </InfoWindow>
 
