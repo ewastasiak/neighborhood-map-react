@@ -58,6 +58,7 @@ class MapContainer extends Component {
       <Map
         google={this.props.google}
         initialCenter={{lat: 45.5149, lng: 24.3672}}
+
         zoom={8}
         styles={require('../data/MapStyling.json')}
         >

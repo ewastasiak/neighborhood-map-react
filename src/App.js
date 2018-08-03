@@ -14,28 +14,49 @@ class App extends Component {
     listOfCastles: Castles,
     activeMarker: {},
     selectedPlace: {},
-    showingInfoWindow: false,
-
-
+    showingInfoWindow: true,
     wikiEntry: [],
+
   }
 
 
-//Get the castles from ./data/castles.json
-// Probably not necessary
-// getAllCastles() {
-// const initialCastles = Castles;
-//
-// alert(
-//
-//       <li>{Castles.place_id} - {Castles.name}</li>
+filterCastles = (query) => {
+  // filtering the array map/filter
+}
 
-// );
-// }
+getWiki
+
+openInfoWindow
+
+closeInfoWindow
+
+
+onMarkerClick = (props, marker, e, position) =>
+      this.setState({
+
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+
+      } );
+
+
+      onMapClicked = (props) => {
+        if (this.state.showingInfoWindow) {
+          this.setState({
+            showingInfoWindow: false,
+            activeMarker: null,
+            // locationsArray: castle.latlng
+            // position: this.state.castle.latlng
+          })
+        }
+      };
+
+
 
 componentDidMount() {
-  //Don't need this.
-// this.getAllCastles();
+// update the locations here
+
 }
 
 
@@ -73,7 +94,8 @@ componentDidMount() {
 
           <div className="item item-3">
             <MapContainer
-
+              onMarkerClick={this.onMarkerClick}
+              selectedPlace={this.state.selectedPlace}
             />
           </div>
 
@@ -92,3 +114,9 @@ componentDidMount() {
 }
 
 export default App
+
+
+// activeMarker: {this.state.activeMarker}
+// selectedPlace: {this.state.selectedPlace}
+// showingInfoWindow: {this.state.showingInfoWindow}
+// wikiEntry: {this.state.wikiEntry}
