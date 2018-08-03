@@ -63,7 +63,7 @@ class MapContainer extends Component {
                     key={castle.place_id}
                     position={castle.latlng}
                     title={castle.name}
-                    animation={4}
+                    animation={1}
                     icon={require('../img/pointer.png')}
                     />
 
@@ -74,13 +74,13 @@ class MapContainer extends Component {
 
           <InfoWindow onClose={this.onInfoWindowClose}
 
-                      marker={this.activeMarker}
+                      marker={this.props.activeMarker}
 
-                      visible={this.showingInfoWindow}>
+                      visible={this.showingInfoWindow}
           >
                       <div>
                     {
-                        <h2>this.state.selectedPlace.name</h2>
+                        <h2>{this.props.title}</h2>
                       }
                         <p>test</p>
                       </div>
