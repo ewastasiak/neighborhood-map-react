@@ -15,7 +15,7 @@ class App extends Component {
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: true,
-    wikiEntry: [],
+    // wikiEntry: [],
 
   }
 
@@ -63,8 +63,8 @@ componentDidMount() {
 //Render the page with all components in grid
   render() {
 
-//Temporary
-    console.log(  `Yo this is an array with ${this.state.listOfCastles.length} castles`);
+
+    console.log(  `This is an array with ${this.state.listOfCastles.length} castles`);
     console.log(
       Castles.map(castle => {
         return <li key={castle.place_id}>{castle.name}</li>;
@@ -95,7 +95,12 @@ componentDidMount() {
           <div className="item item-3">
             <MapContainer
               onMarkerClick={this.onMarkerClick}
+              onMapClicked={this.onMapClicked}
+
               selectedPlace={this.state.selectedPlace}
+              listOfCastles={this.state.listOfCastles}
+              activeMarker={this.state.activeMarker}
+              showingInfoWindow={this.state.showingInfoWindow}
             />
           </div>
 
