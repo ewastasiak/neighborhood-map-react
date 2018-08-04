@@ -15,6 +15,7 @@ class App extends Component {
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
+    animation: false,
 
 //Query/results will be used
 // both by searchlist and MapContainer markers
@@ -68,7 +69,7 @@ onMarkerClick = (props, marker, e) =>
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true,
-        animation: '4'
+        animate: true
         // animation: google.maps.Animation.BOUNCE
       } );
 
@@ -149,7 +150,7 @@ componentDidMount() {
               onMarkerClick={this.onMarkerClick}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
-              animation={this.state.animation}
+              animate={this.state.animate}
               selectedPlace={this.state.selectedPlace}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}

@@ -63,10 +63,9 @@ class MapContainer extends Component {
                     key={castle.place_id}
                     position={castle.latlng}
                     title={castle.name}
-                    animation={4}
+                    animation={this.props.animate && this.props.google.maps.Animation.BOUNCE}
                     icon={require('../img/pointer.png')}
                     />
-
 
                 )}
 
