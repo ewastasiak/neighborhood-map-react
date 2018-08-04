@@ -21,8 +21,9 @@ class App extends Component {
 // both by searchlist and MapContainer markers
 
     query: '',
-    results: Castles
+    results: Castles,
 
+    pictures: []
 
     // animation: Marker.animation
     // animation: google.maps.Animation.DROP
@@ -96,10 +97,26 @@ onMarkerClick = (props, marker, e) =>
       //   });
 
 
-
+//FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
 componentDidMount() {
-// update the locations here
-// this.setState({ castles: listOfCastles})
+fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=castle&per_page=1&page=1&format=json&nojsoncallback=1`
+)
+.then(function(response) {
+  return response.json();
+})
+.then(function(p) {
+  alert(JSON.stringify(p))
+  let pictureArr = p.photos.photo.map((pic) => {
+    let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+    return (
+      <img alt="`{castle.name}`" src={srcPath}></img>
+    )
+
+
+  })
+  this.setState({ pictures: pictureArr })
+}.bind(this))
+
 }
 
 
@@ -115,10 +132,12 @@ componentDidMount() {
 
     );
 
-
+//REMOVE temporary <p>
     return (
       <div className="App">
-
+<p>
+{this.state.pictures}
+</p>
         <div className="grid">
 
 
