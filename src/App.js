@@ -99,7 +99,9 @@ onMarkerClick = (props, marker, e) =>
 
 //FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
 componentDidMount() {
-fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=castle&per_page=1&page=1&format=json&nojsoncallback=1`
+// fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
+// )
+fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Fagaras%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
 )
 .then(function(response) {
   return response.json();
@@ -132,12 +134,10 @@ fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key
 
     );
 
-//REMOVE temporary <p>
+
     return (
       <div className="App">
-<p>
-{this.state.pictures}
-</p>
+
         <div className="grid">
 
 
@@ -159,6 +159,9 @@ fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key
 
           <div className="item item-3">
             <MapContainer
+fetchedPics={this.state.pictures}
+
+
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
 
