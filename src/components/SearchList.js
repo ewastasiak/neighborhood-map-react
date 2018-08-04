@@ -49,12 +49,15 @@ render() {
                   })
                 }
                 </ul>
+
+                <form className="search" >
                 <input
                       type="text"
                       placeholder="Search a castle"
-                      
+
                        onChange={(event) => this.updateSearch(event.target.value)}
                     />
+                </form>
 
 
 <img className="pb" src={ require('../img/dracula-castles.png') } />
