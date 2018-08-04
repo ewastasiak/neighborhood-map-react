@@ -37,8 +37,6 @@ class MapContainer extends Component {
 
 
 
-
-
   render() {
     return (
 
@@ -56,21 +54,21 @@ class MapContainer extends Component {
 
 {// Create markers from JSON locations
 }
-{Castles.map((castle) => {
+        {Castles.map(castle => {
 
-  return ( <Marker
-    onClick={this.props.onMarkerClick}
-    key={castle.place_id}
-    position={castle.latlng}
-    title={castle.name}
-    animation={this.props.selectedPlace.title === castle.name ? this.props.google.maps.Animation.BOUNCE : true}
-    icon={require('../img/pointer.png')}
-    />
-  )
-}
-)
+          return ( <Marker
+            onClick={this.props.onMarkerClick}
+            key={castle.place_id}
+            position={castle.latlng}
+            title={castle.name}
+            animation={this.props.selectedPlace.title === castle.name ? this.props.google.maps.Animation.BOUNCE : false}
+            icon={require('../img/pointer.png')}
+            />
+          )
+        }
+        )
 
-}
+      }
 
 
 

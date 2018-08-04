@@ -122,6 +122,40 @@ fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key
 }
 
 
+// https://medium.freecodecamp.org/force-refreshing-a-react-child-component-the-easy-way-6cdbb9e6d99c
+//CHANGE 1
+
+
+///???
+
+
+
+
+
+// changeAnimation = animation => {
+//   this.udateUser({animation}).then (res => {
+//   // this.refresh the markers
+//   // this.refresh the animation();
+// })
+// }
+//
+// refreshMarker = () =>
+// this.setState({ refresh Marker: !this.state.refresh Marker})
+//
+// // shoelist=Marker
+// // animation=shoes
+// componentWillReceiveProps(props) {
+//   const {refresh, id} = this.props;
+//   if (props.refres !== refresh) {
+//     this.takeMarkerAnimation(id)
+//     .then(this.refreshMarker)
+//   }
+// }
+
+
+//END
+
+
 //Render the page with all components in grid
   render() {
 
