@@ -181,8 +181,20 @@ class SearchList extends Component{
   updateResults = (query) => {
 
       if (query) {
-        console.log('querylileee');
-      } else {
+        console.log('Seems to do something');
+        this.state.results.filter(castle => {
+              return castle.castle.toLowerCase().indexOf(this.filterCastles.toLowerCase()) >= 0
+            })
+            .map(castle => {
+              return (
+                <div className="castles-list">
+                <li key={castle.place_id}>{castle.castle}</li>
+                </div>
+              )
+            })
+        }
+
+       else {
         this.setState({ results: Castles });
       }
     }
