@@ -171,22 +171,30 @@ class SearchList extends Component{
     results: Castles,
   }
 
-  filterCastles(value) {
+  filterCastles(query) {
     this.setState ({
-      query: value
+      query: query
     })
     this.updateResults(this.query);
   }
 
 
-
+// https://www.youtube.com/watch?v=HqQ-kOchqHM&feature=youtu.be
   updateResults = (query) => {
-
+//shorten to ternary
       if (query) {
         console.log('Seems to do something');
-        this.state.results.filter(castle => {
-              return (castle.name.toLowerCase().indexOf(this.props.filterCastles.toLowerCase()) >= 0)
-            })
+
+        Castles.filter((castle) => {
+          return (
+          // TODO// query === castle.name
+          )
+        })
+
+        // Castles.filter(castle => {
+        //       // return (castle.castle.toLowerCase().indexOf(this.filterCastles.toLowerCase()) >= 0)
+        //        return (castle.castle.toLowerCase())
+        //     })
             .map(castle => {
               return (
                 <div className="castles-list">
