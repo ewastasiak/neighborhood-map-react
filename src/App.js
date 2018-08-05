@@ -92,7 +92,7 @@ fetch(castle.flickr)
     let pictureArr = p.photos.photo.map((pic) => {
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
       return (
-        <img className="info-pic" alt="{castle.name}" src={srcPath}></img>
+        <img className="info-pic" alt={castle.name} src={srcPath}></img>
       )
 
 
