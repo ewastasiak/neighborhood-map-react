@@ -11,7 +11,7 @@ class App extends Component {
 
 
   state = {
-    listOfCastles: Castles,
+
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
@@ -19,7 +19,7 @@ class App extends Component {
 
 //Query/results will be used
 // both by searchlist and MapContainer markers
-
+    listOfCastles: Castles,
     query: '',
     results: Castles,
 
@@ -33,7 +33,10 @@ class App extends Component {
   }
 
 
-filterCastles = (query) => {
+filterCastles(value) {
+  this.setState ({
+    query: value
+  })
   // filtering the array map/filter
   // this.setState({
   //    query: query
@@ -101,27 +104,30 @@ onMarkerClick = (props, marker, e) =>
 componentDidMount() {
 // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
 // )
-fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=${Castles.flickr}&per_page=10&page=1&format=json&nojsoncallback=1`
-)
-.then(function(response) {
-  return response.json();
-})
-.then(function(p) {
-  // alert(JSON.stringify(p))
-  let pictureArr = p.photos.photo.map((pic) => {
-    let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+
+  Castles.map(castle => {
     return (
-      <img alt="`{castle.name}`" src={srcPath}></img>
-    )
 
-
+fetch(castle.flickr)
+  .then(function(response) {
+    return response.json();
   })
-  this.setState({ pictures: pictureArr })
-}.bind(this))
+  .then(function(p) {
+    // alert(JSON.stringify(p))
+    let pictureArr = p.photos.photo.map((pic) => {
+      let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+      return (
+        <img alt="`{castle.name}`" src={srcPath}></img>
+      )
+
+
+    })
+    this.setState({ pictures: pictureArr })
+  }.bind(this))
+
+  )})
 
 }
-
-
 // https://medium.freecodecamp.org/force-refreshing-a-react-child-component-the-easy-way-6cdbb9e6d99c
 //CHANGE 1
 
@@ -207,7 +213,7 @@ fetchedPics={this.state.pictures}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
               animate={this.state.animate}
-              selectedPlace={this.state.selectedPlace}
+
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
             />
