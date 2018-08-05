@@ -178,12 +178,14 @@ class SearchList extends Component{
     this.updateResults(this.query);
   }
 
+
+
   updateResults = (query) => {
 
       if (query) {
         console.log('Seems to do something');
         this.state.results.filter(castle => {
-              return castle.castle.toLowerCase().indexOf(this.filterCastles.toLowerCase()) >= 0
+              return (castle.name.toLowerCase().indexOf(this.props.filterCastles.toLowerCase()) >= 0)
             })
             .map(castle => {
               return (
@@ -221,7 +223,7 @@ render() {
                 <input
                       type="text"
                       placeholder="Search a castle"
-                      value={this.props.query}
+                      value={this.state.query}
                        onChange={(event) => this.updateResults(event.target.value)}
                     />
                 </form>
