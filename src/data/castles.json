@@ -6,6 +6,7 @@
 
     "place_id" : "ChIJMd4VpOVHs0ARf6sh2ZInks8",
     "name": "Bran Castle",
+    "flickr":"Bran%20Castle",
     "latlng": {
     "lat": 45.5149,
     "lng": 25.3672
@@ -22,6 +23,7 @@
 
     "place_id" : "ChIJbVXg0uwWs0ARrdXzlKVjbpo",
     "name": "Peles Castle",
+    "flickr": "Peles%20Castle",
     "latlng": {
       "lat": 45.3600,
       "lng": 25.5426
@@ -38,6 +40,7 @@
 
     "place_id" : "ChIJy3Qq_I6KTkcRFuk1uuh67Cw",
     "name": "Corvin Castle",
+    "flickr": "Corvin%20Castle",
     "latlng": {
       "lat": 45.7493,
       "lng": 22.8883
@@ -54,6 +57,7 @@
 
     "place_id" : "ChIJLWaPAaVFs0AReosfX0btjBA",
     "name": "Rasnov Citadel",
+    "flickr": "Rasnov%20Citadel",
     "latlng": {
       "lat": 45.5906,
       "lng": 25.4694
@@ -70,6 +74,7 @@
 
     "place_id" : "ChIJHVeRz3mhTEcR37KkzDHLlys",
     "name": "Fagaras Citadel",
+    "flickr": "Fagaras%20Citadel",
     "latlng": {
       "lat": 45.8453,
       "lng": 24.9738
@@ -86,6 +91,7 @@
 
     "place_id" : "ChIJVQz-Jd6nTkcRucse8-yHz5Y",
     "name": "The Citadel Alba-Carolina",
+    "flickr": "Alba-Carolina%20Citadel",
     "latlng": {
       "lat": 46.0686,
       "lng": 23.5717
@@ -102,6 +108,7 @@
 
     "place_id" : "ChIJTy3cY6dES0cRuCvwLxF7st4",
     "name": "Rupea Fortress",
+    "flickr": "Rupea%20Fortress",
     "latlng": {
       "lat": 46.0378,
       "lng": 25.2129
@@ -118,6 +125,7 @@
 
     "place_id" : "ChIJ0ZFEJMZ1S0cR-cElgdeyFwk",
     "name": "Sighishoara Citadel",
+    "flickr": "Sighishoara%20Citadel",
     "latlng": {
       "lat": 46.2198,
       "lng": 24.7920
@@ -134,6 +142,7 @@
 
     "place_id" : "ChIJo9goQIfyTkcR6neEKX16Sys",
     "name": "Deva Fortress",
+    "flickr": "Deva%20Fortress",
     "latlng": {
       "lat": 45.8887,
       "lng": 22.8970
@@ -150,6 +159,7 @@
 
     "place_id" : "ChIJV787r4HYTEcRPoajq7wUS5s",
     "name": "Poenari Castle",
+    "flickr": "Poenari%20Castle",
     "latlng": {
       "lat": 45.3536,
       "lng": 24.6351

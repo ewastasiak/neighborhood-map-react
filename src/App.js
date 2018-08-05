@@ -15,13 +15,15 @@ class App extends Component {
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
+    animation: false,
 
 //Query/results will be used
 // both by searchlist and MapContainer markers
 
     query: '',
-    results: Castles
+    results: Castles,
 
+    pictures: []
 
     // animation: Marker.animation
     // animation: google.maps.Animation.DROP
@@ -68,7 +70,7 @@ onMarkerClick = (props, marker, e) =>
         selectedPlace: props,
         activeMarker: marker,
         showingInfoWindow: true,
-        animation: '4'
+        animate: true
         // animation: google.maps.Animation.BOUNCE
       } );
 
@@ -95,11 +97,63 @@ onMarkerClick = (props, marker, e) =>
       //   });
 
 
-
+//FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
 componentDidMount() {
-// update the locations here
-// this.setState({ castles: listOfCastles})
+// fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
+// )
+fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=${Castles.flickr}&per_page=10&page=1&format=json&nojsoncallback=1`
+)
+.then(function(response) {
+  return response.json();
+})
+.then(function(p) {
+  // alert(JSON.stringify(p))
+  let pictureArr = p.photos.photo.map((pic) => {
+    let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+    return (
+      <img alt="`{castle.name}`" src={srcPath}></img>
+    )
+
+
+  })
+  this.setState({ pictures: pictureArr })
+}.bind(this))
+
 }
+
+
+// https://medium.freecodecamp.org/force-refreshing-a-react-child-component-the-easy-way-6cdbb9e6d99c
+//CHANGE 1
+
+
+///???
+
+
+
+
+
+// changeAnimation = animation => {
+//   this.udateUser({animation}).then (res => {
+//   // this.refresh the markers
+//   // this.refresh the animation();
+// })
+// }
+//
+// refreshMarker = () =>
+// this.setState({ refresh Marker: !this.state.refresh Marker})
+//
+// // shoelist=Marker
+// // animation=shoes
+// componentWillReceiveProps(props) {
+//   const {refresh, id} = this.props;
+//   if (props.refres !== refresh) {
+//     this.takeMarkerAnimation(id)
+//     .then(this.refreshMarker)
+//   }
+// }
+
+
+//END
 
 
 //Render the page with all components in grid
@@ -139,6 +193,9 @@ componentDidMount() {
 
           <div className="item item-3">
             <MapContainer
+fetchedPics={this.state.pictures}
+
+
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
 
@@ -149,7 +206,7 @@ componentDidMount() {
               onMarkerClick={this.onMarkerClick}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
-              animation={this.state.animation}
+              animate={this.state.animate}
               selectedPlace={this.state.selectedPlace}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
