@@ -163,7 +163,7 @@ render() {
                 </form>
 
 
-<img className="pb" src={ require('../img/dracula-castles.png') } />
+<img className="pb" alt="" src={ require('../img/dracula-castles.png') } />
     </div>
 
   );
