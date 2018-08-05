@@ -1,6 +1,19 @@
-.infoWindow {
-  background-color: orange;
-}
+/* img {
+  max-width: 100%;
+} */
+
+/* .info {
+  max-height: 10%;
+
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  justify-content: right;
+  margin: 0 auto;
+  padding: 0 auto;
+} */
+
+
 /*---------------------------------------------------------*/
 /* ------------ OVERRIDE GOOGLE MAP STYLES --------------- */
 /* .gm {
@@ -49,10 +62,39 @@
 margin: 190px 0 0;
 }
 
+.gm-style
+.gm-style-iw {
+  padding: 10px;
+}
 
+
+/* Infowindow style */
 .gm-style-iw {
   color: #080808;
+  /* max-width: 400px; */
+  max-height: 300px;
+  max-width: 200px;
+  /* justify-content: center; */
+  /* max-width: 30%; */
+  /* background-color: orange; */
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  justify-content: right;
+  margin: 0 auto;
+  padding: 20% auto;
 
+ /* overflow: visible; */
+ /* overflow: auto; */
+
+     overflow: hidden;
+     /* white-space: nowrap; */
+
+}
+
+.info-pic {
+  width: 180px;
+   /* overflow: visible; */
 }
 /*
 .gm-style-pbc {

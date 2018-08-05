@@ -11,7 +11,7 @@ class App extends Component {
 
 
   state = {
-    listOfCastles: Castles,
+
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
@@ -19,141 +19,90 @@ class App extends Component {
 
 //Query/results will be used
 // both by searchlist and MapContainer markers
-
+    listOfCastles: Castles,
     query: '',
     results: Castles,
 
     pictures: []
-
-    // animation: Marker.animation
-    // animation: google.maps.Animation.DROP
-
-    // wikiEntry: [],
-
   }
 
 
-filterCastles = (query) => {
-  // filtering the array map/filter
-  // this.setState({
-  //    query: query
-  //  })
-  //  this.updateSearch(query);
-}
+  filterCastles(value) {
+    this.setState ({
+      query: value
+    })
+    // filtering the array map/filter
+    // this.setState({
+    //    query: query
+    //  })
+    //  this.updateSearch(query);
+  }
 
-// updateResults = (query) => {
-//
-//     if (query) {
-//       BooksAPI.search(query).then((results) => {
-//         //error handling ternary for search
-//         results.error ? this.setState({ results: [] }) : this.setState({ results: results })
-//       })
-//     } else {
-//       this.setState({ results: [] });
-//     }
-//   }
+  // updateResults = (query) => {
+  //
+  //     if (query) {
+  //       BooksAPI.search(query).then((results) => {
+  //         //error handling ternary for search
+  //         results.error ? this.setState({ results: [] }) : this.setState({ results: results })
+  //       })
+  //     } else {
+  //       this.setState({ results: [] });
+  //     }
+  //   }
+
+  onMarkerClick = (props, marker, e) =>
+        this.setState({
+          // listOfCastles: Castles,
+          selectedPlace: props,
+          activeMarker: marker,
+          showingInfoWindow: true,
+          animate: true
+          // animation: google.maps.Animation.BOUNCE
+        } );
 
 
-getWiki
 
-openInfoWindow
-
-closeInfoWindow
-
-
-
-
-
-onMarkerClick = (props, marker, e) =>
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
       this.setState({
-        // listOfCastles: Castles,
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true,
-        animate: true
-        // animation: google.maps.Animation.BOUNCE
-      } );
+        showingInfoWindow: false,
+        activeMarker: null,
 
-      onMapClicked = (props) => {
-        if (this.state.showingInfoWindow) {
-          this.setState({
-            showingInfoWindow: false,
-            activeMarker: null,
+      })
+    }
+  };
 
-          })
-        }
-      };
 
-      // TODO: There are two ways how to control a position of the <InfoWindow /> component.
-      // You can use a position prop or
-      // connect the <InfoWindow /> component
-      // directly to an existing <Marker /> component by using a marker prop.
-
-      // onInfoWindowClose = () =>
-      //   this.setState({
-      //     selectedPlace: {},
-      //     activeMarker: null,
-      //     showingInfoWindow: false
-      //   });
 
 
 //FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
 componentDidMount() {
 // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
 // )
-fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=${Castles.flickr}&per_page=10&page=1&format=json&nojsoncallback=1`
-)
-.then(function(response) {
-  return response.json();
-})
-.then(function(p) {
-  // alert(JSON.stringify(p))
-  let pictureArr = p.photos.photo.map((pic) => {
-    let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+
+  Castles.map(castle => {
     return (
-      <img alt="`{castle.name}`" src={srcPath}></img>
-    )
 
-
+fetch(castle.flickr)
+  .then(function(response) {
+    return response.json();
   })
-  this.setState({ pictures: pictureArr })
-}.bind(this))
+  .then(function(p) {
+    // alert(JSON.stringify(p))
+    let pictureArr = p.photos.photo.map((pic) => {
+      let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+      return (
+        <img className="info-pic" alt={castle.name} src={srcPath}></img>
+      )
+
+
+    })
+    this.setState({ pictures: pictureArr })
+  }.bind(this))
+
+  )})
 
 }
-
-
-// https://medium.freecodecamp.org/force-refreshing-a-react-child-component-the-easy-way-6cdbb9e6d99c
-//CHANGE 1
-
-
-///???
-
-
-
-
-
-// changeAnimation = animation => {
-//   this.udateUser({animation}).then (res => {
-//   // this.refresh the markers
-//   // this.refresh the animation();
-// })
-// }
-//
-// refreshMarker = () =>
-// this.setState({ refresh Marker: !this.state.refresh Marker})
-//
-// // shoelist=Marker
-// // animation=shoes
-// componentWillReceiveProps(props) {
-//   const {refresh, id} = this.props;
-//   if (props.refres !== refresh) {
-//     this.takeMarkerAnimation(id)
-//     .then(this.refreshMarker)
-//   }
-// }
-
-
-//END
 
 
 //Render the page with all components in grid
@@ -207,7 +156,7 @@ fetchedPics={this.state.pictures}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
               animate={this.state.animate}
-              selectedPlace={this.state.selectedPlace}
+
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
             />
