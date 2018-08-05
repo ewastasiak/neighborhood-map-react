@@ -15,40 +15,18 @@ class App extends Component {
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
-    animation: false,
+    // animation: false,
 
 //Query/results will be used
 // both by searchlist and MapContainer markers
     listOfCastles: Castles,
-    query: '',
-    results: Castles,
+
 
     pictures: []
   }
 
 
-  filterCastles(value) {
-    this.setState ({
-      query: value
-    })
-    // filtering the array map/filter
-    // this.setState({
-    //    query: query
-    //  })
-    //  this.updateSearch(query);
-  }
 
-  // updateResults = (query) => {
-  //
-  //     if (query) {
-  //       BooksAPI.search(query).then((results) => {
-  //         //error handling ternary for search
-  //         results.error ? this.setState({ results: [] }) : this.setState({ results: results })
-  //       })
-  //     } else {
-  //       this.setState({ results: [] });
-  //     }
-  //   }
 
   onMarkerClick = (props, marker, e) =>
         this.setState({
@@ -56,7 +34,7 @@ class App extends Component {
           selectedPlace: props,
           activeMarker: marker,
           showingInfoWindow: true,
-          animate: true
+          // animate: true
           // animation: google.maps.Animation.BOUNCE
         } );
 
@@ -210,7 +188,7 @@ class App extends Component {
               listOfCastles={this.state.listOfCastles}
 
               query={this.state.query}
-              search={ this.state.results }
+              results={ this.state.results }
              />
           </div>
 
@@ -224,13 +202,13 @@ fetchedPics={this.state.pictures}
               selectedPlace={this.state.selectedPlace}
 
               query={this.state.query}
-              search={this.state.results}
+              results={this.state.results}
 
 
               onMarkerClick={this.onMarkerClick}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
-              animate={this.state.animate}
+            
 
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
