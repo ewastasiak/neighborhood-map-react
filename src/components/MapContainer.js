@@ -63,8 +63,7 @@ class MapContainer extends Component {
     key={castle.place_id}
     position={castle.latlng}
     title={castle.name}
-    animation={this.props.selectedPlace.title === castle.name ? this.props.google.maps.Animation.BOUNCE : true}
-    icon={require('../img/pointer.png')}
+    icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
     />
   )
 }
