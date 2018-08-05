@@ -73,36 +73,111 @@ class App extends Component {
   };
 
 
+  componentDidMount() {
+  // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
+  // )
 
+    // create an object {castle.name: imageUI}
+    let allImages = {};
+    // store all fetch requests in an array of promises
+    let allFetches = Castles.map(castle => {
+        return fetch(castle.flickr)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(photosResults) {
+          let pic = photosResults.photos.photo[0];
 
-//FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
-componentDidMount() {
-// fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
-// )
+          if(!pic) return;
+          let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+          allImages[castle.name] = (<img className="info-pic" alt={castle.name} src={srcPath}></img>)
 
-  Castles.map(castle => {
-    return (
-
-fetch(castle.flickr)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(p) {
-    // alert(JSON.stringify(p))
-    let pictureArr = p.photos.photo.map((pic) => {
-      let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-      return (
-        <img className="info-pic" alt={castle.name} src={srcPath}></img>
-      )
-
+        })
 
     })
-    this.setState({ pictures: pictureArr })
-  }.bind(this))
+    // when all fetches are finished, store images in the state
+    Promise.all(allFetches)
+    .then(()=>this.setState({ pictures: allImages }))
+  }
 
-  )})
-
-}
+// //FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
+// componentDidMount() {
+// // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
+// // )
+// //
+// //   Castles.map(castle => {
+// //     return (
+// //
+// // fetch(castle.flickr)
+// //   .then(function(response) {
+// //     return response.json();
+// //   })
+// //   .then(function(p) {
+// //     // alert(JSON.stringify(p))
+// //     let pictureArr = p.photos.photo.map((pic) => {
+// //       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+// //       return (
+// //         <img className="info-pic" alt={castle.name} src={srcPath}></img>
+// //       )
+// //
+// //
+// //     })
+// //     this.setState({ pictures: pictureArr })
+// //   }.bind(this))
+// //
+// //   )})
+//
+//
+// //THIS IS TRASH
+// //   Castles.map(castle => {
+// //     return (
+// //
+// // fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=extracts&titles=${castle.name}&exintro=1`)
+// //   .then(function(response) {
+// //     return response.json();
+// //   })
+// //   .then(function(p) {
+// //     // alert(JSON.stringify(p))
+// //     let pictureArr/wikiExtract = resultArticle.query.pages[Object.keys(resultArticle.query.pages[0]].extract;
+// //
+// //
+// //       // let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+// //       // return (
+// //       //   <img className="info-pic" alt={castle.name} src={srcPath}></img>
+// //       // )
+// //
+// //
+// //     })
+// //     this.setState({ wiki: wikiExtract })
+// //   }.bind(this))
+// //
+// //   )})
+//
+//
+//
+//   // getWiki = (listOfCastles) => {
+//   //
+//   // let wikiEntry = [];
+//   //
+//   // fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=extracts&titles=${listOfCastles.name}&exintro=1`)
+//   // .then(response => {return response.json()})
+//   // .then(responseEntry => {
+//   //   let entry = response.query.pages[Object.keys(responseEntry.query.pages)[0]].extract;
+//   //   wikiEntry.push(entry)
+//   // })
+//   // //catch errors?
+//   // this.setState({WikiWindow: wikiEntry})
+//   //
+//   // }
+//
+//
+//
+//
+//
+//
+//
+//
+// }
 
 
 //Render the page with all components in grid
