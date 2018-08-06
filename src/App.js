@@ -6,23 +6,20 @@ import Castles from './data/castles.json';
 import Footer from './components/Footer.js'
 import escapeRegExp from 'escape-string-regexp'
 
-window.gm_authFailure = function() {
-           alert('Google Map failed to load :(');
-       }
+//Display alert if the map does not load
+window.gm_authFailure = () => {
+  alert('Google Map failed to load :(');
+}
 
 
 class App extends Component {
 
-
   state = {
-
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
-    // animation: false,
 
-//Query/results will be used
-// both by searchlist and MapContainer markers
+    //Query and list will be used both by searchlist and MapContainer markers
     listOfCastles: Castles,
     query: '',
 
@@ -30,53 +27,36 @@ class App extends Component {
     flickrOwner: []
   }
 
-  // filterCastles = (query) => {
-  //     if(!query) {
-  //       return this.setState({listOfCastles: Castles})
-  //     }
-  //
-  //     const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
-  //     this.setState ({
-  //       listOfCastles: filteredCastles
-  //     })
-  //   }
 
+  filterCastles = (query) => {
+  // Reset to full list of castles if query is empty
+    if (!query) {
+      return this.setState({ listOfCastles: Castles })
+    }
+    // filter list of castles according to query
+    const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
+    this.setState ({ listOfCastles: filteredCastles })
+  }
 
-
-
-    filterCastles = (query) => {
-        // Reset back to original list of castles if query is empty
-        if (!query) {
-          return this.setState({listOfCastles: Castles})
-        }
-        // filter list of castles according to query
-        const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
-        this.setState ({
-          listOfCastles: filteredCastles
-        })
-      }
-
+  //Marker click behavior
   onMarkerClick = (props, marker, e) =>
         this.setState({
-          // listOfCastles: Castles,
           selectedPlace: props,
           activeMarker: marker,
           showingInfoWindow: true,
-          // animate: true
-          // animation: google.maps.Animation.BOUNCE
         } );
 
 
-
-  onMapClicked = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null,
-
-      })
-    }
-  };
+// IS THIS EVEN DOING ANYTHING
+  // onMapClicked = (props) => {
+  //   if (this.state.showingInfoWindow) {
+  //     this.setState({
+  //       showingInfoWindow: false,
+  //       activeMarker: null,
+  //
+  //     })
+  //   }
+  // };
 
 
 
