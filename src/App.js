@@ -6,107 +6,95 @@ import Castles from './data/castles.json';
 import Footer from './components/Footer.js'
 import escapeRegExp from 'escape-string-regexp'
 
+//Display alert if the map does not load
+window.gm_authFailure = () => {
+  alert('Google Map failed to load :(');
+}
+
 
 class App extends Component {
 
 
   state = {
-
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
-    // animation: false,
 
-//Query/results will be used
-// both by searchlist and MapContainer markers
+    //Query and list will be used both by searchlist and MapContainer markers
     listOfCastles: Castles,
+    query: '',
 
-
-    pictures: []
+    pictures: [],
+    flickrOwner: []
   }
 
 
+  filterCastles = (query) => {
+  // Reset to full list of castles if query is empty
+    if (!query) {
+      return this.setState({ listOfCastles: Castles })
+    }
+    // filter list of castles according to query
+    const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
+    this.setState ({ listOfCastles: filteredCastles })
+  }
 
 
+  //Marker click behavior
   onMarkerClick = (props, marker, e) =>
         this.setState({
-          // listOfCastles: Castles,
           selectedPlace: props,
           activeMarker: marker,
           showingInfoWindow: true,
-          // animate: true
-          // animation: google.maps.Animation.BOUNCE
-        } );
+        });
 
 
+// IS THIS EVEN DOING ANYTHING
+  // onMapClicked = (props) => {
+  //   if (this.state.showingInfoWindow) {
+  //     this.setState({
+  //       showingInfoWindow: false,
+  //       activeMarker: null,
+  //
+  //     })
+  //   }
+  // };
 
-  onMapClicked = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null,
 
-      })
-    }
-  };
+componentDidMount() {
 
 
-  componentDidMount() {
-  // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
-  // )
+  // create an object {castle.name: imageUI}
+  let allImages = {};
 
-    // create an object {castle.name: imageUI}
-    let allImages = {};
-    // store all fetch requests in an array of promises
-    let allFetches = Castles.map(castle => {
-        return fetch(castle.flickr)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(photosResults) {
-          let pic = photosResults.photos.photo[0];
+  let allOwners = {};
 
-          if(!pic) return;
-          let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-          allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>)
-
-        })
-
+  // store all fetch requests in an array of promises
+  let allFetches = Castles.map(castle => {
+    return fetch(castle.flickr)
+    .then((response) => {
+      return response.json();
     })
-    // when all fetches are finished, store images in the state
-    Promise.all(allFetches)
-    .then(()=>this.setState({ pictures: allImages }))
-  }
+    .then((photosResults) => {
+      let pic = photosResults.photos.photo[0];
+      if(!pic) return;
+      let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>);
+      allOwners[castle.name] = pic.owner;
+    })
+  })
 
-// //FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
-// componentDidMount() {
-// // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
-// // )
-// //
-// //   Castles.map(castle => {
-// //     return (
-// //
-// // fetch(castle.flickr)
-// //   .then(function(response) {
-// //     return response.json();
-// //   })
-// //   .then(function(p) {
-// //     // alert(JSON.stringify(p))
-// //     let pictureArr = p.photos.photo.map((pic) => {
-// //       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-// //       return (
-// //         <img className="info-pic" alt={castle.name} src={srcPath}></img>
-// //       )
-// //
-// //
-// //     })
-// //     this.setState({ pictures: pictureArr })
-// //   }.bind(this))
-// //
-// //   )})
-//
-//
-// //THIS IS TRASH
+  // when all fetches are finished, store images and authors in the state
+  Promise.all(allFetches)
+    .then(() => this.setState ({
+    pictures: allImages,
+    flickrOwner: allOwners
+  }))
+
+
+}
+
+// //ADD WIKIPEDIA LATER
 // //   Castles.map(castle => {
 // //     return (
 // //
@@ -147,86 +135,68 @@ class App extends Component {
 //   // this.setState({WikiWindow: wikiEntry})
 //   //
 //   // }
-//
-//
-//
-//
-//
-//
-//
-//
-// }
 
 
-//Render the page with all components in grid
-  render() {
+  //Render the page with all components in grid
+render() {
 
-
-    console.log(  `This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
-    console.log(
-      Castles.map(castle => {
-        return <li key={castle.place_id}>{castle.name}</li>;
-      })
-
-    );
-
+  //TODO:Delete in build
+  console.log(`This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
+  console.log(
+    Castles.map(castle => {
+      return <li key={castle.place_id}>{castle.name}</li>;
+    })
+  );
 
     return (
       <div className="App">
 
+
         <div className="grid">
 
-
-
-          <header className="item item-1">
+          <header role="banner" className="item item-1">
             <h1>Famous Transylvanian Castles</h1>
           </header>
 
-
-          <div className="item item-2">
+          <nav className="item item-2">
             <SearchList
               listOfCastles={this.state.listOfCastles}
+              filterCastles={this.filterCastles}
+              query={this.state.query}
+              selectedPlace={this.state.selectedPlace}
+             />
+          </nav>
+
+          <main className="item item-3">
+            <MapContainer
+              fetchedPics={this.state.pictures}
+              flickrOwner={this.state.flickrOwner}
 
               query={this.state.query}
-              results={ this.state.results }
-             />
-          </div>
-
-
-          <div className="item item-3">
-            <MapContainer
-fetchedPics={this.state.pictures}
-
-
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
-
-              query={this.state.query}
-              results={this.state.results}
-
-
               onMarkerClick={this.onMarkerClick}
-              onMapClicked={this.onMapClicked}
-              onInfoWindowClose={this.onInfoWindowClose}
 
+              onInfoWindowClose={this.onInfoWindowClose}
 
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
             />
-          </div>
-
+          </main>
 
           <Footer />
 
-
-
         </div>
 
+
       </div>
+
     );
 
 
   }
+
+
 }
 
 export default App

@@ -1,51 +1,23 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import MapStyling from '../data/MapStyling.json';
+// Map style: https://snazzymaps.com/style/30/cobalt
+// import MapStyling from '../data/MapStyling.json';
 import Castles from '../data/castles.json';
 
-//  Działa https://www.npmjs.com/package/google-maps-react/v/2.0.2
+// Ref https://www.npmjs.com/package/google-maps-react/v/2.0.2
 // https://itnext.io/google-maps-react-makes-adding-google-maps-api-to-a-react-app-a-breeze-effb7b89e54
-// Map style: https://snazzymaps.com/style/30/cobalt
+
 
 class MapContainer extends Component {
-
-  // state = {
-  //     // showingInfoWindow: true,
-  //     // activeMarker: {},
-  //     // selectedPlace: {}
-  //   };
-
-    // onMarkerClick = (props, marker, e, position) =>
-    //       this.setState({
-    //
-    //         selectedPlace: props,
-    //         activeMarker: marker,
-    //         showingInfoWindow: true
-    //       } );
-
-    // onMapClicked = (props) => {
-    //   if (this.state.showingInfoWindow) {
-    //     this.setState({
-    //       showingInfoWindow: false,
-    //       activeMarker: null,
-    //       // locationsArray: castle.latlng
-    //       // position: this.state.castle.latlng
-    //     })
-    //   }
-    // };
-
-
-
-
-
 
   render() {
     return (
 
 
-
-
       <Map
+        title="Castle map"
+        role="application"
+        aria-label="Map with nine Transylvanian castles locations"
         google={this.props.google}
         onMapClicked={this.onMapClicked}
         initialCenter={{lat: 45.5149, lng: 24.3672}}
@@ -53,59 +25,55 @@ class MapContainer extends Component {
         styles={require('../data/MapStyling.json')}
         >
 
-
 {// Create markers from JSON locations
 }
-{Castles.map((castle) => {
+      {Castles.map((castle) => {
 
-  return ( <Marker
-    onClick={this.props.onMarkerClick}
-    key={castle.place_id}
-    position={castle.latlng}
-    title={castle.name}
-    icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
-    />
-  )
-}
-)
+        return (
+          <Marker
+            tabIndex="0"
+            onClick={this.props.onMarkerClick}
+            key={castle.place_id}
+            position={castle.latlng}
+            title={castle.name}
+            icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
+          />
+        );
+      })
+      }
 
-}
 
 
-
-          <InfoWindow onClose={this.onInfoWindowClose}
-                      style={require('../App.css')}
-                      marker={this.props.activeMarker}
-
-                      visible={this.props.showingInfoWindow}
+          <InfoWindow
+            tabIndex="0"
+            onClose={this.onInfoWindowClose}
+            style={require('../App.css')}
+            marker={this.props.activeMarker}
+            visible={this.props.showingInfoWindow}
           >
+
           {
             Castles.filter((castle) => {
               return (
               this.props.selectedPlace.title === castle.name
               )
             })
-              .map((castle) => {
-
-
+            .map((castle) => {
               return (
 
-                      <div className={"info"}>
-                      {this.props.fetchedPics[castle.name]}
+                <div className={"info"}  aria-label="Location information window">
+                
+                {this.props.fetchedPics[castle.name]}
+                <h2 tabIndex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
+                <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>
+                <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
 
-                        <h2 className={"info"}>{this.props.selectedPlace.title}</h2>
-                        <a href={castle.wikiLink} target="_blank">Read more</a>
-                        <p className={"info"}>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
-                        </p>
-                      </div>
-);
-})
-}
+                </div>
 
-
-
+              );
+            })
+          }
           </InfoWindow>
-
 
 
       </Map>
