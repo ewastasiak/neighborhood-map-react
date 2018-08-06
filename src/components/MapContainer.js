@@ -14,8 +14,6 @@ class MapContainer extends Component {
     return (
 
 
-
-
       <Map
         title="Castle map"
         role="application"
@@ -27,24 +25,23 @@ class MapContainer extends Component {
         styles={require('../data/MapStyling.json')}
         >
 
-
 {// Create markers from JSON locations
 }
-{Castles.map((castle) => {
+      {Castles.map((castle) => {
 
-  return ( <Marker
-    tabIndex="0"
-    onClick={this.props.onMarkerClick}
-    key={castle.place_id}
-    position={castle.latlng}
-    title={castle.name}
-    icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
-    />
-  )
-}
-)
+      return ( <Marker
+      tabIndex="0"
+      onClick={this.props.onMarkerClick}
+      key={castle.place_id}
+      position={castle.latlng}
+      title={castle.name}
+      icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
+      />
+      )
+      }
+      )
 
-}
+      }
 
 
 
@@ -74,9 +71,9 @@ class MapContainer extends Component {
                       <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
 
                       </div>
-);
-})
-}
+      );
+      })
+      }
 
 
 
