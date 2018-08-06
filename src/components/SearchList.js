@@ -196,7 +196,7 @@ class SearchList extends Component{
         //        return (castle.castle.toLowerCase())
         //     })
 
-        //UNCOMMENT 
+        //UNCOMMENT
             // .map(castle => {
             //   return (
             //     <div className="castles-list">
@@ -220,6 +220,17 @@ render() {
   return (
     <div className="castles-list">
 
+    <form className="search" >
+    <input
+          type="text"
+          placeholder="Search a castle"
+          value={this.state.query}
+           onChange={(event) => this.updateResults(event.target.value)}
+        />
+    </form>
+
+
+
 
                 <ul>
                 {
@@ -229,14 +240,10 @@ render() {
                 }
                 </ul>
 
-                <form className="search" >
-                <input
-                      type="text"
-                      placeholder="Search a castle"
-                      value={this.state.query}
-                       onChange={(event) => this.updateResults(event.target.value)}
-                    />
-                </form>
+
+
+
+
 
 
 <img className="pb" alt="" src={ require('../img/dracula-castles.png') } />

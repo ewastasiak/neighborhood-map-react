@@ -94,8 +94,7 @@ class MapContainer extends Component {
                       {this.props.fetchedPics[castle.name]}
                       <h2 className={"info"}>{this.props.selectedPlace.title}</h2>
                       <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>
-                      <p><strong>Photo from Flickr API.</strong></p> <p>Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
-
+                      <p>Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
 
                       </div>
 );

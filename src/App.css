@@ -140,7 +140,10 @@ a:hover {
   color: #ace;
 }
 
-
+input {
+  margin: 10px 10px 30px 40px;
+  padding: 10px;
+}
 
 ul {
   list-style-type: none;
