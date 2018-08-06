@@ -62,6 +62,7 @@ class MapContainer extends Component {
 {Castles.map((castle) => {
 
   return ( <Marker
+    tabindex="0"
     onClick={this.props.onMarkerClick}
     key={castle.place_id}
     position={castle.latlng}
@@ -76,7 +77,9 @@ class MapContainer extends Component {
 
 
 
-          <InfoWindow onClose={this.onInfoWindowClose}
+          <InfoWindow
+          tabindex="0"
+          onClose={this.onInfoWindowClose}
                       style={require('../App.css')}
                       marker={this.props.activeMarker}
 
@@ -93,11 +96,11 @@ class MapContainer extends Component {
 
               return (
 
-                      <div className={"info"}>
+                      <div className={"info"} tabindex="0" aria-label="Location information window">
                       {this.props.fetchedPics[castle.name]}
-                      <h2 className={"info"}>{this.props.selectedPlace.title}</h2>
+                      <h2 tabindex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
                       <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>
-                      <p>Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
+                      <p tabindex="0">Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
 
                       </div>
 );

@@ -220,10 +220,10 @@ render() {
   return (
     <div className="castles-list">
 
-    <search aria-label="Filter the list of Transylvanian castles" className="search" >
+    <search aria-label="Filter the list of Transylvanian castles" role="search" >
     <input
 
-          role="SearchPage"
+          className="search-page"
           type="text"
           placeholder="Search a castle"
           value={this.state.query}

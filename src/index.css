@@ -12,8 +12,9 @@ body {
 
 
 footer {
-  /* color: white;
-  z-index: 999; */
+  z-index: 999;
+  /* color: #094460; */
+  letter-spacing: 1px;
 }
 
 
