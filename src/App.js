@@ -190,17 +190,17 @@ class App extends Component {
           </header>
 
 
-          <div className="item item-2">
+          <nav className="item item-2">
             <SearchList
               listOfCastles={this.state.listOfCastles}
 
               query={this.state.query}
               results={ this.state.results }
              />
-          </div>
+          </nav>
 
 
-          <div className="item item-3">
+          <main className="item item-3">
             <MapContainer
 fetchedPics={this.state.pictures}
 flickrOwner={this.state.flickrOwner}
@@ -220,7 +220,7 @@ flickrOwner={this.state.flickrOwner}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
             />
-          </div>
+          </main>
 
 
           <Footer />
