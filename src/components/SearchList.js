@@ -117,7 +117,6 @@ import Castles from '../data/castles.json';
 
 
 
-
   // TODO
     // https://www.youtube.com/watch?v=HqQ-kOchqHM&feature=youtu.be
 
@@ -137,83 +136,7 @@ import Castles from '../data/castles.json';
 class SearchList extends Component{
 
 
-
-
-
-
-  // {
-  //   Castles.filter((castle) => {
-  //     return (
-  //     this.props.selectedPlace.title === castle.name
-  //     )
-  //   })
-  //     .map((castle) => {
-  //
-  //
-  //     return (
-  //
-  //             <div className={"info"}>
-  //             {this.props.fetchedPics[castle.name]}
-  //
-  //               <h2 className={"info"}>{this.props.selectedPlace.title}</h2>
-  //               <a href={castle.wikiLink} target="_blank">Read more</a>
-  //               <p className={"info"}>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
-  //               </p>
-  //             </div>
-  // );
-  // })
-  // }
-
-
-
-  state = {
-    query: '',
-    results: Castles,
-  }
-
-  filterCastles(query) {
-    this.setState ({
-      query: query
-    })
-    this.updateResults(this.query);
-  }
-
-
 // https://www.youtube.com/watch?v=HqQ-kOchqHM&feature=youtu.be
-  updateResults = (query) => {
-//shorten to ternary
-      if (query) {
-        console.log('Seems to do something');
-
-        // Castles.filter((castle) => {
-        //   return (
-        //   // TODO// query === castle.name
-        //   )
-        // })
-
-        // Castles.filter(castle => {
-        //       // return (castle.castle.toLowerCase().indexOf(this.filterCastles.toLowerCase()) >= 0)
-        //        return (castle.castle.toLowerCase())
-        //     })
-
-        //UNCOMMENT
-            // .map(castle => {
-            //   return (
-            //     <div className="castles-list">
-            //     <li key={castle.place_id}>{castle.castle}</li>
-            //     </div>
-            //   )
-            // })
-        }
-
-       else {
-        this.setState({ results: Castles });
-      }
-    }
-
-
-
-
 
 
 render() {
@@ -223,27 +146,26 @@ render() {
     <div className="filter-castles">
     <input aria-label="Filter the list of Transylvanian castles"
           role="search"
-          className="search-page"
           type="text"
           placeholder="Search a castle"
-          value={this.state.query}
-           onChange={(event) => this.updateResults(event.target.value)}
+          value={this.props.query}
+          onChange={e => this.props.filterCastles(e.target.value)}
         />
-    </div>
+
 
 
 
 
                 <ul aria-label="Filtered list of castles">
                 {
-                  Castles.map(castle => {
+                  this.props.listOfCastles.map(castle => {
                     return <li key={castle.place_id}>{castle.name}</li>;
                   })
                 }
                 </ul>
 
 
-
+</div>
 
 
 
@@ -257,19 +179,6 @@ render() {
 }
 
 export default SearchList;
-
-// props.castles
-// //bookshelf
-//     <li key={castle.id}>
-//       <Castle
-//       castle={castle}
-//       />
-//     </li>
-//   ))
-
-
-
-
 
 
 

@@ -15,19 +15,26 @@ class App extends Component {
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
-    // animation: false,
 
 //Query/results will be used
 // both by searchlist and MapContainer markers
     listOfCastles: Castles,
-
+    query: '',
 
     pictures: [],
     flickrOwner: []
   }
 
+  filterCastles = (query) => {
+      if(!query) {
+        return this.setState({listOfCastles: Castles})
+      }
 
-
+      const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
+      this.setState ({
+        listOfCastles: filteredCastles
+      })
+    }
 
   onMarkerClick = (props, marker, e) =>
         this.setState({
@@ -52,10 +59,19 @@ class App extends Component {
   };
 
 
+  setQuery = (query) => {
+      this.setState({
+        query: query
+      })
+      this.filterCastles(query);
+    }
+
+
+
   componentDidMount() {
   // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
   // )
-
+  this.setQuery();
     // create an object {castle.name: imageUI}
     let allImages = {};
     let allOwners = {};
@@ -193,9 +209,9 @@ class App extends Component {
           <nav className="item item-2">
             <SearchList
               listOfCastles={this.state.listOfCastles}
-
+              filterCastles={this.filterCastles}
               query={this.state.query}
-              results={ this.state.results }
+
              />
           </nav>
 
@@ -208,8 +224,8 @@ flickrOwner={this.state.flickrOwner}
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
 
-              query={this.state.query}
-              results={this.state.results}
+
+
 
 
               onMarkerClick={this.onMarkerClick}
