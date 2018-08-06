@@ -220,16 +220,16 @@ render() {
   return (
     <div className="castles-list">
 
-    <search aria-label="Filter the list of Transylvanian castles" role="search" >
-    <input
-
+    <div className="filter-castles">
+    <input aria-label="Filter the list of Transylvanian castles"
+          role="search"
           className="search-page"
           type="text"
           placeholder="Search a castle"
           value={this.state.query}
            onChange={(event) => this.updateResults(event.target.value)}
         />
-    </search>
+    </div>
 
 
 
