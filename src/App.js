@@ -14,6 +14,7 @@ window.gm_authFailure = () => {
 
 class App extends Component {
 
+
   state = {
     activeMarker: {},
     selectedPlace: {},
@@ -38,13 +39,14 @@ class App extends Component {
     this.setState ({ listOfCastles: filteredCastles })
   }
 
+
   //Marker click behavior
   onMarkerClick = (props, marker, e) =>
         this.setState({
           selectedPlace: props,
           activeMarker: marker,
           showingInfoWindow: true,
-        } );
+        });
 
 
 // IS THIS EVEN DOING ANYTHING
@@ -59,71 +61,40 @@ class App extends Component {
   // };
 
 
+componentDidMount() {
 
 
+  // create an object {castle.name: imageUI}
+  let allImages = {};
 
-  componentDidMount() {
-  // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
-  // )
+  let allOwners = {};
 
-    // create an object {castle.name: imageUI}
-    let allImages = {};
-    let allOwners = {};
-    // store all fetch requests in an array of promises
-    let allFetches = Castles.map(castle => {
-        return fetch(castle.flickr)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(photosResults) {
-          let pic = photosResults.photos.photo[0];
-
-          if(!pic) return;
-          let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-
-          allOwners[castle.name] = pic.owner
-          allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>)
-
-        })
-
+  // store all fetch requests in an array of promises
+  let allFetches = Castles.map(castle => {
+    return fetch(castle.flickr)
+    .then((response) => {
+      return response.json();
     })
-    // when all fetches are finished, store images in the state
-    Promise.all(allFetches)
-    .then(()=>this.setState({
-      pictures: allImages,
-      flickrOwner: allOwners
-    }))
-  }
+    .then((photosResults) => {
+      let pic = photosResults.photos.photo[0];
+      if(!pic) return;
+      let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>);
+      allOwners[castle.name] = pic.owner;
+    })
+  })
 
-// //FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
-// componentDidMount() {
-// // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
-// // )
-// //
-// //   Castles.map(castle => {
-// //     return (
-// //
-// // fetch(castle.flickr)
-// //   .then(function(response) {
-// //     return response.json();
-// //   })
-// //   .then(function(p) {
-// //     // alert(JSON.stringify(p))
-// //     let pictureArr = p.photos.photo.map((pic) => {
-// //       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-// //       return (
-// //         <img className="info-pic" alt={castle.name} src={srcPath}></img>
-// //       )
-// //
-// //
-// //     })
-// //     this.setState({ pictures: pictureArr })
-// //   }.bind(this))
-// //
-// //   )})
-//
-//
-// //THIS IS TRASH
+  // when all fetches are finished, store images and authors in the state
+  Promise.all(allFetches)
+    .then(() => this.setState ({
+    pictures: allImages,
+    flickrOwner: allOwners
+  }))
+
+
+}
+
+// //ADD WIKIPEDIA LATER
 // //   Castles.map(castle => {
 // //     return (
 // //
@@ -164,28 +135,18 @@ class App extends Component {
 //   // this.setState({WikiWindow: wikiEntry})
 //   //
 //   // }
-//
-//
-//
-//
-//
-//
-//
-//
-// }
 
 
-//Render the page with all components in grid
-  render() {
+  //Render the page with all components in grid
+render() {
 
-
-    console.log(  `This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
-    console.log(
-      Castles.map(castle => {
-        return <li key={castle.place_id}>{castle.name}</li>;
-      })
-
-    );
+  //TODO:Delete in build
+  console.log(`This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
+  console.log(
+    Castles.map(castle => {
+      return <li key={castle.place_id}>{castle.name}</li>;
+    })
+  );
 
 
     return (
@@ -213,20 +174,15 @@ class App extends Component {
 
           <main className="item item-3">
             <MapContainer
-fetchedPics={this.state.pictures}
-flickrOwner={this.state.flickrOwner}
-
+              fetchedPics={this.state.pictures}
+              flickrOwner={this.state.flickrOwner}
+              query={this.state.query}
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
-
-
-
-
 
               onMarkerClick={this.onMarkerClick}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
-
 
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
@@ -245,6 +201,8 @@ flickrOwner={this.state.flickrOwner}
 
 
   }
+
+
 }
 
 export default App
