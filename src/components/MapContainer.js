@@ -61,13 +61,15 @@ class MapContainer extends Component {
             .map((castle) => {
               return (
 
-                      <div className={"info"}  aria-label="Location information window">
-                      {this.props.fetchedPics[castle.name]}
-                      <h2 tabIndex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
-                      <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>
-                      <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
+                <div className={"info"}  aria-label="Location information window">
+                
+                {this.props.fetchedPics[castle.name]}
+                <h2 tabIndex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
+                <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>
+                <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
 
-                      </div>
+                </div>
+
               );
             })
           }
