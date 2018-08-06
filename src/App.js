@@ -40,6 +40,10 @@ class App extends Component {
   //       listOfCastles: filteredCastles
   //     })
   //   }
+
+
+
+
     filterCastles = (query) => {
         // Reset back to original list of castles if query is empty
         if (!query) {
