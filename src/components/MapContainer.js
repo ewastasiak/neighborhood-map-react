@@ -29,39 +29,36 @@ class MapContainer extends Component {
 }
       {Castles.map((castle) => {
 
-      return ( <Marker
-      tabIndex="0"
-      onClick={this.props.onMarkerClick}
-      key={castle.place_id}
-      position={castle.latlng}
-      title={castle.name}
-      icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
-      />
-      )
-      }
-      )
-
+        return (
+          <Marker
+            tabIndex="0"
+            onClick={this.props.onMarkerClick}
+            key={castle.place_id}
+            position={castle.latlng}
+            title={castle.name}
+            icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
+          />
+        );
+      })
       }
 
 
 
           <InfoWindow
-          tabIndex="0"
-          onClose={this.onInfoWindowClose}
-                      style={require('../App.css')}
-                      marker={this.props.activeMarker}
-
-                      visible={this.props.showingInfoWindow}
+            tabIndex="0"
+            onClose={this.onInfoWindowClose}
+            style={require('../App.css')}
+            marker={this.props.activeMarker}
+            visible={this.props.showingInfoWindow}
           >
+
           {
             Castles.filter((castle) => {
               return (
               this.props.selectedPlace.title === castle.name
               )
             })
-              .map((castle) => {
-
-
+            .map((castle) => {
               return (
 
                       <div className={"info"}  aria-label="Location information window">
@@ -71,14 +68,10 @@ class MapContainer extends Component {
                       <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
 
                       </div>
-      );
-      })
-      }
-
-
-
+              );
+            })
+          }
           </InfoWindow>
-
 
 
       </Map>
