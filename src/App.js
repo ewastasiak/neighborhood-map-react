@@ -6,6 +6,10 @@ import Castles from './data/castles.json';
 import Footer from './components/Footer.js'
 import escapeRegExp from 'escape-string-regexp'
 
+window.gm_authFailure = function() {
+           alert('Google Map failed to load :(');
+       }
+
 
 class App extends Component {
 
@@ -15,6 +19,7 @@ class App extends Component {
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
+    // animation: false,
 
 //Query/results will be used
 // both by searchlist and MapContainer markers
@@ -25,16 +30,27 @@ class App extends Component {
     flickrOwner: []
   }
 
-  filterCastles = (query) => {
-      if(!query) {
-        return this.setState({listOfCastles: Castles})
+  // filterCastles = (query) => {
+  //     if(!query) {
+  //       return this.setState({listOfCastles: Castles})
+  //     }
+  //
+  //     const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
+  //     this.setState ({
+  //       listOfCastles: filteredCastles
+  //     })
+  //   }
+    filterCastles = (query) => {
+        // Reset back to original list of castles if query is empty
+        if (!query) {
+          return this.setState({listOfCastles: Castles})
+        }
+        // filter list of castles according to query
+        const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
+        this.setState ({
+          listOfCastles: filteredCastles
+        })
       }
-
-      const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
-      this.setState ({
-        listOfCastles: filteredCastles
-      })
-    }
 
   onMarkerClick = (props, marker, e) =>
         this.setState({
@@ -59,19 +75,13 @@ class App extends Component {
   };
 
 
-  setQuery = (query) => {
-      this.setState({
-        query: query
-      })
-      this.filterCastles(query);
-    }
 
 
 
   componentDidMount() {
   // fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Bran%20Castle&per_page=1&page=1&format=json&nojsoncallback=1`
   // )
-  this.setQuery();
+
     // create an object {castle.name: imageUI}
     let allImages = {};
     let allOwners = {};
@@ -211,6 +221,7 @@ class App extends Component {
               listOfCastles={this.state.listOfCastles}
               filterCastles={this.filterCastles}
               query={this.state.query}
+              selectedPlace={this.state.selectedPlace}
 
              />
           </nav>
