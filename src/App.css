@@ -350,6 +350,10 @@ html, body, main {
     letter-spacing: 2px;
   }
 
+  a {
+    color: blue;
+  }
+
   .pb {
     display: none;
   }
