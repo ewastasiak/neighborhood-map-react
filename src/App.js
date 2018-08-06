@@ -185,7 +185,7 @@ class App extends Component {
 
 
 
-          <header className="item item-1">
+          <header role="banner" className="item item-1">
             <h1>Famous Transylvanian Castles</h1>
           </header>
 

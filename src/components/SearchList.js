@@ -220,19 +220,21 @@ render() {
   return (
     <div className="castles-list">
 
-    <form className="search" >
+    <search aria-label="Filter the list of Transylvanian castles" className="search" >
     <input
+
+          role="SearchPage"
           type="text"
           placeholder="Search a castle"
           value={this.state.query}
            onChange={(event) => this.updateResults(event.target.value)}
         />
-    </form>
+    </search>
 
 
 
 
-                <ul>
+                <ul aria-label="Filtered list of castles">
                 {
                   Castles.map(castle => {
                     return <li key={castle.place_id}>{castle.name}</li>;

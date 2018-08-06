@@ -46,6 +46,9 @@ class MapContainer extends Component {
 
 
       <Map
+        title="Castle map"
+        role="application"
+        aria-label="Map with nine Transylvanian castles locations"
         google={this.props.google}
         onMapClicked={this.onMapClicked}
         initialCenter={{lat: 45.5149, lng: 24.3672}}
