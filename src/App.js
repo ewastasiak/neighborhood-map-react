@@ -148,18 +148,15 @@ render() {
     })
   );
 
-
     return (
       <div className="App">
 
+
         <div className="grid">
-
-
 
           <header role="banner" className="item item-1">
             <h1>Famous Transylvanian Castles</h1>
           </header>
-
 
           <nav className="item item-2">
             <SearchList
@@ -167,21 +164,19 @@ render() {
               filterCastles={this.filterCastles}
               query={this.state.query}
               selectedPlace={this.state.selectedPlace}
-
              />
           </nav>
-
 
           <main className="item item-3">
             <MapContainer
               fetchedPics={this.state.pictures}
               flickrOwner={this.state.flickrOwner}
+
               query={this.state.query}
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
-
               onMarkerClick={this.onMarkerClick}
-              onMapClicked={this.onMapClicked}
+
               onInfoWindowClose={this.onInfoWindowClose}
 
               activeMarker={this.state.activeMarker}
@@ -189,14 +184,13 @@ render() {
             />
           </main>
 
-
           <Footer />
-
-
 
         </div>
 
+
       </div>
+
     );
 
 
