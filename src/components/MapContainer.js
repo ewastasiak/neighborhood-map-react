@@ -96,7 +96,7 @@ class MapContainer extends Component {
 
               return (
 
-                      <div className={"info"} tabindex="0" aria-label="Location information window">
+                      <div className={"info"}  aria-label="Location information window">
                       {this.props.fetchedPics[castle.name]}
                       <h2 tabindex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
                       <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>
