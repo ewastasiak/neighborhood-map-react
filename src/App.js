@@ -68,7 +68,7 @@ class App extends Component {
 
           if(!pic) return;
           let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-          allImages[castle.name] = (<img className="info-pic" alt={castle.name} src={srcPath}></img>)
+          allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>)
 
         })
 
@@ -208,7 +208,7 @@ fetchedPics={this.state.pictures}
               onMarkerClick={this.onMarkerClick}
               onMapClicked={this.onMapClicked}
               onInfoWindowClose={this.onInfoWindowClose}
-            
+
 
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}

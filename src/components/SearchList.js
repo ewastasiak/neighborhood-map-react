@@ -195,6 +195,8 @@ class SearchList extends Component{
         //       // return (castle.castle.toLowerCase().indexOf(this.filterCastles.toLowerCase()) >= 0)
         //        return (castle.castle.toLowerCase())
         //     })
+
+        //UNCOMMENT 
             // .map(castle => {
             //   return (
             //     <div className="castles-list">
