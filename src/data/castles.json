@@ -132,7 +132,7 @@
 
     "place_id" : "ChIJ0ZFEJMZ1S0cR-cElgdeyFwk",
     "name": "Sighishoara Citadel",
-    "flickr": "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=Sighisoara&per_page=1&page=1&format=json&nojsoncallback=1",
+    "flickr": "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d5cee5f14e7aa7d63adac989cd5d6255&tags=citadel%20sighisoara&per_page=1&page=1&format=json&nojsoncallback=1",
     "wikiLink": "https://en.wikipedia.org/wiki/Historic_Centre_of_Sighi%C8%99oara",
     "latlng": {
       "lat": 46.2198,
