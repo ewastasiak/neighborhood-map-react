@@ -342,6 +342,25 @@ html, body, main {
     display: none;
   }
 
+  .grid {
+    display: grid;
+    max-width: 100%;
+     grid-template-columns: minmax(100px, auto);
+
+    grid-template-rows: 70px 1fr minmax(700px, auto) 40px;
+    grid-gap: 5px;
+
+
+    /* display: flex;
+    flex-flow: column;
+    height: 100%; */
+    grid-template-areas:
+      "first"
+      "second"
+      "third"
+      "fourth";
+  }
+
 }
 
 /*-----------------------------------------------------------*/

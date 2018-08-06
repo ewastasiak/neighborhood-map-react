@@ -185,11 +185,11 @@ class SearchList extends Component{
       if (query) {
         console.log('Seems to do something');
 
-        Castles.filter((castle) => {
-          return (
-          // TODO// query === castle.name
-          )
-        })
+        // Castles.filter((castle) => {
+        //   return (
+        //   // TODO// query === castle.name
+        //   )
+        // })
 
         // Castles.filter(castle => {
         //       // return (castle.castle.toLowerCase().indexOf(this.filterCastles.toLowerCase()) >= 0)
