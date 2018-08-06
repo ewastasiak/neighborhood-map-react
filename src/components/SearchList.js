@@ -195,13 +195,13 @@ class SearchList extends Component{
         //       // return (castle.castle.toLowerCase().indexOf(this.filterCastles.toLowerCase()) >= 0)
         //        return (castle.castle.toLowerCase())
         //     })
-            .map(castle => {
-              return (
-                <div className="castles-list">
-                <li key={castle.place_id}>{castle.castle}</li>
-                </div>
-              )
-            })
+            // .map(castle => {
+            //   return (
+            //     <div className="castles-list">
+            //     <li key={castle.place_id}>{castle.castle}</li>
+            //     </div>
+            //   )
+            // })
         }
 
        else {
