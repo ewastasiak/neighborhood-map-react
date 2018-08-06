@@ -7,7 +7,7 @@ class Footer extends Component{
 
 render() {
   return (
-    <footer className="item item-4"> MLEM MLEM MLEM MLEM 2018</footer>
+    <footer className="item item-4"><p>All photos from <a href="https://www.flickr.com/services/api/">Flickr API</a></p></footer>
   );
 
 }

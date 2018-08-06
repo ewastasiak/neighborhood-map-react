@@ -22,7 +22,8 @@ class App extends Component {
     listOfCastles: Castles,
 
 
-    pictures: []
+    pictures: [],
+    flickrOwner: []
   }
 
 
@@ -57,6 +58,7 @@ class App extends Component {
 
     // create an object {castle.name: imageUI}
     let allImages = {};
+    let allOwners = {};
     // store all fetch requests in an array of promises
     let allFetches = Castles.map(castle => {
         return fetch(castle.flickr)
@@ -68,6 +70,8 @@ class App extends Component {
 
           if(!pic) return;
           let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
+
+          allOwners[castle.name] = pic.owner
           allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>)
 
         })
@@ -75,7 +79,10 @@ class App extends Component {
     })
     // when all fetches are finished, store images in the state
     Promise.all(allFetches)
-    .then(()=>this.setState({ pictures: allImages }))
+    .then(()=>this.setState({
+      pictures: allImages,
+      flickrOwner: allOwners
+    }))
   }
 
 // //FLICKR api ref Tom Lynch https://www.youtube.com/watch?v=RkXotG7YUek
@@ -196,7 +203,7 @@ class App extends Component {
           <div className="item item-3">
             <MapContainer
 fetchedPics={this.state.pictures}
-
+flickrOwner={this.state.flickrOwner}
 
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}

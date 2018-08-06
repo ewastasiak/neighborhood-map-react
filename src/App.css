@@ -128,7 +128,17 @@ margin: 190px 0 0;
 }
 
 
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: orange;
+  letter-spacing: 1px;
+}
 
+a:hover {
+  color: #ace;
+}
 
 
 
@@ -137,7 +147,9 @@ ul {
 }
 
 
-
+h2 {
+  font-size: 1.2em;
+}
 
 /* #root,
 .App {
