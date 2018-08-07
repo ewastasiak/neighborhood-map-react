@@ -79,7 +79,14 @@ componentDidMount() {
       let pic = photosResults.photos.photo[0];
       if(!pic) return;
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError="Image failed to load"></img>);
+
+      // Second idea
+      const fallbackImg = './img/kappa.png';
+
+      // first idea
+      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
+      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={fallbackImg}></img>);
+
       allOwners[castle.name] = pic.owner;
     })
   })
