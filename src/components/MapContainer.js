@@ -10,6 +10,17 @@ import Castles from '../data/castles.json';
 
 class MapContainer extends Component {
 
+
+// //Set error boundaries - https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html
+//   componentDidCatch(error, info) {
+//       // Display fallback UI
+//       this.setState({ hasError: true });
+//       // You can also log the error to an error reporting service
+//       logErrorToMyService(error, info);
+//     }
+
+
+
   render() {
     return (
 
@@ -62,7 +73,7 @@ class MapContainer extends Component {
               return (
 
                 <div className={"info"}  aria-label="Location information window">
-                
+
                 {this.props.fetchedPics[castle.name]}
                 <h2 tabIndex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
                 <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>

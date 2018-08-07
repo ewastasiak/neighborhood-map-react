@@ -17,12 +17,15 @@ class App extends Component {
 
   state = {
     activeMarker: {},
+
     selectedPlace: {},
     showingInfoWindow: false,
 
     //Query and list will be used both by searchlist and MapContainer markers
     listOfCastles: Castles,
     query: '',
+
+    shownButtons: {},
 
     pictures: [],
     flickrOwner: []
@@ -47,6 +50,16 @@ class App extends Component {
           activeMarker: marker,
           showingInfoWindow: true,
         });
+
+  onButtonClick = (props, button, marker, e) => {
+    alert("Im ALIIIIIVE");
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    })
+
+  }
 
 
 // IS THIS EVEN DOING ANYTHING
@@ -79,7 +92,14 @@ componentDidMount() {
       let pic = photosResults.photos.photo[0];
       if(!pic) return;
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>);
+
+      // Second idea
+      const fallbackImg = './img/kappa.png';
+
+      // first idea
+      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
+      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={fallbackImg}></img>);
+
       allOwners[castle.name] = pic.owner;
     })
   })
@@ -164,6 +184,9 @@ render() {
               filterCastles={this.filterCastles}
               query={this.state.query}
               selectedPlace={this.state.selectedPlace}
+
+
+              onButtonClick={this.onButtonClick}
              />
           </nav>
 
