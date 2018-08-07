@@ -3,6 +3,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 // Map style: https://snazzymaps.com/style/30/cobalt
 // import MapStyling from '../data/MapStyling.json';
 import Castles from '../data/castles.json';
+// import ErrorBoundary from './ErrorBoundary'
 
 // Ref https://www.npmjs.com/package/google-maps-react/v/2.0.2
 // https://itnext.io/google-maps-react-makes-adding-google-maps-api-to-a-react-app-a-breeze-effb7b89e54
@@ -30,7 +31,7 @@ class MapContainer extends Component {
         role="application"
         aria-label="Map with nine Transylvanian castles locations"
         google={this.props.google}
-        onMapClicked={this.onMapClicked}
+        onMapClick={this.onMapClick}
         initialCenter={{lat: 45.5149, lng: 24.3672}}
         zoom={8}
         styles={require('../data/MapStyling.json')}
@@ -61,6 +62,7 @@ class MapContainer extends Component {
             style={require('../App.css')}
             marker={this.props.activeMarker}
             visible={this.props.showingInfoWindow}
+            onError={this.props.onImgError}
           >
 
           {

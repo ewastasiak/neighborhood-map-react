@@ -52,26 +52,35 @@ class App extends Component {
         });
 
   onButtonClick = (props, button, marker, e) => {
-    alert("Im ALIIIIIVE");
+
     this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
+      // selectedPlace: listOfCastles.castle.latlng,
       showingInfoWindow: true
     })
+
+    alert("Im ALIIIIIVE");
+    this.onMarkerClick();
 
   }
 
 
 // IS THIS EVEN DOING ANYTHING
-  // onMapClicked = (props) => {
-  //   if (this.state.showingInfoWindow) {
-  //     this.setState({
-  //       showingInfoWindow: false,
-  //       activeMarker: null,
-  //
-  //     })
-  //   }
-  // };
+  onMapClick = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+
+      })
+    }
+  };
+
+
+  // Third idea
+  // Image loading error placeholder
+  onImgError = (props) => {
+    alert("THere error be wut");
+  }
 
 
 componentDidMount() {
@@ -95,10 +104,14 @@ componentDidMount() {
 
       // Second idea
       const fallbackImg = './img/kappa.png';
+      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={srcPath="<p>there was a bork</p>"}></img>);
 
       // first idea
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
-      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={fallbackImg}></img>);
+
+
+      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={require('./img/kappa.png')}></img>);
+
 
       allOwners[castle.name] = pic.owner;
     })
@@ -194,12 +207,12 @@ render() {
             <MapContainer
               fetchedPics={this.state.pictures}
               flickrOwner={this.state.flickrOwner}
-
+              onImgError={this.onImgError}
               query={this.state.query}
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
               onMarkerClick={this.onMarkerClick}
-
+              onMapClick={this.onMapClick}
               onInfoWindowClose={this.onInfoWindowClose}
 
               activeMarker={this.state.activeMarker}

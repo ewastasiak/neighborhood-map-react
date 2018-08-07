@@ -194,6 +194,7 @@ html, body, main {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  font-family: 'Carrois Gothic', sans-serif;
 }
 
 
@@ -325,7 +326,7 @@ html, body, main {
   /* height: 30px; */
   /* bottom: 0; */
   /* margin: 10px; */
-  padding: 10px;
+  padding: 0;
   z-index: 999;
 }
 
