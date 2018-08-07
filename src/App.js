@@ -184,7 +184,7 @@ render() {
   console.log(`This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
   console.log(
     CastlesData.map(castle => {
-      return <li key={castle.place_id}>{castle.name}</li>;
+      return <li key={this.index}>{castle.name}</li>;
     })
   );
 

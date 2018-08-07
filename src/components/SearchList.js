@@ -28,7 +28,7 @@ render() {
         {
           this.props.listOfCastles.map(castle => {
             return (
-                <li key={this.index}>
+                <li key={castle.name}>
                   <button onClick={this.props.onButtonClick}>
                       {castle.name}
                   </button>
