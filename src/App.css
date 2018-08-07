@@ -389,7 +389,8 @@ html, body, main {
   }
 
   button {
-    width: 110px;
+    width: 111px;
+    height:63px;
     font-size: 0.8em;
   }
 
@@ -445,6 +446,8 @@ html, body, main {
 
   button {
     font-size: 0.8em;
+    width: 125px;
+    height: 60px;
   }
   /* button {
     border: none;
