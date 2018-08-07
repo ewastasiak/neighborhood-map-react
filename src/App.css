@@ -110,7 +110,10 @@ margin: 190px 0 0;
 }
 /* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
 /*-----------------------------------------------------------*/
-
+*:focus {
+  border: #e93 solid 5px;
+  box-sizing: border-box;
+}
 
 #root {
   height: 100%;
@@ -156,6 +159,8 @@ button {
 
 
 
+
+
 input {
   margin: 10px 44px 5px;
   padding: 15px;
@@ -165,6 +170,8 @@ input {
 ul {
   list-style-type: none;
   margin: 0;
+  display: flex;
+  flex-flow: column;
 }
 
 
@@ -257,7 +264,7 @@ html, body, main {
 .item {
 
   /* display: grid; */
-  grid-auto-flow: column;
+  /* grid-auto-flow: column; */
   background-color: #111;
   color: #ace;
   /* display: flex; */
@@ -373,9 +380,16 @@ html, body, main {
     letter-spacing: 2px;
   }
 
-  /* button {
-    width: 90px;
-  } */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  button {
+    width: 100px;
+  }
 
   .pb {
     display: none;
@@ -386,7 +400,7 @@ html, body, main {
     max-width: 100%;
      grid-template-columns: minmax(100px, auto);
 
-    grid-template-rows: 70px 1fr minmax(700px, auto) 40px;
+    grid-template-rows: 70px minmax(500px, auto) 1fr 40px;
     grid-gap: 5px;
 
 
@@ -395,8 +409,9 @@ html, body, main {
     height: 100%; */
     grid-template-areas:
       "first"
-      "second"
+
       "third"
+      "second"
       "fourth";
   }
 
@@ -412,14 +427,21 @@ html, body, main {
     letter-spacing: 2px;
   }
 
+/* Change list items display from column to row */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+  }
 
-  /* .item {
+  .item {
     display: flex;
     flex-flow: row wrap;
     align-content: center;
   }
 
-  button {
+  /* button {
     border: none;
     width: 100px;
     font: inherit;
@@ -440,7 +462,7 @@ html, body, main {
     max-width: 100%;
      grid-template-columns: minmax(100px, auto);
 
-    grid-template-rows: 70px 1fr minmax(700px, auto) 40px;
+    grid-template-rows: 70px minmax(500px, auto) 1fr 40px;
     grid-gap: 5px;
 
 
@@ -449,8 +471,9 @@ html, body, main {
     height: 100%; */
     grid-template-areas:
       "first"
-      "second"
+
       "third"
+      "second"
       "fourth";
   }
 
@@ -467,6 +490,13 @@ html, body, main {
 
   }
 
+  ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
   /* .item {
     flex-flow: row wrap;
   }
@@ -489,14 +519,11 @@ html, body, main {
 
 
   .grid {
-    height: 100%;
     display: grid;
-
-
     max-width: 100%;
      grid-template-columns: minmax(100px, auto);
-     /* grid-template-columns: 300px auto; */
-    grid-template-rows: 70px 1fr minmax(700px, auto) 40px;
+
+    grid-template-rows: 70px minmax(500px, auto) 1fr 40px;
     grid-gap: 5px;
 
 
@@ -505,8 +532,9 @@ html, body, main {
     height: 100%; */
     grid-template-areas:
       "first"
-      "second"
+
       "third"
+      "second"
       "fourth";
   }
 
