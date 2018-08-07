@@ -27,6 +27,7 @@ class MapContainer extends Component {
 
 
       <Map
+        key={this.index}
         title="Castle map"
         role="application"
         aria-label="Map with nine Transylvanian castles locations"
@@ -39,16 +40,16 @@ class MapContainer extends Component {
 
 {// Create markers from JSON locations
 }
-      {Castles.map((castle) => {
+      {Castles.map((index) => {
 
         return (
           <Marker
             tabIndex="0"
             onClick={this.props.onMarkerClick}
-            key={castle.place_id}
-            position={castle.latlng}
-            title={castle.name}
-            icon={this.props.selectedPlace.title === castle.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
+            key={index.place_id}
+            position={index.latlng}
+            title={index.name}
+            icon={this.props.selectedPlace.title === index.name ? require('../img/pointer-select.png') : require('../img/pointer.png')}
           />
         );
       })
@@ -66,20 +67,20 @@ class MapContainer extends Component {
           >
 
           {
-            Castles.filter((castle) => {
+            Castles.filter((index) => {
               return (
-              this.props.selectedPlace.title === castle.name
+              this.props.selectedPlace.title === index.name
               )
             })
-            .map((castle) => {
+            .map((index) => {
               return (
 
                 <div className={"info"}  aria-label="Location information window">
 
-                {this.props.fetchedPics[castle.name]}
+                {this.props.fetchedPics[index.name]}
                 <h2 tabIndex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
-                <a href={castle.wikiLink} target="_blank">Read Wikipedia Entry</a>
-                <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[castle.name]}</em></p>
+                <a href={index.wikiLink} target="_blank">Read Wikipedia Entry</a>
+                <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[index.name]}</em></p>
 
                 </div>
 

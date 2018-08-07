@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+// import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from './components/MapContainer.js'
 import SearchList from './components/SearchList.js'
-import Castles from './data/castles.json';
+import CastlesData from './data/castles.json';
 import Footer from './components/Footer.js'
-import escapeRegExp from 'escape-string-regexp'
+// import escapeRegExp from 'escape-string-regexp'
 
 //Display alert if the map does not load
 window.gm_authFailure = () => {
@@ -22,24 +22,27 @@ class App extends Component {
     showingInfoWindow: false,
 
     //Query and list will be used both by searchlist and MapContainer markers
-    listOfCastles: Castles,
+    listOfCastles: CastlesData,
+    filteredCastlesData: [],
+    // listOfMarkers: [],
     query: '',
-
-    shownButtons: {},
 
     pictures: [],
     flickrOwner: []
   }
 
+// updateFilter = query => {
+//   this.setState({ query: query })
+// }
 
   filterCastles = (query) => {
   // Reset to full list of castles if query is empty
     if (!query) {
-      return this.setState({ listOfCastles: Castles })
+      return this.setState({ listOfCastles: CastlesData })
     }
     // filter list of castles according to query
-    const filteredCastles = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
-    this.setState ({ listOfCastles: filteredCastles })
+    const filteredCastlesData = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
+    this.setState ({ listOfCastles: filteredCastlesData })
   }
 
 
@@ -51,6 +54,8 @@ class App extends Component {
           showingInfoWindow: true,
         });
 
+
+ //On button click SHOULD HAPPEN: infowindow + marker animation
   onButtonClick = (props, button, marker, e) => {
 
     this.setState({
@@ -64,7 +69,7 @@ class App extends Component {
   }
 
 
-// IS THIS EVEN DOING ANYTHING
+// SHOULD close the infowindow and unselect marker
   onMapClick = (props) => {
     if (this.state.showingInfoWindow) {
       this.setState({
@@ -78,7 +83,7 @@ class App extends Component {
 
   // Third idea
   // Image loading error placeholder
-  onImgError = (props) => {
+  onImgError() {
     alert("THere error be wut");
   }
 
@@ -92,7 +97,7 @@ componentDidMount() {
   let allOwners = {};
 
   // store all fetch requests in an array of promises
-  let allFetches = Castles.map(castle => {
+  let allFetches = CastlesData.map(castle => {
     return fetch(castle.flickr)
     .then((response) => {
       return response.json();
@@ -103,14 +108,16 @@ componentDidMount() {
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
 
       // Second idea
-      const fallbackImg = './img/kappa.png';
+      // const fallbackImg = './img/kappa.png';
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={srcPath="<p>there was a bork</p>"}></img>);
 
       // first idea
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
+      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={this.onImgError}></img>);
 
 
-      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={require('./img/kappa.png')}></img>);
+  //cleanish backup
+      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={require('./img/kappa.png')}></img>);
 
 
       allOwners[castle.name] = pic.owner;
@@ -176,7 +183,7 @@ render() {
   //TODO:Delete in build
   console.log(`This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
   console.log(
-    Castles.map(castle => {
+    CastlesData.map(castle => {
       return <li key={castle.place_id}>{castle.name}</li>;
     })
   );
@@ -194,7 +201,7 @@ render() {
           <nav className="item item-2">
             <SearchList
               listOfCastles={this.state.listOfCastles}
-              filterCastles={this.filterCastles}
+              filterCastles={this.filteredCastlesData}
               query={this.state.query}
               selectedPlace={this.state.selectedPlace}
 

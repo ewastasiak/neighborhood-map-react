@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import App from '../App.css';
-import Castles from '../data/castles.json';
+// import App from '../App.css';
+// import CastlesData from '../data/castles.json';
 
 
 class SearchList extends Component{
@@ -28,7 +28,7 @@ render() {
         {
           this.props.listOfCastles.map(castle => {
             return (
-                <li key={castle.place_id}>
+                <li key={this.index}>
                   <button onClick={this.props.onButtonClick}>
                       {castle.name}
                   </button>
