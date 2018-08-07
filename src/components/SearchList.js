@@ -20,7 +20,6 @@ render() {
           role="search"
           type="text"
           placeholder="Search a castle"
-          value={this.props.query}
           onChange={e => this.props.filterCastles(e.target.value)}
         />
 
