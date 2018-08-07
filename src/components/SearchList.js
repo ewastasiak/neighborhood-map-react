@@ -27,7 +27,7 @@ render() {
         <ul aria-label="Filtered list of castles">
         {
           this.props.listOfCastles.map(castle => {
-            return <li key={castle.place_id}>{castle.name}</li>;
+            return <button><li key={castle.place_id}>{castle.name}</li></button>;
           })
         }
         </ul>

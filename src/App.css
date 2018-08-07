@@ -140,14 +140,31 @@ a:hover {
   color: #ace;
 }
 
+
+button {
+  border: none;
+  width: 90%;
+  font: inherit;
+  color: white;
+  background-color: #02283a;
+  /* display: flex; */
+  /* align-self: flex-start; */
+  margin: 5px 3px;
+  padding: 10px;
+}
+
+
+
+
 input {
-  margin: 20px 10px 10px 40px;
+  margin: 10px 44px 5px;
   padding: 15px;
+  width: 65%;
 }
 
 ul {
   list-style-type: none;
-  margin: 0 10px 10px;
+  margin: 0;
 }
 
 
@@ -187,7 +204,7 @@ html, body, main {
   display: flex;
   z-index: 1;
 
-  max-height: 60%;
+  max-height: 30%;
   float: bottom;
   align-self: flex-start;
   position: absolute;
@@ -266,6 +283,7 @@ html, body, main {
   /* background-color: #002D2D; */
   background-color: #094460;
   height: auto;
+  flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
 
