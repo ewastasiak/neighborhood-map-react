@@ -27,7 +27,7 @@ class MapContainer extends Component {
 
 
       <Map
-        key={this.index}
+
         title="Castle map"
         role="application"
         aria-label="Map with nine Transylvanian castles locations"
@@ -63,7 +63,7 @@ class MapContainer extends Component {
             style={require('../App.css')}
             marker={this.props.activeMarker}
             visible={this.props.showingInfoWindow}
-            onError={this.props.onImgError}
+            
           >
 
           {

@@ -83,8 +83,9 @@ class App extends Component {
 
   // Third idea
   // Image loading error placeholder
-  onImgError() {
-    alert("THere error be wut");
+  onImgError(e) {
+    e.target.src = 'https://http.cat/404';
+
   }
 
 
@@ -113,7 +114,7 @@ componentDidMount() {
 
       // first idea
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
-      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={this.onImgError}></img>);
+      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError}></img>);
 
 
   //cleanish backup
