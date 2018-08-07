@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 // Map style: https://snazzymaps.com/style/30/cobalt
 // import MapStyling from '../data/MapStyling.json';
-import Castles from '../data/castles.json';
+// import Castles from '../data/castles.json';
 // import ErrorBoundary from './ErrorBoundary'
 
 // Ref https://www.npmjs.com/package/google-maps-react/v/2.0.2
@@ -40,7 +40,7 @@ class MapContainer extends Component {
 
 {// Create markers from JSON locations
 }
-      {Castles.map((index) => {
+      {this.props.listOfCastles.map((index) => {
 
         return (
           <Marker
@@ -63,11 +63,11 @@ class MapContainer extends Component {
             style={require('../App.css')}
             marker={this.props.activeMarker}
             visible={this.props.showingInfoWindow}
-            
+
           >
 
           {
-            Castles.filter((index) => {
+            this.props.listOfCastles.filter((index) => {
               return (
               this.props.selectedPlace.title === index.name
               )

@@ -23,7 +23,7 @@ class App extends Component {
 
     //Query and list will be used both by searchlist and MapContainer markers
     listOfCastles: CastlesData,
-    filteredCastlesData: [],
+    // filteredCastlesData: [],
     // listOfMarkers: [],
     query: '',
 
@@ -31,9 +31,7 @@ class App extends Component {
     flickrOwner: []
   }
 
-// updateFilter = query => {
-//   this.setState({ query: query })
-// }
+
 
   filterCastles = (query) => {
   // Reset to full list of castles if query is empty
@@ -83,9 +81,12 @@ class App extends Component {
 
   // Third idea
   // Image loading error placeholder
-  onImgError(e) {
-    e.target.src = 'https://http.cat/404';
+  // onImgError(e) {
+  //   e.target.src= 'https://http.cat/404';
+  // }
 
+  onImgError = (ev) => {
+    ev.target.src = 'https://http.cat/404';
   }
 
 
@@ -202,7 +203,7 @@ render() {
           <nav className="item item-2">
             <SearchList
               listOfCastles={this.state.listOfCastles}
-              filterCastles={this.filteredCastlesData}
+              filterCastles={this.filterCastles}
               query={this.state.query}
               selectedPlace={this.state.selectedPlace}
 
@@ -222,6 +223,7 @@ render() {
               onMarkerClick={this.onMarkerClick}
               onMapClick={this.onMapClick}
               onInfoWindowClose={this.onInfoWindowClose}
+              filterCastles={this.filterCastles}
 
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
