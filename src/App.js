@@ -79,7 +79,7 @@ componentDidMount() {
       let pic = photosResults.photos.photo[0];
       if(!pic) return;
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath}></img>);
+      allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError="Image failed to load"></img>);
       allOwners[castle.name] = pic.owner;
     })
   })
