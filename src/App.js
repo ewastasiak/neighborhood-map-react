@@ -17,12 +17,15 @@ class App extends Component {
 
   state = {
     activeMarker: {},
+
     selectedPlace: {},
     showingInfoWindow: false,
 
     //Query and list will be used both by searchlist and MapContainer markers
     listOfCastles: Castles,
     query: '',
+
+    shownButtons: {},
 
     pictures: [],
     flickrOwner: []
@@ -47,6 +50,10 @@ class App extends Component {
           activeMarker: marker,
           showingInfoWindow: true,
         });
+
+  onButtonClick = (e) => {
+
+  }
 
 
 // IS THIS EVEN DOING ANYTHING
@@ -171,6 +178,9 @@ render() {
               filterCastles={this.filterCastles}
               query={this.state.query}
               selectedPlace={this.state.selectedPlace}
+
+
+              onButtonClick={this.onButtonClick}
              />
           </nav>
 
