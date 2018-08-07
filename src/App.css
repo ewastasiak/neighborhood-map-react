@@ -373,9 +373,9 @@ html, body, main {
     letter-spacing: 2px;
   }
 
-  button {
+  /* button {
     width: 90px;
-  }
+  } */
 
   .pb {
     display: none;
@@ -412,10 +412,12 @@ html, body, main {
     letter-spacing: 2px;
   }
 
-  /* .item-2 {
+
+  /* .item {
+    display: flex;
     flex-flow: row wrap;
     align-content: center;
-  } */
+  }
 
   button {
     border: none;
@@ -423,11 +425,11 @@ html, body, main {
     font: inherit;
     color: white;
     background-color: #02283a;
-    /* display: flex; */
-    /* align-self: flex-start; */
+    display: flex;
+    align-self: flex-start;
     margin: 5px 3px;
     padding: 10px;
-  }
+  } */
 
   .pb {
     display: none;
@@ -465,7 +467,7 @@ html, body, main {
 
   }
 
-  .item {
+  /* .item {
     flex-flow: row wrap;
   }
 
@@ -475,11 +477,11 @@ html, body, main {
     font: inherit;
     color: white;
     background-color: #02283a;
-    /* display: flex; */
+    display: flex;
     align-self: flex-start;
     margin: 5px 3px;
     padding: 10px;
-  }
+  } */
 
   .pb {
     display: none;
