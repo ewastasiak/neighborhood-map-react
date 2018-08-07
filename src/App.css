@@ -373,6 +373,10 @@ html, body, main {
     letter-spacing: 2px;
   }
 
+  button {
+    width: 90px;
+  }
+
   .pb {
     display: none;
   }
@@ -406,6 +410,23 @@ html, body, main {
     color: #e93;
     font-size: 1em;
     letter-spacing: 2px;
+  }
+
+  /* .item-2 {
+    flex-flow: row wrap;
+    align-content: center;
+  } */
+
+  button {
+    border: none;
+    width: 100px;
+    font: inherit;
+    color: white;
+    background-color: #02283a;
+    /* display: flex; */
+    /* align-self: flex-start; */
+    margin: 5px 3px;
+    padding: 10px;
   }
 
   .pb {
@@ -442,6 +463,22 @@ html, body, main {
     font-size: 2em;
     letter-spacing: 2px;
 
+  }
+
+  .item {
+    flex-flow: row wrap;
+  }
+
+  button {
+    border: none;
+    width: 100px;
+    font: inherit;
+    color: white;
+    background-color: #02283a;
+    /* display: flex; */
+    align-self: flex-start;
+    margin: 5px 3px;
+    padding: 10px;
   }
 
   .pb {
