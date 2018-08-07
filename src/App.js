@@ -25,7 +25,7 @@ class App extends Component {
     listOfCastles: CastlesData,
     // filteredCastlesData: [],
     // listOfMarkers: [],
-    query: '',
+
 
     pictures: [],
     flickrOwner: []
@@ -34,13 +34,19 @@ class App extends Component {
 
 
   filterCastles = (query) => {
+
+
   // Reset to full list of castles if query is empty
     if (!query) {
       return this.setState({ listOfCastles: CastlesData })
     }
+
+    console.log(query);
+     console.log(this.state.listOfCastles);
     // filter list of castles according to query
-    const filteredCastlesData = this.state.listOfCastles.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
+    const filteredCastlesData = CastlesData.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
     this.setState ({ listOfCastles: filteredCastlesData })
+
   }
 
 
@@ -204,7 +210,6 @@ render() {
             <SearchList
               listOfCastles={this.state.listOfCastles}
               filterCastles={this.filterCastles}
-              query={this.state.query}
               selectedPlace={this.state.selectedPlace}
 
 
@@ -217,7 +222,6 @@ render() {
               fetchedPics={this.state.pictures}
               flickrOwner={this.state.flickrOwner}
               onImgError={this.onImgError}
-              query={this.state.query}
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
               onMarkerClick={this.onMarkerClick}
