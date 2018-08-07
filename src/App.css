@@ -111,7 +111,7 @@ margin: 190px 0 0;
 /* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
 /*-----------------------------------------------------------*/
 *:focus {
-  border: #e93 solid 5px;
+  border: #e93 solid 2px;
   box-sizing: border-box;
 }
 
@@ -389,7 +389,8 @@ html, body, main {
   }
 
   button {
-    width: 100px;
+    width: 110px;
+    font-size: 0.8em;
   }
 
   .pb {
@@ -442,6 +443,9 @@ html, body, main {
     align-content: center;
   }
 
+  button {
+    font-size: 0.8em;
+  }
   /* button {
     border: none;
     width: 100px;
