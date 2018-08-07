@@ -27,11 +27,15 @@ render() {
         <ul aria-label="Filtered list of castles">
         {
           this.props.listOfCastles.map(castle => {
-            return <button><li key={castle.place_id}>{castle.name}</li></button>;
+            return (
+                <li key={castle.place_id}>
+                  <button onClick={this.props.onButtonClick}>
+                      {castle.name}
+                  </button>
+                </li>);
           })
         }
         </ul>
-
 
       </div>
 

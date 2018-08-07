@@ -51,7 +51,11 @@ class App extends Component {
           showingInfoWindow: true,
         });
 
-  onButtonClick = (e) => {
+  onButtonClick = (props, button, e) => {
+    alert("Im ALIIIIIVE");
+    this.setState({
+
+    })
 
   }
 
