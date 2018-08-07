@@ -51,10 +51,12 @@ class App extends Component {
           showingInfoWindow: true,
         });
 
-  onButtonClick = (props, button, e) => {
+  onButtonClick = (props, button, marker, e) => {
     alert("Im ALIIIIIVE");
     this.setState({
-
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
     })
 
   }
