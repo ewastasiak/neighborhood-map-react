@@ -60,17 +60,17 @@ class App extends Component {
 
 
  //On button click SHOULD HAPPEN: infowindow + marker animation
-  onButtonClick = (props, button, marker, e) => {
-
-    this.setState({
-      // selectedPlace: listOfCastles.castle.latlng,
-      showingInfoWindow: true
-    })
-
-    alert("Im ALIIIIIVE");
-    this.onMarkerClick();
-
-  }
+  // onButtonClick = (props, button, marker, e) => {
+  //
+  //   this.setState({
+  //     // selectedPlace: listOfCastles.castle.latlng,
+  //     showingInfoWindow: true
+  //   })
+  //
+  //   alert("Im ALIIIIIVE");
+  //   this.onMarkerClick();
+  //
+  // }
 
 
 // SHOULD close the infowindow and unselect marker
@@ -121,7 +121,7 @@ componentDidMount() {
 
       // first idea
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
-      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError}></img>);
+      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onerror={alert('an error occurred')}></img>);
 
 
   //cleanish backup
@@ -134,19 +134,13 @@ componentDidMount() {
 
   // when all fetches are finished, store images and authors in the state
   Promise.all(allFetches)
-    .then(() => {this.setState ({
+    .then(() => this.setState ({
     pictures: allImages,
     flickrOwner: allOwners
-  })
-})
-.catch(() => {
-  alert('things went downhill');
-});
+  }))
 
 
 }
-
-
 
 // //ADD WIKIPEDIA LATER
 // //   Castles.map(castle => {
