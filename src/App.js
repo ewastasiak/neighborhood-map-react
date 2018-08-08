@@ -91,8 +91,8 @@ class App extends Component {
   //   e.target.src= 'https://http.cat/404';
   // }
 
-  onImgError() {
-    alert('Some pictures did not load');
+  onImgError = (e, pic) => {
+    console.log("there was an error")
 
   }
 
@@ -120,11 +120,11 @@ componentDidMount() {
 
     .then((photosResults) => {
       let pic = photosResults.photos.photo[0];
-      if(!pic) return (alert("some images failed to load"));
+      if(!pic) return (alert("some images failed to load"))
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
 
       // Second idea
-      const fallbackImg = './img/kappa.png';
+      // const fallbackImg = './img/kappa.png';
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={srcPath="<p>there was a bork</p>"}></img>);
 
       // first idea
@@ -139,7 +139,7 @@ componentDidMount() {
 
 
       allOwners[castle.name] = pic.owner;
-    })
+    }).catch(e => this.onImgError(e, 'image'));
   })
 
   // when all fetches are finished, store images and authors in the state
@@ -151,48 +151,6 @@ componentDidMount() {
 
 
 }
-
-// //ADD WIKIPEDIA LATER
-// //   Castles.map(castle => {
-// //     return (
-// //
-// // fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=extracts&titles=${castle.name}&exintro=1`)
-// //   .then(function(response) {
-// //     return response.json();
-// //   })
-// //   .then(function(p) {
-// //     // alert(JSON.stringify(p))
-// //     let pictureArr/wikiExtract = resultArticle.query.pages[Object.keys(resultArticle.query.pages[0]].extract;
-// //
-// //
-// //       // let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-// //       // return (
-// //       //   <img className="info-pic" alt={castle.name} src={srcPath}></img>
-// //       // )
-// //
-// //
-// //     })
-// //     this.setState({ wiki: wikiExtract })
-// //   }.bind(this))
-// //
-// //   )})
-//
-//
-//
-//   // getWiki = (listOfCastles) => {
-//   //
-//   // let wikiEntry = [];
-//   //
-//   // fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=extracts&titles=${listOfCastles.name}&exintro=1`)
-//   // .then(response => {return response.json()})
-//   // .then(responseEntry => {
-//   //   let entry = response.query.pages[Object.keys(responseEntry.query.pages)[0]].extract;
-//   //   wikiEntry.push(entry)
-//   // })
-//   // //catch errors?
-//   // this.setState({WikiWindow: wikiEntry})
-//   //
-//   // }
 
 
   //Render the page with all components in grid

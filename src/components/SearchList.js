@@ -16,7 +16,7 @@ render() {
 
 
         <input
-          aria-label="Filter the list of Transylvanian castles"
+          aria-label="Search input"
           role="search"
           type="text"
           placeholder="Search a castle"
