@@ -93,7 +93,7 @@ class App extends Component {
 
   onImgError() {
     alert('Some pictures did not load');
-    ev.target.src = 'https://http.cat/404';
+
   }
 
 
@@ -108,9 +108,15 @@ componentDidMount() {
   // store all fetch requests in an array of promises
   let allFetches = CastlesData.map(castle => {
     return fetch(castle.flickr)
+    .catch((error) => {
+        // Never fires
+        alert('OI OOOOOOOOOOOOOOOOOOOOOOOOOI');
+      })
     .then((response) => {
       return response.json();
     })
+    // .catch()
+
     .then((photosResults) => {
       let pic = photosResults.photos.photo[0];
       if(!pic) return;
@@ -122,11 +128,13 @@ componentDidMount() {
 
       // first idea
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
-      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onerror={this.onImgError()}></img>);
+      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError()}></img>);
 
 
   //cleanish backup
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={require('./img/kappa.png')}></img>);
+//it works with onImgError()
+      // allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onerror={this.onImgError()}></img>);
 
 
       allOwners[castle.name] = pic.owner;
@@ -222,7 +230,6 @@ render() {
             <MapContainer
               fetchedPics={this.state.pictures}
               flickrOwner={this.state.flickrOwner}
-              onImgError={this.onImgError}
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
               onMarkerClick={this.onMarkerClick}
