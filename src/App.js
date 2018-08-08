@@ -43,7 +43,12 @@ class App extends Component {
      console.log(this.state.listOfCastles);
     // filter list of castles according to query
     const filteredCastlesData = CastlesData.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
-    this.setState ({ listOfCastles: filteredCastlesData })
+    this.setState ({
+      listOfCastles: filteredCastlesData,
+      // Prevent infowindow and selected marker from showing during search
+      showingInfoWindow: false,
+      selectedPlace: {}
+    })
 
   }
 
@@ -112,7 +117,7 @@ componentDidMount() {
 
     .then((photosResults) => {
       let pic = photosResults.photos.photo[0];
-      if(!pic) return (alert("some images failed to load"))
+      if(!pic) return (alert("Some Flickr data failed to load"))
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
 
       allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError}></img>);
