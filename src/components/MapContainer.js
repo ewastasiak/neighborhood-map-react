@@ -20,7 +20,7 @@ class MapContainer extends Component {
         initialCenter={{lat: 45.5149, lng: 24.3672}}
         zoom={8}
         styles={require('../data/MapStyling.json')}
-        
+
         >
 
 {// Create markers from JSON locations
@@ -48,10 +48,10 @@ class MapContainer extends Component {
             style={require('../App.css')}
             marker={this.props.activeMarker}
             visible={this.props.showingInfoWindow}
-
           >
 
           {
+
             this.props.listOfCastles.filter((index) => {
               return (
               this.props.selectedPlace.title === index.name
@@ -59,7 +59,6 @@ class MapContainer extends Component {
             })
             .map((index) => {
               return (
-
                 <div className={"info"}  aria-label="Location information window">
 
                 {this.props.fetchedPics[index.name]}

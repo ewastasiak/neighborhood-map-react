@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-// import App from '../App.css';
-// import CastlesData from '../data/castles.json';
-
 
 class SearchList extends Component{
 
-// https://www.youtube.com/watch?v=HqQ-kOchqHM&feature=youtu.be
-
-
 render() {
+
   return (
     <div className="castles-list">
-
       <div className="filter-castles">
-
 
         <input
           aria-label="Search input"
@@ -24,6 +17,7 @@ render() {
         />
 
         <ul aria-label="Filtered list of castles">
+
         {
           this.props.listOfCastles.map(castle => {
             return (
@@ -34,6 +28,7 @@ render() {
                 </li>);
           })
         }
+
         </ul>
 
       </div>
