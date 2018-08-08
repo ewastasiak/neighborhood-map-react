@@ -7,6 +7,8 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 class MapContainer extends Component {
 
   render() {
+    const selectedCastle = this.props.listOfCastles.filter(castle=>this.props.selectedPlace.title === castle.name)[0]
+
     return (
 
 
@@ -49,28 +51,14 @@ class MapContainer extends Component {
             marker={this.props.activeMarker}
             visible={this.props.showingInfoWindow}
           >
+            {selectedCastle ? <div className={"info"}  aria-label="Location information window">
 
-          {
+              {this.props.fetchedPics[selectedCastle.name]}
+              <h2 tabIndex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
+              <a href={selectedCastle.wikiLink} target="_blank">Read Wikipedia Entry</a>
+              <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[selectedCastle.name]}</em></p>
 
-            this.props.listOfCastles.filter((index) => {
-              return (
-              this.props.selectedPlace.title === index.name
-              )
-            })
-            .map((index) => {
-              return (
-                <div className={"info"}  aria-label="Location information window">
-
-                {this.props.fetchedPics[index.name]}
-                <h2 tabIndex="0" className={"info"}>{this.props.selectedPlace.title}</h2>
-                <a href={index.wikiLink} target="_blank">Read Wikipedia Entry</a>
-                <p tabIndex="0">Flickr owner number: <em>{this.props.flickrOwner[index.name]}</em></p>
-
-                </div>
-
-              );
-            })
-          }
+            </div> : <div></div>}
           </InfoWindow>
 
 
