@@ -8,6 +8,7 @@ import Footer from './components/Footer.js'
 //Display alert if the map does not load
 window.gm_authFailure = () => {
   alert('Google Map failed to load :(');
+  // return;
 }
 
 
@@ -15,6 +16,8 @@ class App extends Component {
 
 
   state = {
+    // error: false,
+
     activeMarker: {},
 
     selectedPlace: {},
@@ -27,6 +30,9 @@ class App extends Component {
 
     pictures: [],
     flickrOwner: []
+
+
+
   }
 
 
@@ -63,16 +69,12 @@ class App extends Component {
 
 
  //On button click SHOULD HAPPEN: infowindow + marker animation
-  // onButtonClick = (props, button, marker, e) => {
+  // onButtonClick = (castleName) => {
+  //   const targetCastle = CastlesData.filter(castle=>castle.name === castleName)[0]
+  //   // ??
+  //   const selectedPlace = {title: castleName}
   //
-  //   this.setState({
-  //     // selectedPlace: listOfCastles.castle.latlng,
-  //     showingInfoWindow: true
-  //   })
-  //
-  //   alert("Im ALIIIIIVE");
-  //   this.onMarkerClick();
-  //
+  //   this.onMarkerClick(selectedPlace, targetCastle)
   // }
 
 
@@ -81,21 +83,19 @@ class App extends Component {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
-        activeMarker: null
-
+        activeMarker: {}
+        // activeMarker: null
       })
     }
-  };
+  }
 
 
-  // Third idea
-  // Image loading error placeholder
-  // onImgError(e) {
-  //   e.target.src= 'https://http.cat/404';
-  // }
 
-  onImgError = (e, pic) => {
-    console.log("there was an error")
+  onImgError = () => {
+    // this.setState({ error: true })
+    alert("Some Flickr data failed to load");
+    // this.setState({ error: false })
+    // return;
 
   }
 
@@ -117,19 +117,15 @@ componentDidMount() {
 
     .then((photosResults) => {
       let pic = photosResults.photos.photo[0];
-      if(!pic) return (alert("Some Flickr data failed to load"))
+      if(!pic) return;
+
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-
-      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError}></img>);
-
-
-//cleanish backup
-      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={require('./img/kappa.png')}></img>);
-//it works with onImgError()
-      // allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError()}></img>);
-
+      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath}></img>);
       allOwners[castle.name] = pic.owner;
     })
+    // .catch((photosResults) => {return (alert("An image failed to load"))})
+
+
   })
 
   // when all fetches are finished, store images and authors in the state
@@ -138,6 +134,7 @@ componentDidMount() {
     pictures: allImages,
     flickrOwner: allOwners
   }))
+  .catch((allFetches) => {this.onImgError()})
 
 
 }
