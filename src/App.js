@@ -108,27 +108,28 @@ componentDidMount() {
   // store all fetch requests in an array of promises
   let allFetches = CastlesData.map(castle => {
     return fetch(castle.flickr)
-    .catch((error) => {
-        // Never fires
-        alert('OI OOOOOOOOOOOOOOOOOOOOOOOOOI');
-      })
+    // .catch((error) => {
+    //     // Never fires
+    //     alert('OI OOOOOOOOOOOOOOOOOOOOOOOOOI');
+    //   })
     .then((response) => {
       return response.json();
     })
-    // .catch()
+    //never fires
+    // .catch((ev) => {alert("this.onImgError");})
 
     .then((photosResults) => {
       let pic = photosResults.photos.photo[0];
-      if(!pic) return;
+      if(!pic) return (alert("some images failed to load"));
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
 
       // Second idea
-      // const fallbackImg = './img/kappa.png';
+      const fallbackImg = './img/kappa.png';
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={srcPath="<p>there was a bork</p>"}></img>);
 
       // first idea
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
-      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError()}></img>);
+      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onerror={this.onImgError}></img>);
 
 
   //cleanish backup
