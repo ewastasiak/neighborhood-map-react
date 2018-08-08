@@ -1,6 +1,6 @@
 {
-  "short_name": "Transylvanian Castles",
-  "name": "List on famous castles in Romania",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
