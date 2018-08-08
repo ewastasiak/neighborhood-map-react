@@ -91,7 +91,8 @@ class App extends Component {
   //   e.target.src= 'https://http.cat/404';
   // }
 
-  onImgError = (ev) => {
+  onImgError() {
+    alert('Some pictures did not load');
     ev.target.src = 'https://http.cat/404';
   }
 
@@ -121,7 +122,7 @@ componentDidMount() {
 
       // first idea
       // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
-      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onerror={alert('an error occurred')}></img>);
+      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onerror={this.onImgError()}></img>);
 
 
   //cleanish backup
