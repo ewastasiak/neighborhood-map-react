@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from './components/MapContainer.js'
 import SearchList from './components/SearchList.js'
 import CastlesData from './data/castles.json';
@@ -9,6 +8,7 @@ import Footer from './components/Footer.js'
 //Display alert if the map does not load
 window.gm_authFailure = () => {
   alert('Google Map failed to load :(');
+  // return;
 }
 
 
@@ -16,6 +16,8 @@ class App extends Component {
 
 
   state = {
+    // error: false,
+
     activeMarker: {},
 
     selectedPlace: {},
@@ -23,12 +25,14 @@ class App extends Component {
 
     //Query and list will be used both by searchlist and MapContainer markers
     listOfCastles: CastlesData,
-    // filteredCastlesData: [],
     // listOfMarkers: [],
 
 
     pictures: [],
-    flickrOwner: []
+    flickrOwner: [],
+
+    title: {}
+
   }
 
 
@@ -45,7 +49,12 @@ class App extends Component {
      console.log(this.state.listOfCastles);
     // filter list of castles according to query
     const filteredCastlesData = CastlesData.filter(castle => castle.name.toLowerCase().includes(query.toLowerCase()))
-    this.setState ({ listOfCastles: filteredCastlesData })
+    this.setState ({
+      listOfCastles: filteredCastlesData,
+      // Prevent infowindow and selected marker from showing during search
+      showingInfoWindow: false,
+      selectedPlace: {}
+    })
 
   }
 
@@ -60,16 +69,12 @@ class App extends Component {
 
 
  //On button click SHOULD HAPPEN: infowindow + marker animation
-  onButtonClick = (props, button, marker, e) => {
+  onButtonClick = (castleName) => {
+    const targetCastle = CastlesData.filter(castle=>castle.name === castleName)[0]
+    // ??
+    const selectedPlace = {title: castleName}
 
-    this.setState({
-      // selectedPlace: listOfCastles.castle.latlng,
-      showingInfoWindow: true
-    })
-
-    alert("Im ALIIIIIVE");
-    this.onMarkerClick();
-
+    this.onMarkerClick(selectedPlace, targetCastle)
   }
 
 
@@ -78,21 +83,20 @@ class App extends Component {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
-        activeMarker: null
-
+        activeMarker: {}
+        // activeMarker: null
       })
     }
-  };
+  }
 
 
-  // Third idea
-  // Image loading error placeholder
-  // onImgError(e) {
-  //   e.target.src= 'https://http.cat/404';
-  // }
 
-  onImgError = (ev) => {
-    ev.target.src = 'https://http.cat/404';
+  onImgError = () => {
+    // this.setState({ error: true })
+    alert("Some Flickr data failed to load");
+    // this.setState({ error: false })
+    // return;
+
   }
 
 
@@ -110,26 +114,18 @@ componentDidMount() {
     .then((response) => {
       return response.json();
     })
+
     .then((photosResults) => {
       let pic = photosResults.photos.photo[0];
       if(!pic) return;
+
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-
-      // Second idea
-      // const fallbackImg = './img/kappa.png';
-      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={srcPath="<p>there was a bork</p>"}></img>);
-
-      // first idea
-      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} ref={img => this.img = img} onError={() => this.img.src ="../img/kappa.png"}></img>);
-      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath} onError={this.onImgError}></img>);
-
-
-  //cleanish backup
-      // allImages[castle.name] = (<img className="info-pic" alt={pic.title} src={srcPath} onError={require('./img/kappa.png')}></img>);
-
-
+      allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath}></img>);
       allOwners[castle.name] = pic.owner;
     })
+    // .catch((photosResults) => {return (alert("An image failed to load"))})
+
+
   })
 
   // when all fetches are finished, store images and authors in the state
@@ -138,51 +134,10 @@ componentDidMount() {
     pictures: allImages,
     flickrOwner: allOwners
   }))
+  .catch((allFetches) => {this.onImgError()})
 
 
 }
-
-// //ADD WIKIPEDIA LATER
-// //   Castles.map(castle => {
-// //     return (
-// //
-// // fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=extracts&titles=${castle.name}&exintro=1`)
-// //   .then(function(response) {
-// //     return response.json();
-// //   })
-// //   .then(function(p) {
-// //     // alert(JSON.stringify(p))
-// //     let pictureArr/wikiExtract = resultArticle.query.pages[Object.keys(resultArticle.query.pages[0]].extract;
-// //
-// //
-// //       // let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-// //       // return (
-// //       //   <img className="info-pic" alt={castle.name} src={srcPath}></img>
-// //       // )
-// //
-// //
-// //     })
-// //     this.setState({ wiki: wikiExtract })
-// //   }.bind(this))
-// //
-// //   )})
-//
-//
-//
-//   // getWiki = (listOfCastles) => {
-//   //
-//   // let wikiEntry = [];
-//   //
-//   // fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=extracts&titles=${listOfCastles.name}&exintro=1`)
-//   // .then(response => {return response.json()})
-//   // .then(responseEntry => {
-//   //   let entry = response.query.pages[Object.keys(responseEntry.query.pages)[0]].extract;
-//   //   wikiEntry.push(entry)
-//   // })
-//   // //catch errors?
-//   // this.setState({WikiWindow: wikiEntry})
-//   //
-//   // }
 
 
   //Render the page with all components in grid
@@ -221,14 +176,12 @@ render() {
             <MapContainer
               fetchedPics={this.state.pictures}
               flickrOwner={this.state.flickrOwner}
-              onImgError={this.onImgError}
               listOfCastles={this.state.listOfCastles}
               selectedPlace={this.state.selectedPlace}
               onMarkerClick={this.onMarkerClick}
               onMapClick={this.onMapClick}
               onInfoWindowClose={this.onInfoWindowClose}
               filterCastles={this.filterCastles}
-
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
             />
@@ -250,9 +203,3 @@ render() {
 }
 
 export default App
-
-
-// activeMarker: {this.state.activeMarker}
-// selectedPlace: {this.state.selectedPlace}
-// showingInfoWindow: {this.state.showingInfoWindow}
-// wikiEntry: {this.state.wikiEntry}

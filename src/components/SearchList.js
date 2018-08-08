@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
-// import App from '../App.css';
-// import CastlesData from '../data/castles.json';
-
 
 class SearchList extends Component{
 
-// https://www.youtube.com/watch?v=HqQ-kOchqHM&feature=youtu.be
-
-
 render() {
+
   return (
     <div className="castles-list">
-
       <div className="filter-castles">
 
-
         <input
-          aria-label="Filter the list of Transylvanian castles"
+          aria-label="Search input"
           role="search"
           type="text"
           placeholder="Search a castle"
@@ -24,16 +17,18 @@ render() {
         />
 
         <ul aria-label="Filtered list of castles">
+
         {
           this.props.listOfCastles.map(castle => {
             return (
                 <li key={castle.name}>
-                  <button onClick={this.props.onButtonClick}>
+                  <button onClick={(e)=>this.props.onButtonClick(castle.name)}>
                       {castle.name}
                   </button>
                 </li>);
           })
         }
+
         </ul>
 
       </div>
