@@ -134,13 +134,19 @@ componentDidMount() {
 
   // when all fetches are finished, store images and authors in the state
   Promise.all(allFetches)
-    .then(() => this.setState ({
+    .then(() => {this.setState ({
     pictures: allImages,
     flickrOwner: allOwners
-  }))
+  })
+})
+.catch(() => {
+  alert('things went downhill');
+});
 
 
 }
+
+
 
 // //ADD WIKIPEDIA LATER
 // //   Castles.map(castle => {
