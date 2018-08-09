@@ -31,7 +31,8 @@ class App extends Component {
     pictures: [],
     flickrOwner: [],
 
-    title: {}
+//TODO:
+  // latlngPosition: CastlesData
 
   }
 
@@ -65,6 +66,7 @@ class App extends Component {
           selectedPlace: props,
           activeMarker: marker,
           showingInfoWindow: true,
+          // position: latlng
         });
 
 
@@ -166,7 +168,7 @@ render() {
               listOfCastles={this.state.listOfCastles}
               filterCastles={this.filterCastles}
               selectedPlace={this.state.selectedPlace}
-
+              position={this.state.position}
 
               onButtonClick={this.onButtonClick}
              />
@@ -184,6 +186,7 @@ render() {
               filterCastles={this.filterCastles}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
+              position={this.state.latlng}
             />
           </main>
 
