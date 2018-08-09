@@ -168,7 +168,7 @@ render() {
               listOfCastles={this.state.listOfCastles}
               filterCastles={this.filterCastles}
               selectedPlace={this.state.selectedPlace}
-              position={this.state.position}
+              
 
               onButtonClick={this.onButtonClick}
              />
@@ -186,7 +186,7 @@ render() {
               filterCastles={this.filterCastles}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
-              position={this.state.latlng}
+
             />
           </main>
 
