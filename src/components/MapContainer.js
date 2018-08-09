@@ -50,7 +50,7 @@ class MapContainer extends Component {
             onClose={this.onInfoWindowClose}
             style={require('../App.css')}
 
-position={this.props.selectedPlace.position}
+position={this.selectedCastle.latlng}
             visible={this.props.showingInfoWindow}
           >
             {selectedCastle ? <div className={"info"}  aria-label="Location information window">

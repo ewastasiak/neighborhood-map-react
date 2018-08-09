@@ -32,7 +32,7 @@ class App extends Component {
     flickrOwner: [],
 
 //TODO:
-  // latlngPosition: CastlesData
+  infoPosition: {}
 
   }
 
@@ -66,7 +66,7 @@ class App extends Component {
           selectedPlace: props,
           activeMarker: marker,
           showingInfoWindow: true,
-          // position: latlng
+          infoPosition: props
         });
 
 
@@ -77,6 +77,9 @@ class App extends Component {
     const selectedPlace = {title: castleName}
 
     this.onMarkerClick(selectedPlace, targetCastle)
+    // if({showingInfoWindow: false}) {
+    //   this.setState({showingInfoWindow: true})
+    // }
   }
 
 
@@ -168,7 +171,7 @@ render() {
               listOfCastles={this.state.listOfCastles}
               filterCastles={this.filterCastles}
               selectedPlace={this.state.selectedPlace}
-              
+
 
               onButtonClick={this.onButtonClick}
              />
@@ -186,7 +189,7 @@ render() {
               filterCastles={this.filterCastles}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
-
+infoPosition={this.state.infoPosition}
             />
           </main>
 
