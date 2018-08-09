@@ -1,115 +1,4 @@
-/* img {
-  max-width: 100%;
-} */
 
-/* .info {
-  max-height: 10%;
-
-  display: flex;
-  flex-flow: column wrap;
-  align-self: center;
-  justify-content: right;
-  margin: 0 auto;
-  padding: 0 auto;
-} */
-
-
-/*---------------------------------------------------------*/
-/* ------------ OVERRIDE GOOGLE MAP STYLES --------------- */
-/* .gm {
-
-  position: relative;
-}
-
-.gm-style {
-  display: inline-block;
-
-  position: relative;
-} */
-
-.gm-style {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* position: relative; */
-}
-
-.gm-err-container {
-  display: flex;
-  background-color: black;
-  justify-content: center;
-  align-items: flex-start;
-  /* width: auto; */
-}
-.gm-err-content {
-  /* display: flex; */
-  /* width: auto; */
-
-}
-.gm-err-title {
-  font-size: 1.5em;
-  color: #e93;
-
-}
-
-.gm-err-message {
-  color: #ace;
-  font-size: 1em;
-
-}
-
-.gm-err-icon {
-margin: 190px 0 0;
-}
-
-.gm-style
-.gm-style-iw {
-  padding: 10px;
-}
-
-
-/* Infowindow style */
-.gm-style-iw {
-  color: #080808;
-  /* max-width: 400px; */
-  max-height: 300px;
-  max-width: 200px;
-  /* justify-content: center; */
-  /* max-width: 30%; */
-  /* background-color: orange; */
-  display: flex;
-  flex-flow: column wrap;
-  align-self: center;
-  justify-content: right;
-  margin: 0 auto;
-  padding: 20% auto;
-
- /* overflow: visible; */
- /* overflow: auto; */
-
-     overflow: hidden;
-     /* white-space: nowrap; */
-
-}
-
-.info-pic {
-  width: 180px;
-
-}
-/*
-.gm-style-pbc {
-  background-color: transparent;
-} */
-
-/* try marker animation */
-.markerLayer {
-  animation: pulse .5s infinite alternate;
- -webkit-animation: pulse .5s infinite alternate;
- transform-origin: center;
- -webkit-transform-origin: center;
-}
-/* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
-/*-----------------------------------------------------------*/
 *:focus {
   border: #e93 solid 2px;
   box-sizing: border-box;
@@ -122,27 +11,26 @@ margin: 190px 0 0;
   padding: 0;
 }
 
-
-.App {
+html, body, main {
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
-  padding: 0;
-  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Carrois Gothic', sans-serif;
 }
-
 
 a {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 800;
   color: grey;
-
 }
 
 a:hover {
   color: #ace;
 }
-
 
 button {
   border: none;
@@ -150,16 +38,9 @@ button {
   font: inherit;
   color: white;
   background-color: #02283a;
-  /* display: flex; */
-  /* align-self: flex-start; */
   margin: 5px 3px;
   padding: 10px;
 }
-
-
-
-
-
 
 input {
   margin: 10px 44px 5px;
@@ -174,104 +55,46 @@ ul {
   flex-flow: column;
 }
 
-
 h2 {
   font-size: 1.2em;
 }
 
-/* #root,
+
 .App {
   height: 100%;
   width: 100%;
-} */
-
-
-
-html, body, main {
-  margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  font-family: 'Carrois Gothic', sans-serif;
+  margin: 0;
 }
-
-
-
-
-
-
-/* end boilerplate from portfolio */
-
-
-
-
 
 .pb {
   display: flex;
   z-index: 1;
-
   max-height: 30%;
   float: bottom;
   align-self: flex-start;
   position: absolute;
-  left: 0px;
-  bottom: 0px;
-
-  /* background: #F5F5F5 url('./img/dracula-castles.png') no-repeat bottom right; */
-
+  left: 0;
+  bottom: 0;
 }
-
-
-
-
-/* .grid {
-  display: grid;
-
-  width: 20%;
-  grid-template-columns: 250px auto;
-  grid-template-columns: 250px 100px auto;
-  grid-gap: 5px;
-  grid-template-areas:
-    "first first"
-    "second second";
-
-} */
-
 
 .grid {
   display: grid;
   max-width: 100%;
-   grid-template-columns: 300px minmax(100px, auto);
-   /* grid-template-columns: 300px auto; */
- grid-template-rows: 1fr minmax(700px, auto) 1fr;
+  grid-template-columns: 300px minmax(100px, auto);
+  grid-template-rows: 1fr minmax(700px, auto) 1fr;
   grid-gap: 10px;
-
   grid-template-areas:
     "second first"
     "second third"
     "second third"
     "fourth third";
-
-    /* grid-template-areas:
-      "second first"
-      "third third"
-      "third third"
-      "fourth third"; */
 }
 
-
 .item {
-
-  /* display: grid; */
-  /* grid-auto-flow: column; */
   background-color: #111;
   color: #ace;
-  /* display: flex; */
-  /* flex-direction: column; */
   align-items: center;
-
   display: flex;
   justify-content: center;
 }
@@ -279,8 +102,6 @@ html, body, main {
 
 .item-1 {
   display: flex;
-
-  /* background-color: #ace; */
   grid-area: first;
 
 }
@@ -288,28 +109,16 @@ html, body, main {
 .item-2 {
   display: flex;
   grid-area: second;
-  /* background-color: #002D2D; */
   background-color: #094460;
   height: auto;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
-
 }
-
-/*
-.castles-list {
-  align-self: flex-start;
-
-} */
-
-
-
 
 .item-3 {
   display: flex;
   grid-area: third;
-  /* background-color: red; */
   position: relative;
   height: auto;
   justify-content: left;
@@ -321,52 +130,76 @@ html, body, main {
   background-color: black;
   grid-area: fourth;
   color: #e93;
-  /* position: fixed; */
-  /* width: 100%; */
-  /* height: 30px; */
-  /* bottom: 0; */
-  /* margin: 10px; */
   padding: 0;
   z-index: 999;
 }
 
 
+/*---------------------------------------------------------*/
+/* ------------ OVERRIDE GOOGLE MAP STYLES --------------- */
 
-
-
-
-
-.App {
-  /* background-color: #ace; */
-  /* #7CB490; */
-  /* #e93; */
-  /* height: 100vh; */
+.gm-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.gm-err-container {
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: flex-start;
+  width: auto;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
 
-.App-title {
+.gm-err-title {
   font-size: 1.5em;
+  color: #e93;
 }
 
-.App-intro {
-  font-size: large;
+
+.gm-err-message {
+  color: #ace;
+  font-size: 1em;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
+
+.gm-err-icon {
+margin: 190px 0 0;
+}
+
+
+.gm-style
+.gm-style-iw {
+  padding: 10px;
+}
+
+
+/* Infowindow style */
+.gm-style-iw {
+  color: #080808;
+  max-height: 300px;
+  max-width: 200px;
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  justify-content: right;
+  margin: 0 auto;
+  padding: 20% auto;
+  overflow: hidden;
+}
+
+.info-pic {
+  width: 180px;
+}
+
+/* ------------END OVERRIDE GOOGLE MAP STYLES--------------- */
+/*-----------------------------------------------------------*/
+
+
+
 
 
 
@@ -375,6 +208,12 @@ html, body, main {
 
 @media screen and (max-width: 350px) {
 
+  button {
+    width: 111px;
+    height:63px;
+    font-size: 0.8em;
+  }
+  
   h1 {
     color: #e93;
     font-size: 0.8em;
@@ -388,12 +227,6 @@ html, body, main {
     flex-flow: row wrap;
   }
 
-  button {
-    width: 111px;
-    height:63px;
-    font-size: 0.8em;
-  }
-
   .pb {
     display: none;
   }
@@ -401,18 +234,11 @@ html, body, main {
   .grid {
     display: grid;
     max-width: 100%;
-     grid-template-columns: minmax(100px, auto);
-
+    grid-template-columns: minmax(100px, auto);
     grid-template-rows: 70px minmax(500px, auto) 1fr 40px;
     grid-gap: 5px;
-
-
-    /* display: flex;
-    flex-flow: column;
-    height: 100%; */
     grid-template-areas:
       "first"
-
       "third"
       "second"
       "fourth";
@@ -423,6 +249,12 @@ html, body, main {
 /*-----------------------------------------------------------*/
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
+
+  button {
+    font-size: 0.8em;
+    width: 125px;
+    height: 60px;
+  }
 
   h1 {
     color: #e93;
@@ -444,45 +276,21 @@ html, body, main {
     align-content: center;
   }
 
-  button {
-    font-size: 0.8em;
-    width: 125px;
-    height: 60px;
-  }
-  /* button {
-    border: none;
-    width: 100px;
-    font: inherit;
-    color: white;
-    background-color: #02283a;
-    display: flex;
-    align-self: flex-start;
-    margin: 5px 3px;
-    padding: 10px;
-  } */
-
-  .pb {
-    display: none;
-  }
-
   .grid {
     display: grid;
     max-width: 100%;
-     grid-template-columns: minmax(100px, auto);
-
+    grid-template-columns: minmax(100px, auto);
     grid-template-rows: 70px minmax(500px, auto) 1fr 40px;
     grid-gap: 5px;
-
-
-    /* display: flex;
-    flex-flow: column;
-    height: 100%; */
     grid-template-areas:
       "first"
-
       "third"
       "second"
       "fourth";
+  }
+
+  .pb {
+    display: none;
   }
 
 }
@@ -495,7 +303,6 @@ html, body, main {
     color: #e93;
     font-size: 2em;
     letter-spacing: 2px;
-
   }
 
   ul {
@@ -505,48 +312,24 @@ html, body, main {
     flex-flow: row wrap;
   }
 
-  /* .item {
-    flex-flow: row wrap;
+  .grid {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: minmax(100px, auto);
+    grid-template-rows: 70px minmax(500px, auto) 1fr 40px;
+    grid-gap: 5px;
+    grid-template-areas:
+      "first"
+      "third"
+      "second"
+      "fourth";
   }
-
-  button {
-    border: none;
-    width: 100px;
-    font: inherit;
-    color: white;
-    background-color: #02283a;
-    display: flex;
-    align-self: flex-start;
-    margin: 5px 3px;
-    padding: 10px;
-  } */
 
   .pb {
     display: none;
   }
 
 
-  .grid {
-    display: grid;
-    max-width: 100%;
-     grid-template-columns: minmax(100px, auto);
-
-    grid-template-rows: 70px minmax(500px, auto) 1fr 40px;
-    grid-gap: 5px;
-
-
-    /* display: flex;
-    flex-flow: column;
-    height: 100%; */
-    grid-template-areas:
-      "first"
-
-      "third"
-      "second"
-      "fourth";
-  }
-
 }
-
 /* --------------------END RESPONSIVE----------------------- */
 /*-----------------------------------------------------------*/
