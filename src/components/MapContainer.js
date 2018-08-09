@@ -41,6 +41,8 @@ class MapContainer extends Component {
         );
       })
         // marker={this.props.activeMarker}
+        // position={this.selectedCastle.latlng}
+
       }
 
 
@@ -50,7 +52,7 @@ class MapContainer extends Component {
             onClose={this.onInfoWindowClose}
             style={require('../App.css')}
 
-position={this.selectedCastle.latlng}
+position={{lat: 45.5149, lng: 24.3672}}
             visible={this.props.showingInfoWindow}
           >
             {selectedCastle ? <div className={"info"}  aria-label="Location information window">
