@@ -70,13 +70,17 @@ class App extends Component {
         });
 
 
- //On button click SHOULD HAPPEN: infowindow + marker animation
-  onButtonClick = (castleName) => {
-    const targetCastle = CastlesData.filter(castle=>castle.name === castleName)[0]
-    // ??
-    const selectedPlace = {title: castleName}
+ // //On button click SHOULD HAPPEN: infowindow + marker animation
+ //  onButtonClick = (castleName) => {
+ //    const targetCastle = CastlesData.filter(castle=>castle.name === castleName)[0]
+ //    // ??
+ //    const selectedPlace = {title: castleName}
+ //
+ //    this.onMarkerClick(selectedPlace, targetCastle)
+ //  }
 
-    this.onMarkerClick(selectedPlace, targetCastle)
+ onButtonClick = (castleName) => {
+    document.querySelector(`[title="${castleName}"]`).click()
   }
 
 
@@ -168,7 +172,7 @@ render() {
               listOfCastles={this.state.listOfCastles}
               filterCastles={this.filterCastles}
               selectedPlace={this.state.selectedPlace}
-              
+
 
               onButtonClick={this.onButtonClick}
              />
