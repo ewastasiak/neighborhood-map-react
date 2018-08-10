@@ -18,7 +18,6 @@ class MapContainer extends Component {
         role="application"
         aria-label="Map with nine Transylvanian castles locations"
         google={this.props.google}
-        onMapClick={this.onMapClick}
         initialCenter={{lat: 45.5149, lng: 24.3672}}
         zoom={8}
         styles={require('../data/MapStyling.json')}
@@ -40,7 +39,6 @@ class MapContainer extends Component {
           />
         );
       })
-        // marker={this.props.activeMarker}
       }
 
 
@@ -49,8 +47,7 @@ class MapContainer extends Component {
             tabIndex="0"
             onClose={this.onInfoWindowClose}
             style={require('../App.css')}
-
-position={this.props.selectedPlace.position}
+            marker={this.props.activeMarker}
             visible={this.props.showingInfoWindow}
           >
             {selectedCastle ? <div className={"info"}  aria-label="Location information window">
