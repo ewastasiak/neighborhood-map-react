@@ -8,38 +8,25 @@ import Footer from './components/Footer.js'
 //Display alert if the map does not load
 window.gm_authFailure = () => {
   alert('Google Map failed to load :(');
-  // return;
 }
+
 
 
 class App extends Component {
 
-
   state = {
-    // error: false,
-
     activeMarker: {},
-
     selectedPlace: {},
     showingInfoWindow: false,
-
     //Query and list will be used both by searchlist and MapContainer markers
     listOfCastles: CastlesData,
-    // listOfMarkers: [],
-
-
     pictures: [],
     flickrOwner: [],
-
-//TODO:
-  // latlngPosition: CastlesData
-
   }
 
 
 
   filterCastles = (query) => {
-
 
   // Reset to full list of castles if query is empty
     if (!query) {
@@ -60,6 +47,7 @@ class App extends Component {
   }
 
 
+
   //Marker click behavior
   onMarkerClick = (props, marker, e) =>
         this.setState({
@@ -70,44 +58,20 @@ class App extends Component {
         });
 
 
- // //On button click SHOULD HAPPEN: infowindow + marker animation
- //  onButtonClick = (castleName) => {
- //    const targetCastle = CastlesData.filter(castle=>castle.name === castleName)[0]
- //    // ??
- //    const selectedPlace = {title: castleName}
- //
- //    this.onMarkerClick(selectedPlace, targetCastle)
- //  }
 
  onButtonClick = (castleName) => {
     document.querySelector(`[title="${castleName}"]`).click()
   }
 
 
-// SHOULD close the infowindow and unselect marker
-  onMapClick = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: {}
-        // activeMarker: null
-      })
-    }
-  }
-
-
 
   onImgError = () => {
-    // this.setState({ error: true })
     alert("Some Flickr data failed to load");
-    // this.setState({ error: false })
-    // return;
-
   }
+
 
 
 componentDidMount() {
-
 
   // create an object {castle.name: imageUI}
   let allImages = {};
@@ -123,13 +87,14 @@ componentDidMount() {
 
     .then((photosResults) => {
       let pic = photosResults.photos.photo[0];
-      if(!pic) return;
+      // if(!pic) return;
 
       let srcPath = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
       allImages[castle.name] = (<img className="info-pic" key={pic.title} alt={pic.title} src={srcPath}></img>);
       allOwners[castle.name] = pic.owner;
     })
-    // .catch((photosResults) => {return (alert("An image failed to load"))})
+    //will display an alert if an image is missing
+    .catch((photosResults) => {this.onImgError()})
 
 
   })
@@ -140,22 +105,21 @@ componentDidMount() {
     pictures: allImages,
     flickrOwner: allOwners
   }))
-  .catch((allFetches) => {this.onImgError()})
 
 
 }
 
 
+
   //Render the page with all components in grid
 render() {
 
-  //TODO:Delete in build
-  console.log(`This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
-  console.log(
-    CastlesData.map(castle => {
-      return <li key={this.index}>{castle.name}</li>;
-    })
-  );
+  // console.log(`This is a rerender and an array with ${this.state.listOfCastles.length} castles`);
+  // console.log(
+  //   CastlesData.map(castle => {
+  //     return <li key={this.index}>{castle.name}</li>;
+  //   })
+  // );
 
     return (
       <div className="App">
@@ -172,8 +136,6 @@ render() {
               listOfCastles={this.state.listOfCastles}
               filterCastles={this.filterCastles}
               selectedPlace={this.state.selectedPlace}
-
-
               onButtonClick={this.onButtonClick}
              />
           </nav>
@@ -190,7 +152,6 @@ render() {
               filterCastles={this.filterCastles}
               activeMarker={this.state.activeMarker}
               showingInfoWindow={this.state.showingInfoWindow}
-
             />
           </main>
 
