@@ -1,50 +1,31 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
-
   height: 100%;
   width: 100%;
-
   font-family: 'Montserrat', sans-serif;
-
-
   background-color: #e93;
 }
-
-
-footer {
-  z-index: 999;
-  /* color: #094460; */
-  letter-spacing: 1px;
-}
-
 
 img,
 header {
   max-width: 100%;
 }
 
-html {
-  width: 100%;
-  height: 100%;
-
-}
-
-
-
-body {
-  width: 100%;
-  font-family: "Merriweather Sans", sans-serif;
-  font: normal 18px/normal "Merriweather", serif;
-  /* background-color: black; */
-  /* background: linear-gradient(white, #7DE) no-repeat; */
-}
-
 h1 {
-  /* font-family: 'Carrois Gothic SC', sans-serif; */
   font-family: 'Creepster', cursive;
   color: #e93;
   font-size: 2.3em;
   letter-spacing: 2px;
   margin: 30px;
+}
+
+footer {
+  z-index: 999;
+  letter-spacing: 1px;
 }
