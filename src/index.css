@@ -26,6 +26,8 @@ h1 {
 }
 
 footer {
+  font-family: 'Creepster', 'Palatino', serif;
+  font-size: 1.2em;
   z-index: 999;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
