@@ -1,7 +1,7 @@
 # Udacity FEND Project 8 - React Neighborhood Map
 
 
-This project is a single page application, which shows a map of famous Transylvanian castles. The names and markers can be filtered to display only the searched results. Additional information about the locations, along with photos fetched from Flickr API, is accessible via an infowindow.
+This project is a React single page application, which shows a map of famous Transylvanian castles. The names and markers can be filtered to display only the searched results. Additional information about the locations, along with photos fetched from Flickr API, is accessible via an infowindow.
 
 1. To run the project download the .zip file and unpack it.
 2. Install depenencies with _npm install_.
